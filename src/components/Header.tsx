@@ -1,11 +1,35 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import React from "react";
 import { Link } from "gatsby";
+import { resetList } from "../lib/utils/mixins";
+
+const headerContainerStyles = {
+  height: "100px",
+  width: "100%",
+  backgroundColor: "greyLight",
+};
+
+const navLinksContainer = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+};
 
 const Header = () => {
   return (
-    <div>
+    <div
+      sx={{
+        ...headerContainerStyles,
+      }}
+    >
       <h1>Tristan Rais-Sherman, Conductor</h1>
-      <ul>
+      <ul
+        sx={{
+          ...resetList,
+          ...navLinksContainer,
+        }}
+      >
         <li>
           <Link to="/">Home</Link>
         </li>
