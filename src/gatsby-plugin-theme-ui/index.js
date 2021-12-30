@@ -26,4 +26,11 @@ export default {
     heading: 1.125,
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  styles: {
+    root: {
+      boxSizing: "border-box",
+      padding: 0,
+      margin: 0,
+    },
+  },
 };

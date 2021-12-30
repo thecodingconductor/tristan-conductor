@@ -16,6 +16,10 @@ const navLinksContainer = {
   justifyContent: "space-between",
 };
 
+const titleText = {
+  margin: 0,
+};
+
 const Header = () => {
   return (
     <div
@@ -23,7 +27,7 @@ const Header = () => {
         ...headerContainerStyles,
       }}
     >
-      <h1>Tristan Rais-Sherman, Conductor</h1>
+      <h1 sx={{ ...titleText }}>Tristan Rais-Sherman, Conductor</h1>
       <ul
         sx={{
           ...resetList,
