@@ -8,7 +8,7 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: {
         accessToken: "m0Ne4wH9dRyFBgTlSLwDXPt5MmhAtCGDdVR-zoEPJig",
-        spaceId: "",
+        spaceId: "98v9r5naa8iu",
       },
     },
     "gatsby-plugin-theme-ui",
@@ -27,5 +27,6 @@ module.exports = {
       },
       __key: "pages",
     },
+    "gatsby-plugin-image",
   ],
 };
