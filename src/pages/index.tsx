@@ -47,9 +47,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <HeadlineHero
-        heroHeadline={data.contentfulSiteCopy.heroHeadline.heroHeadline}
-      />
       <HeroContainer
         heroHeadline={data.contentfulSiteCopy.heroHeadline.heroHeadline}
         headerElement={<HeaderComponent />}
