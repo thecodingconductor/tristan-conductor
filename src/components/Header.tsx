@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
-import React from "react";
+import { jsx, Themed } from "theme-ui";
 import { Link } from "gatsby";
 import { resetList } from "../lib/utils/mixins";
 
@@ -23,7 +22,7 @@ const Header = () => {
         ...headerContainerStyles,
       }}
     >
-      <h1>Tristan Rais-Sherman, Conductor</h1>
+      <Themed.h1>Tristan Rais-Sherman, Conductor</Themed.h1>
       <ul
         sx={{
           ...resetList,

@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 // import React from "react";
 import * as PropTypes from "prop-types";
 
-import { Link, graphql } from "gatsby";
+import { Themed } from "theme-ui";
 
 const propTypesShape = {
   // String with the site headline
@@ -14,13 +14,12 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const headerStyles = {
   fontFamily: "heading",
-  backgroundColor: "alert",
 };
 
 const HeadlineHero = ({ heroHeadline }: Props) => {
   return (
     <div>
-      <h1 sx={{ ...headerStyles }}>{heroHeadline}</h1>
+      <Themed.h1 sx={{ ...headerStyles }}>{heroHeadline}</Themed.h1>
     </div>
   );
 };

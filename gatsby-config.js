@@ -28,5 +28,7 @@ module.exports = {
       __key: "pages",
     },
     "gatsby-plugin-image",
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-typescript",
   ],
 };
