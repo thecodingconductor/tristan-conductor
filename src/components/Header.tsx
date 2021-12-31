@@ -6,7 +6,7 @@ import { resetList } from "../lib/utils/mixins";
 const headerContainerStyles = {
   height: "100px",
   width: "100%",
-  backgroundColor: "greyLight",
+  backgroundColor: ["alert", "vuoriBlue"],
 };
 
 const navLinksContainer = {
