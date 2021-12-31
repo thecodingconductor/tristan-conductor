@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Layout from "../components/Layout";
+import { dummyHeadline } from "../components/atoms/HeadlineHero/HeadlineHero.mocks";
+import HeadlineHero from "../components/atoms/HeadlineHero/HeadlineHero";
 
 // styles
 const pageStyles = {
@@ -131,15 +133,7 @@ const links = [
 const IndexPage = () => {
   return (
     <Layout>
-      <div>
-        <h1
-          sx={{
-            color: "vuoriBlue",
-          }}
-        >
-          Tristan Rais-Sherman Homepage
-        </h1>
-      </div>
+      <HeadlineHero data={dummyHeadline} />
     </Layout>
   );
 

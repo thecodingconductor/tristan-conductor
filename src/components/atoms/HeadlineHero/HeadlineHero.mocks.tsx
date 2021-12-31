@@ -1,4 +1,4 @@
 export const dummyHeadline = {
-  heroHeadline:
+  headlineHero:
     "A multi-dimensional artist exploring the intersection of technology and music",
 };

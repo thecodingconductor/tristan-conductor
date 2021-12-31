@@ -12,8 +12,8 @@ export default {
   zIndices,
   mediaQueries,
   fonts: {
-    body: "system-ui, sans-serif",
-    heading: "system-ui, sans-serif",
+    body: "Inter, sans-serif",
+    heading: "Inter, sans-serif",
     monospace: "Menlo, monospace",
   },
   fontWeights: {

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import React from "react";
 import * as PropTypes from "prop-types";
 
@@ -12,10 +14,15 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
+const headerStyles = {
+  fontFamily: "heading",
+  backgroundColor: "alert",
+};
+
 const HeadlineHero = ({ data }: Props) => {
   return (
     <div>
-      <h1>{data.headlineHero}</h1>
+      <h1 sx={{ ...headerStyles }}>{data.headlineHero}</h1>
     </div>
   );
 };
