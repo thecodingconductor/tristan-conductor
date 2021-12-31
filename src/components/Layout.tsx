@@ -14,6 +14,8 @@ const globalSiteContainerStyles = {
 };
 
 const gridParentStyles = {
+  height: "inherit",
+  width: "inherit",
   display: "grid",
   gridGap: "20px",
   gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(16, 1fr)"],
@@ -31,7 +33,6 @@ const Layout = ({ children }) => {
           ...gridParentStyles,
         }}
       >
-        <Header />
         {children}
         <Footer />
       </div>

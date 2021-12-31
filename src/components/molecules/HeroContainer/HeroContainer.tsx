@@ -14,6 +14,7 @@ const heroContainerStyles = {
   display: "flex",
   width: "100%",
   height: "500px",
+  gridColumn: ["1 / span 5", null, "1 / span 16"],
 };
 
 const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
