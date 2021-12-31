@@ -4,8 +4,10 @@ import mediaQueries from "../theme/media-queries";
 import space from "../theme/spacing";
 import timing from "../theme/timing";
 import zIndices from "../theme/z-index";
+import { base } from "@theme-ui/presets";
 
 export default {
+  ...base,
   breakpoints,
   space,
   colors,
@@ -27,10 +29,7 @@ export default {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
   styles: {
-    body: {
-      padding: 0,
-      margin: 0,
-    },
+    ...base.styles,
     h1: {
       fontFamily: "Inter, sans-serif",
       fontWeight: "heading",
