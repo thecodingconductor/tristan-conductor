@@ -15,7 +15,7 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 const headerStyles = {
   fontFamily: "heading",
   color: "white",
-  gridColumns: ["1 / span 5", null, "5 / span auto"],
+  gridColumn: ["1 / span 5", null, "5 / span auto"],
 };
 
 const HeadlineHero = ({ heroHeadline }: Props) => {
