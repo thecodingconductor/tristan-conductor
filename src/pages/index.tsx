@@ -7,11 +7,18 @@ import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
 import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/HomePageVideoSubtitle";
 import Divider from "../components/atoms/Divider/Divider";
+import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
 
 const headerComponentStyles = {
   background: "white",
   fontFamily: "heading",
   color: "#000",
+};
+
+const dummyNewsItem = {
+  newsDate: "05.20.2021",
+  newsTitle:
+    "Tristan to compete in the the Khachaturian International Conducting Competition 2021 in Armenia",
 };
 
 // markup
@@ -63,6 +70,10 @@ const IndexPage = () => {
       />
       <HomePageVideoSubtitle />
       <Divider />
+      <HomePageNewsItem
+        newsDate={dummyNewsItem.newsDate}
+        newsTitle={dummyNewsItem.newsTitle}
+      />
     </Layout>
   );
 };
