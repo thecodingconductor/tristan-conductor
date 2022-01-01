@@ -2,6 +2,7 @@ import * as CSS from "csstype";
 import { ResponsiveValue } from "styled-system";
 
 export interface ThemeColors {
+  text: ResponsiveValue<CSS.Property.Color>;
   alert: ResponsiveValue<CSS.Property.Color>;
   black: ResponsiveValue<CSS.Property.Color>;
   blackT10: ResponsiveValue<CSS.Property.Color>;
@@ -22,6 +23,7 @@ export interface ThemeColors {
 }
 
 const colors: ThemeColors = {
+  text: "#FFFFFF",
   alert: "#8C2C2F",
   black: "#333333",
   blackT10: "rgba(51, 51, 51, 0.1)",

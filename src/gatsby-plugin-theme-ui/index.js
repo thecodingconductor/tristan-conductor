@@ -36,5 +36,12 @@ export default {
       padding: 0,
       margin: 0,
     },
+    h2: {
+      fonts: "heading",
+      fontWeight: "heading",
+      padding: 0,
+      margin: 0,
+      color: "text",
+    },
   },
 };

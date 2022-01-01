@@ -5,10 +5,12 @@ import HeadlineHero from "../components/atoms/HeadlineHero/HeadlineHero";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
+import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/HomePageVideoSubtitle";
 
 const headerComponentStyles = {
   background: "white",
   fontFamily: "heading",
+  color: "#000",
 };
 
 // markup
@@ -58,6 +60,7 @@ const IndexPage = () => {
           "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
         }
       />
+      <HomePageVideoSubtitle />
     </Layout>
   );
 };
