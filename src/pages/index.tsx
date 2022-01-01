@@ -74,6 +74,11 @@ const IndexPage = () => {
         newsDate={dummyNewsItem.newsDate}
         newsTitle={dummyNewsItem.newsTitle}
       />
+      <HomePageNewsItem
+        newsDate={dummyNewsItem.newsDate}
+        newsTitle={dummyNewsItem.newsTitle}
+      />
+      <Divider />
     </Layout>
   );
 };
