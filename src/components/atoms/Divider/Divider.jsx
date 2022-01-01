@@ -5,7 +5,7 @@ import React from 'react'
 const dividerStyles = {
     margin: '30 px - 20 px 20 px',
     border: 0,
-    borderTop: '1px solid #c9c7c7'
+    borderTop: '1px solid rgba(255, 255, 255, 0.13)'
 }
 
 const dividerContainer = {
