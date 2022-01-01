@@ -35,5 +35,11 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-source-instagram",
+      options: {
+        username: "200694142",
+      },
+    },
   ],
 };

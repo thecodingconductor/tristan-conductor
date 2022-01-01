@@ -52,8 +52,25 @@ const IndexPage = () => {
           heroHeadline
         }
       }
+
+      allInstaNode(limit: 5) {
+        edges {
+          node {
+            caption
+            comments
+            id
+            likes
+            timestamp
+            original
+            preview
+            username
+          }
+        }
+      }
     }
   `);
+
+  console.log(data.allInstaNode.edges);
 
   const HeaderComponent = () => (
     <div>
