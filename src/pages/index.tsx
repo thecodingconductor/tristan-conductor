@@ -9,11 +9,7 @@ import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/Hom
 import Divider from "../components/atoms/Divider/Divider";
 import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
-import {
-  TwitchIcon,
-  TwitterIcon,
-  InstagramIcon,
-} from "../components/atoms/Icon/Icon";
+import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
 
 const headerComponentStyles = {
   background: "white",
@@ -31,6 +27,21 @@ const dummyBio = {
   bioText:
     "Driven by the mission to create the future of classical music through unconventional and innovative means, Tristan has been building audiences on digital platforms such as Twitch, and exploring the possibilities of combining classical music with interactive mediums. His aim is nothing less than to blaze a new path for the future of classical music—one that is exciting, inclusive, and engaging. He is the recipient of the Friedlander Family Presidential Scholarship, and is the inaugural Artist Diploma in Orchestral Conducting at New England Conservatory.",
 };
+
+const dummySocialMedia = [
+  {
+    url: "https://www.twitter.com/tristanconducts",
+    type: "twitter",
+  },
+  {
+    url: "https://www.instagram.com/tristanrais",
+    type: "instagram",
+  },
+  {
+    url: "https://www.twitch.tv/orchestraobsessed",
+    type: "twitch",
+  },
+];
 
 // markup
 const IndexPage = () => {
@@ -91,11 +102,8 @@ const IndexPage = () => {
       />
       <Divider />
       <HomePageBio bioText={dummyBio.bioText} />
-      <div>
-        <TwitchIcon />
-        <TwitterIcon />
-        <InstagramIcon />
-      </div>
+      <Divider />
+      <HomePageSocial socialIcons={dummySocialMedia} />
     </Layout>
   );
 };
