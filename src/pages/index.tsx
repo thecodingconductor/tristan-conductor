@@ -8,6 +8,7 @@ import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
 import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/HomePageVideoSubtitle";
 import Divider from "../components/atoms/Divider/Divider";
 import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
+import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 
 const headerComponentStyles = {
   background: "white",
@@ -19,6 +20,11 @@ const dummyNewsItem = {
   newsDate: "05.20.2021",
   newsTitle:
     "Tristan to compete in the the Khachaturian International Conducting Competition 2021 in Armenia",
+};
+
+const dummyBio = {
+  bioText:
+    "Driven by the mission to create the future of classical music through unconventional and innovative means, Tristan has been building audiences on digital platforms such as Twitch, and exploring the possibilities of combining classical music with interactive mediums. His aim is nothing less than to blaze a new path for the future of classical music—one that is exciting, inclusive, and engaging. He is the recipient of the Friedlander Family Presidential Scholarship, and is the inaugural Artist Diploma in Orchestral Conducting at New England Conservatory.",
 };
 
 // markup
@@ -79,6 +85,7 @@ const IndexPage = () => {
         newsTitle={dummyNewsItem.newsTitle}
       />
       <Divider />
+      <HomePageBio bioText={dummyBio.bioText} />
     </Layout>
   );
 };
