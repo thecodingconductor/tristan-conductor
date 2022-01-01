@@ -7,7 +7,6 @@ import "@fontsource/inter";
 import { Grid } from "theme-ui";
 
 const globalSiteContainerStyles = {
-  height: "100vh",
   width: "100%",
   padding: ["0 30px", null, "0 140px"],
   backgroundColor: "black",
