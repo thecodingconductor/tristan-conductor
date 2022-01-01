@@ -43,5 +43,10 @@ export default {
       margin: 0,
       color: "text",
     },
+    p: {
+      fonts: "body",
+      fontWeight: "body",
+      color: "text",
+    },
   },
 };
