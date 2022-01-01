@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
 import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/HomePageVideoSubtitle";
+import Divider from "../components/atoms/Divider/Divider";
 
 const headerComponentStyles = {
   background: "white",
@@ -61,6 +62,7 @@ const IndexPage = () => {
         }
       />
       <HomePageVideoSubtitle />
+      <Divider />
     </Layout>
   );
 };
