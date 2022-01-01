@@ -30,5 +30,18 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-transformer-embed-video",
+            options: {
+              width: 300,
+            },
+          },
+        ],
+      },
+    },
   ],
 };
