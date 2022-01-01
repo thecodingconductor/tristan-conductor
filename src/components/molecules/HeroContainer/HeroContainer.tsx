@@ -12,9 +12,11 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const heroContainerStyles = {
   display: "flex",
+
   width: "100%",
   height: "500px",
   gridColumn: ["1 / span 5", null, "1 / span 16"],
+  // flexDirection: "column",
 };
 
 const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
@@ -22,6 +24,7 @@ const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
     <div
       sx={{
         ...heroContainerStyles,
+        flexDirection: ["column", null, "row"],
       }}
     >
       {headerElement}
