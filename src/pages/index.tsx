@@ -9,6 +9,11 @@ import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/Hom
 import Divider from "../components/atoms/Divider/Divider";
 import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
+import {
+  TwitchIcon,
+  TwitterIcon,
+  InstagramIcon,
+} from "../components/atoms/Icon/Icon";
 
 const headerComponentStyles = {
   background: "white",
@@ -86,6 +91,11 @@ const IndexPage = () => {
       />
       <Divider />
       <HomePageBio bioText={dummyBio.bioText} />
+      <div>
+        <TwitchIcon />
+        <TwitterIcon />
+        <InstagramIcon />
+      </div>
     </Layout>
   );
 };
