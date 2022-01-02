@@ -53,7 +53,7 @@ const IndexPage = () => {
           heroHeadline
         }
       }
-      allInstaNode(limit: 5) {
+      allInstaNode(limit: 5, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
             caption

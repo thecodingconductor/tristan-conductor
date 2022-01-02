@@ -35,15 +35,15 @@ const HomePageInstaTile = ({ node }: Props) => {
     <div
       sx={{
         height: "650px",
-        width: "290px",
         gridColumn: ["1 / span 5", null, "1 / span 16"],
       }}
     >
+      {/* ToDO fix img dimensions. Maybe create an atom Component */}
       <img
         src={localFile.publicURL}
         sx={{
           height: "290px",
-          width: "290px",
+          width: "inherit",
         }}
       />
       <div>
