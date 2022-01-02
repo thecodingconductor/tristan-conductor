@@ -53,7 +53,7 @@ const IndexPage = () => {
           heroHeadline
         }
       }
-      allInstaNode(limit: 5) {
+      allInstaNode(limit: 5, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
             caption
@@ -62,15 +62,13 @@ const IndexPage = () => {
             likes
             username
             timestamp
-            preview
-            original
             thumbnails {
               src
             }
             localFile {
               absolutePath
-              publicURL
               url
+              publicURL
             }
           }
         }
