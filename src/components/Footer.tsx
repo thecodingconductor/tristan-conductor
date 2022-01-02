@@ -3,8 +3,8 @@ import { jsx, Themed } from "theme-ui";
 import React from "react";
 
 const footerContainerStyles = {
-  gridColumn: ["1 / span 5", null, "1 / span 16"],
-  bg: "rgba(0,0,0,0.26",
+  width: "100%",
+  bg: "rgba(0,0,0,0.26)",
   display: "flex",
 };
 

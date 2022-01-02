@@ -33,8 +33,8 @@ const Layout = ({ children }) => {
         }}
       >
         {children}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
