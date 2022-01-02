@@ -8,22 +8,22 @@ const videoContainerStyles = {
   height: 0,
 };
 
-const iframeStyles = {
-  top: "0",
-  left: "0",
-  width: "100%",
-  height: "100%",
-};
+const VideoContainer = ({ children }) => (
+  <div
+    sx={{
+      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      paddingBottom: "56.25%",
+      height: 0,
+      position: "relative",
+    }}
+  >
+    {children}
+  </div>
+);
 
 const HomePageVideo = ({ videoSrcURL, videoTitle, ...props }) => {
   return (
-    <div
-      className="videoContainer"
-      sx={{
-        ...videoContainerStyles,
-        position: "relative",
-      }}
-    >
+    <VideoContainer>
       <iframe
         src={videoSrcURL}
         title={videoTitle}
@@ -31,11 +31,14 @@ const HomePageVideo = ({ videoSrcURL, videoTitle, ...props }) => {
         frameBorder="0"
         allowFullScreen
         sx={{
-          ...iframeStyles,
+          top: "0",
+          left: "0",
+          width: "100%",
+          height: "100%",
           position: "absolute",
         }}
       ></iframe>
-    </div>
+    </VideoContainer>
   );
 };
 

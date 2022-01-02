@@ -22,23 +22,24 @@ const propTypesShape = {
   ).isRequired,
 };
 
-const socialContainerStyles = {
-  gridColumn: ["1 / span 5", null, "1 / span 16"],
-  display: "flex",
-  justifyContent: "spacebetween",
-};
+const SocialContainer = ({ children }) => (
+  <div
+    sx={{
+      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      display: "flex",
+      justifyContent: "spacebetween",
+    }}
+  >
+    {children}
+  </div>
+);
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HomePageSocial = ({ socialIcons }: Props) => {
   return (
-    <div
-      sx={{
-        ...socialContainerStyles,
-      }}
-    >
+    <SocialContainer>
       <div
-        className="follow"
         sx={{
           width: "50%",
         }}
@@ -62,7 +63,7 @@ const HomePageSocial = ({ socialIcons }: Props) => {
           );
         })}
       </div>
-    </div>
+    </SocialContainer>
   );
 };
 

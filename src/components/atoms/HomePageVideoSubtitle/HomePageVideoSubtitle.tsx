@@ -2,31 +2,35 @@
 import { jsx, Themed } from "theme-ui";
 import React from "react";
 
-const titleStyles = {
-  gridColumn: "1 ",
-};
+const TitleContainer = ({ children }) => (
+  <div
+    sx={{
+      gridColumn: "1",
+    }}
+  >
+    {children}
+  </div>
+);
 
-const descriptionStyles = {
-  gridColumn: ["3 / span 3", null, "6"],
-};
+const DescriptionContainer = ({ children }) => (
+  <div
+    sx={{
+      gridColumn: ["3 / span 3", null, "6"],
+    }}
+  >
+    {children}
+  </div>
+);
 
 const HomePageVideoSubtitle = () => {
   return (
     <>
-      <div
-        sx={{
-          ...titleStyles,
-        }}
-      >
+      <TitleContainer>
         <Themed.h2>Latest</Themed.h2>
-      </div>
-      <div
-        sx={{
-          ...descriptionStyles,
-        }}
-      >
+      </TitleContainer>
+      <DescriptionContainer>
         <Themed.h2>Watch Tristan perform with the NEC Philharmonia</Themed.h2>
-      </div>
+      </DescriptionContainer>
     </>
   );
 };

@@ -10,25 +10,26 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const heroContainerStyles = {
-  display: "flex",
+const StyledHeroContainer = ({ children }) => (
+  <div
+    sx={{
+      display: "flex",
 
-  width: "100%",
-  gridColumn: ["1 / span 5", null, "1 / span 16"],
-  // flexDirection: "column",
-};
+      width: "100%",
+      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      flexDirection: ["column", null, "row"],
+    }}
+  >
+    {children}
+  </div>
+);
 
 const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
   return (
-    <div
-      sx={{
-        ...heroContainerStyles,
-        flexDirection: ["column", null, "row"],
-      }}
-    >
+    <StyledHeroContainer>
       {headerElement}
       <HeadlineHero heroHeadline={heroHeadline} />
-    </div>
+    </StyledHeroContainer>
   );
 };
 
