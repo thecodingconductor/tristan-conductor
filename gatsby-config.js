@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -42,5 +46,11 @@ module.exports = {
       },
     },
     "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-source-instagram-all",
+      options: {
+        access_token: process.env.GATSBY_INSTAGRAM,
+      },
+    },
   ],
 };
