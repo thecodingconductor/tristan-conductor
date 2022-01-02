@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import styled from "@emotion/styled";
+
 import Layout from "../components/Layout";
-import HeadlineHero from "../components/atoms/HeadlineHero/HeadlineHero";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";

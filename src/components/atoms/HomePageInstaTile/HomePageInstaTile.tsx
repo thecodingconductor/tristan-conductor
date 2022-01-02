@@ -37,6 +37,8 @@ const HomePageInstaTile = ({ node }: Props) => {
   // console.log(localFile);
   // console.log(localFile.publicURL);
 
+  console.log(timestamp);
+
   return (
     <div
       sx={{
@@ -53,7 +55,7 @@ const HomePageInstaTile = ({ node }: Props) => {
         }}
       />
       <div>
-        <Themed.h2>{username}</Themed.h2>
+        <Themed.h2>@tristanrais</Themed.h2>
         <Themed.p>{caption}</Themed.p>
         <Themed.p>{timestamp}</Themed.p>
       </div>
