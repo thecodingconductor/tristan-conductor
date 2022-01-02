@@ -41,5 +41,6 @@ module.exports = {
         username: "200694142",
       },
     },
+    "gatsby-plugin-styled-components",
   ],
 };

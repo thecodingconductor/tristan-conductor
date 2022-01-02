@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
+import styled from "@emotion/styled";
 import Layout from "../components/Layout";
 import HeadlineHero from "../components/atoms/HeadlineHero/HeadlineHero";
 import { useStaticQuery, graphql } from "gatsby";
@@ -11,6 +12,16 @@ import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsI
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
 import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
+
+// const TestDiv = (props) => (
+//   <div
+//     {...props}
+//     sx={{
+//       backgroundColor: "vuoriBlue",
+//       color: "alert",
+//     }}
+//   />
+// );
 
 const headerComponentStyles = {
   background: "white",
