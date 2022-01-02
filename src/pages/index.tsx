@@ -12,6 +12,7 @@ import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsI
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
 import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
+import Image from "gatsby-image";
 
 // const TestDiv = (props) => (
 //   <div
@@ -64,30 +65,26 @@ const IndexPage = () => {
           heroHeadline
         }
       }
-      allInstaNode(limit: 5, sort: { fields: timestamp, order: DESC }) {
+      allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
-            caption
-            comments
-            id
-            likes
             username
-            timestamp
-            thumbnails {
-              src
-            }
-            localFile {
+            timestamp(difference: "")
+            id
+            permalink
+            thumbnail_url
+            localImage {
               absolutePath
-              url
-              publicURL
             }
+            media_url
+            caption
           }
         }
       }
     }
   `);
 
-  // console.log(data.allInstaNode.edges[0].node.caption);
+  console.log(data.allInstagramContent.edges);
 
   const HeaderComponent = () => (
     <div>
@@ -138,7 +135,7 @@ const IndexPage = () => {
       <HomePageBio bioText={dummyBio.bioText} />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
-      <InstaCarousel instaPosts={data.allInstaNode.edges} />
+      <InstaCarousel instaPosts={data.allInstagramContent.edges} />
     </Layout>
   );
 };

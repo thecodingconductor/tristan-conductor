@@ -18,17 +18,14 @@ const propTypesShape = {
       node: PropTypes.shape({
         id: PropTypes.string.isRequired,
         timestamp: PropTypes.number.isRequired,
-        likes: PropTypes.number.isRequired,
-        comments: PropTypes.number.isRequired,
         caption: PropTypes.string.isRequired,
         username: PropTypes.string.isRequired,
-        preview: PropTypes.string.isRequired,
-        thumbnails: PropTypes.array,
-        localFile: PropTypes.shape({
-          absolutePath: PropTypes.string,
-          url: PropTypes.string,
-          publicURL: PropTypes.string,
+        permalink: PropTypes.string.isRequired,
+        thumbnail_url: PropTypes.string.isRequired,
+        localImage: PropTypes.shape({
+          absolutePath: PropTypes.string.isRequired,
         }),
+        media_url: PropTypes.string.isRequired,
       }),
     })
   ),
@@ -41,6 +38,7 @@ const swiperWrapperStyles = {
 };
 
 const InstaCarousel = ({ instaPosts }: Props) => {
+  console.log(instaPosts);
   return (
     <div
       sx={{
@@ -49,6 +47,7 @@ const InstaCarousel = ({ instaPosts }: Props) => {
     >
       <Swiper watchSlidesProgress spaceBetween={14} slidesPerView={1.5}>
         {instaPosts.map((post) => {
+          console.log(post);
           return (
             <SwiperSlide key={post.node.id}>
               <HomePageInstaTile node={post.node} />
