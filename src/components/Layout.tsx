@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Footer from "./Footer";
+import Background from "./atoms/Background/Background";
 
 import "@fontsource/inter";
 
@@ -9,7 +10,7 @@ const Layout = ({ children }) => {
     <div
       sx={{
         width: "100%",
-        backgroundColor: "black",
+        background: "#0B1C2C",
       }}
     >
       <div
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
         {children}
       </div>
       <Footer />
+      <Background />
     </div>
   );
 };
