@@ -23,7 +23,7 @@ const DescriptionContainer = ({ children }) => (
 const DateContainer = ({ children }) => (
   <div
     sx={{
-      gridColumn: "1",
+      gridColumn: "1 / span 2",
     }}
   >
     {children}
@@ -34,10 +34,10 @@ const HomePageNewsItem = ({ newsDate, newsTitle }: Props) => {
   return (
     <>
       <DateContainer>
-        <Themed.h2>{newsDate}</Themed.h2>
+        <Themed.p>{newsDate}</Themed.p>
       </DateContainer>
       <DescriptionContainer>
-        <Themed.h2>{newsTitle}</Themed.h2>
+        <Themed.p>{newsTitle}</Themed.p>
       </DescriptionContainer>
     </>
   );

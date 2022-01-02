@@ -5,7 +5,7 @@ import React from "react";
 const TitleContainer = ({ children }) => (
   <div
     sx={{
-      gridColumn: "1",
+      gridColumn: "1 / span 2",
     }}
   >
     {children}
@@ -26,10 +26,10 @@ const HomePageVideoSubtitle = () => {
   return (
     <>
       <TitleContainer>
-        <Themed.h2>Latest</Themed.h2>
+        <Themed.p>Latest</Themed.p>
       </TitleContainer>
       <DescriptionContainer>
-        <Themed.h2>Watch Tristan perform with the NEC Philharmonia</Themed.h2>
+        <Themed.p>Watch Tristan perform with the NEC Philharmonia</Themed.p>
       </DescriptionContainer>
     </>
   );
