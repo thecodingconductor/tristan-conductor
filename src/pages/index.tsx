@@ -10,7 +10,7 @@ import Divider from "../components/atoms/Divider/Divider";
 import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
-import HomePageInstaTile from "../components/atoms/HomePageInstaTile/HomePageInstaTile";
+import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
 
 const headerComponentStyles = {
   background: "white",
@@ -129,7 +129,7 @@ const IndexPage = () => {
       <HomePageBio bioText={dummyBio.bioText} />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
-      <HomePageInstaTile node={data.allInstaNode.edges[0].node} />
+      <InstaCarousel instaPosts={data.allInstaNode.edges} />
     </Layout>
   );
 };
