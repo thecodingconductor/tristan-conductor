@@ -10,6 +10,7 @@ import Divider from "../components/atoms/Divider/Divider";
 import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
+import HomePageInstaTile from "../components/atoms/HomePageInstaTile/HomePageInstaTile";
 
 const headerComponentStyles = {
   background: "white",
@@ -52,7 +53,6 @@ const IndexPage = () => {
           heroHeadline
         }
       }
-
       allInstaNode(limit: 5) {
         edges {
           node {
@@ -60,17 +60,25 @@ const IndexPage = () => {
             comments
             id
             likes
-            timestamp
-            original
-            preview
             username
+            timestamp
+            preview
+            original
+            thumbnails {
+              src
+            }
+            localFile {
+              absolutePath
+              publicURL
+              url
+            }
           }
         }
       }
     }
   `);
 
-  console.log(data.allInstaNode.edges);
+  // console.log(data.allInstaNode.edges[0].node.caption);
 
   const HeaderComponent = () => (
     <div>
@@ -121,6 +129,7 @@ const IndexPage = () => {
       <HomePageBio bioText={dummyBio.bioText} />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
+      <HomePageInstaTile node={data.allInstaNode.edges[0].node} />
     </Layout>
   );
 };
