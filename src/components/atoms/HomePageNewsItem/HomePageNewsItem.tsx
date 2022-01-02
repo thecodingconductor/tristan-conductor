@@ -10,31 +10,31 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const titleStyles = {
-  gridColumn: "1 ",
-};
+const DescriptionContainer = (props) => (
+  <div
+    sx={{
+      gridColumn: ["3 / span 3", null, "6"],
+    }}
+  />
+);
 
-const descriptionStyles = {
-  gridColumn: ["3 / span 3", null, "6"],
-};
+const DateContainer = (props) => (
+  <div
+    sx={{
+      gridColumn: "1",
+    }}
+  />
+);
 
 const HomePageNewsItem = ({ newsDate, newsTitle }: Props) => {
   return (
     <>
-      <div
-        sx={{
-          ...titleStyles,
-        }}
-      >
+      <DateContainer>
         <Themed.h2>{newsDate}</Themed.h2>
-      </div>
-      <div
-        sx={{
-          ...descriptionStyles,
-        }}
-      >
+      </DateContainer>
+      <DescriptionContainer>
         <Themed.h2>{newsTitle}</Themed.h2>
-      </div>
+      </DescriptionContainer>
     </>
   );
 };
