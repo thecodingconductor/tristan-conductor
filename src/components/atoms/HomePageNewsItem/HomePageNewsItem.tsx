@@ -10,20 +10,24 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const DescriptionContainer = (props) => (
+const DescriptionContainer = ({ children }) => (
   <div
     sx={{
       gridColumn: ["3 / span 3", null, "6"],
     }}
-  />
+  >
+    {children}
+  </div>
 );
 
-const DateContainer = (props) => (
+const DateContainer = ({ children }) => (
   <div
     sx={{
       gridColumn: "1",
     }}
-  />
+  >
+    {children}
+  </div>
 );
 
 const HomePageNewsItem = ({ newsDate, newsTitle }: Props) => {

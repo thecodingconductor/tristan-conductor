@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <div
       sx={{
         width: "100%",
-        background: "#0B1C2C",
+        background: "rgba(11, 28, 44, 0.2)",
       }}
     >
       <div
