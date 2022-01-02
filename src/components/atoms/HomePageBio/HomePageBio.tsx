@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
 import * as PropTypes from "prop-types";
 
 const propTypesShape = {
@@ -9,19 +8,20 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const bioContainerStyles = {
-  gridColumn: ["1 / span 5", null, "1 / span 16"],
-};
+const BioContainer = (props) => (
+  <div
+    {...props}
+    sx={{
+      gridColumn: ["1 / span 5", null, "1 / span 16"],
+    }}
+  />
+);
 
 const HomePageBio = ({ bioText }: Props) => {
   return (
-    <div
-      sx={{
-        ...bioContainerStyles,
-      }}
-    >
+    <BioContainer>
       <Themed.p>{bioText}</Themed.p>
-    </div>
+    </BioContainer>
   );
 };
 
