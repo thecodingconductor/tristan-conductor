@@ -3,17 +3,25 @@ import { jsx, Themed } from "theme-ui";
 import { Link } from "gatsby";
 import { resetList } from "../lib/utils/mixins";
 
-const headerContainerStyles = {
-  height: "100px",
-  width: "100%",
-  backgroundColor: ["alert", "vuoriBlue"],
-};
+const headerContainerStyles = {};
 
 const navLinksContainer = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
 };
+
+const HeaderContainer = ({ children }) => (
+  <div
+    sx={{
+      height: "100px",
+      width: "100%",
+      backgroundColor: ["alert", "vuoriBlue"],
+    }}
+  >
+    {children}
+  </div>
+);
 
 const Header = () => {
   return (
