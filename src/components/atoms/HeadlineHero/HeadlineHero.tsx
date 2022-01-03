@@ -24,7 +24,7 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
         sx={{
           fontFamily: "heading",
           fontWeight: "heading",
-          fontSize: 6,
+          fontSize: "28px",
           lineHeight: "heading",
           color: "white",
           gridColumn: ["1 / span 5", null, "5 / span auto"],
