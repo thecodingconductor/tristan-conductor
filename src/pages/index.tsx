@@ -69,7 +69,7 @@ const IndexPage = () => {
         edges {
           node {
             username
-            timestamp(difference: "")
+            timestamp
             id
             permalink
             thumbnail_url

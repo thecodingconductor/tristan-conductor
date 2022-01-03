@@ -51,6 +51,13 @@ export default {
       margin: 0,
       padding: 0,
     },
+    a: {
+      fontFamily: "Inter, sans-serif",
+      color: "white",
+      fontSize: "18px",
+      lineHeight: "27px",
+      textDecoration: "underline",
+    },
     root: {
       backgroundColor: "rgb(11, 28, 44)",
       fonts: "body",

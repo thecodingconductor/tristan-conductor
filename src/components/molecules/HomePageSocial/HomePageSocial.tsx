@@ -26,8 +26,9 @@ const SocialContainer = ({ children }) => (
   <div
     sx={{
       gridColumn: ["1 / span 5", null, "1 / span 16"],
-      display: "flex",
-      justifyContent: "spacebetween",
+      display: "grid",
+      gridGap: "20px",
+      gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(16, 1fr)"],
     }}
   >
     {children}
@@ -41,15 +42,23 @@ const HomePageSocial = ({ socialIcons }: Props) => {
     <SocialContainer>
       <div
         sx={{
-          width: "50%",
+          gridColumn: "1 / span 2",
+          display: "flex",
+          alignItems: "center",
         }}
       >
-        <Themed.h1>Follow</Themed.h1>
+        <Themed.h1
+          sx={{
+            fontSize: "18px",
+          }}
+        >
+          Follow
+        </Themed.h1>
       </div>
       <div
         className="socialIconsContainer"
         sx={{
-          width: "50%",
+          gridColumn: "3 / span 3",
           display: "flex",
           justifyContent: "space-between",
         }}
