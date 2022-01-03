@@ -18,9 +18,18 @@ const BioContainer = (props) => (
 );
 
 const HomePageBio = ({ bioText }: Props) => {
+  const splitText = JSON.stringify(bioText).split("\\n\\n");
+
   return (
     <BioContainer>
-      <Themed.p>{bioText}</Themed.p>
+      <Themed.p
+        sx={{
+          marginBottom: "20px",
+        }}
+      >
+        {splitText[0].slice(1)}
+      </Themed.p>
+      <Themed.p>{splitText[1].slice(0, -1)}</Themed.p>
     </BioContainer>
   );
 };

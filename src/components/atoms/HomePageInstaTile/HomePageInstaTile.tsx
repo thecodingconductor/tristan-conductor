@@ -34,7 +34,6 @@ const PreviewImage = (props) => (
 );
 
 const HomePageInstaTile = ({ node }: Props) => {
-  console.log(node);
   const {
     id,
     username,
@@ -45,11 +44,6 @@ const HomePageInstaTile = ({ node }: Props) => {
     thumbnail_url,
     media_url,
   } = node;
-
-  // console.log(localFile);
-  // console.log(localFile.publicURL);
-
-  console.log(timestamp);
 
   return (
     <TileContainer>

@@ -37,6 +37,7 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
             newsDate={newsItem.node.newsDate}
             newsTitle={newsItem.node.newsTitle}
             isFirst={index === 0}
+            key={newsItem.node.newsDate}
           />
         );
       })}

@@ -93,11 +93,19 @@ const IndexPage = () => {
           }
         }
       }
+      allContentfulSiteCopy {
+        nodes {
+          homePageBio {
+            homePageBio
+          }
+        }
+      }
     }
   `);
 
   // console.log(data.allInstagramContent.edges);
   // console.log(data.allContentfulNewsStory.edges);
+  // console.log(data.allContentfulSiteCopy.nodes[1].homePageBio.homePageBio);
 
   const HeaderComponent = () => (
     <div
@@ -109,6 +117,8 @@ const IndexPage = () => {
         <h1
           sx={{
             ...headerComponentStyles,
+            fontWeight: 800,
+            fontSize: "21px",
           }}
         >
           Tristan Rais-Sherman,
@@ -118,6 +128,8 @@ const IndexPage = () => {
         <h1
           sx={{
             ...headerComponentStyles,
+            fontWeight: 800,
+            fontSize: "21px",
           }}
         >
           Conductor
@@ -142,7 +154,9 @@ const IndexPage = () => {
       <Divider />
       <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />
-      <HomePageBio bioText={dummyBio.bioText} />
+      <HomePageBio
+        bioText={data.allContentfulSiteCopy.nodes[1].homePageBio.homePageBio}
+      />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
       <InstaCarousel instaPosts={data.allInstagramContent.edges} />
