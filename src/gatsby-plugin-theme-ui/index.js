@@ -48,6 +48,8 @@ export default {
       fontFamily: "Inter, sans-serif",
       fontWeight: "body",
       color: "text",
+      margin: 0,
+      padding: 0,
     },
     root: {
       backgroundColor: "rgb(11, 28, 44)",

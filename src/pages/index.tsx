@@ -12,6 +12,7 @@ import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
 import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
 import Image from "gatsby-image";
+import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
 
 // const TestDiv = (props) => (
 //   <div
@@ -80,10 +81,23 @@ const IndexPage = () => {
           }
         }
       }
+      allContentfulNewsStory(
+        limit: 2
+        sort: { fields: newsDate, order: DESC }
+      ) {
+        edges {
+          node {
+            contentful_id
+            newsTitle
+            newsDate(formatString: "MM.DD.YYYY")
+          }
+        }
+      }
     }
   `);
 
-  console.log(data.allInstagramContent.edges);
+  // console.log(data.allInstagramContent.edges);
+  // console.log(data.allContentfulNewsStory.edges);
 
   const HeaderComponent = () => (
     <div
@@ -126,14 +140,7 @@ const IndexPage = () => {
       />
       <HomePageVideoSubtitle />
       <Divider />
-      <HomePageNewsItem
-        newsDate={dummyNewsItem.newsDate}
-        newsTitle={dummyNewsItem.newsTitle}
-      />
-      <HomePageNewsItem
-        newsDate={dummyNewsItem.newsDate}
-        newsTitle={dummyNewsItem.newsTitle}
-      />
+      <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />
       <HomePageBio bioText={dummyBio.bioText} />
       <Divider />

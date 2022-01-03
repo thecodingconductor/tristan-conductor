@@ -26,7 +26,18 @@ const HomePageVideoSubtitle = () => {
   return (
     <>
       <TitleContainer>
-        <Themed.p>Latest</Themed.p>
+        <Themed.p
+          sx={{
+            fontWeight: 700,
+            fontSize: "17px",
+            textAlign: "left",
+            display: "flex",
+            alignItems: "flexstart",
+            justifyContent: "flexstart",
+          }}
+        >
+          Latest
+        </Themed.p>
       </TitleContainer>
       <DescriptionContainer>
         <Themed.p>Watch Tristan perform with the NEC Philharmonia</Themed.p>

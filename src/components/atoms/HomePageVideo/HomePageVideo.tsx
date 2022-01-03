@@ -15,6 +15,7 @@ const VideoContainer = ({ children }) => (
       paddingBottom: "56.25%",
       height: 0,
       position: "relative",
+      marginBottom: "50px",
     }}
   >
     {children}

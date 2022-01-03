@@ -6,6 +6,7 @@ const footerContainerStyles = {
   width: "100%",
   bg: "rgba(0,0,0,0.26)",
   display: "flex",
+  px: ["30px", null, "50px"],
 };
 
 const Footer = () => {
