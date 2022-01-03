@@ -1,22 +1,20 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import React from "react";
 
 const defaultCircleStyles = {
   width: "506px",
   height: "506px",
   filter: "blur(524px)",
+  zIndex: "-1",
 };
 
 const Background = () => {
   return (
     <div
       sx={{
-        position: "fixed",
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: "-1",
+        overflow: "hidden",
+        height: "100%",
       }}
     >
       <div

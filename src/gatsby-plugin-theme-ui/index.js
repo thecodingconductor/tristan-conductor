@@ -20,14 +20,14 @@ export default {
   },
   fontWeights: {
     body: 400,
-    heading: 700,
+    heading: 600,
     bold: 700,
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125,
+    heading: "49px",
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontSizes: [12, 14, 16, 20, 24, 32, 34, 48, 64, 72],
   styles: {
     ...base.styles,
     h1: {
@@ -38,15 +38,22 @@ export default {
     },
     h2: {
       fonts: "heading",
+      fontFamily: "Inter, sans-serif",
       fontWeight: "heading",
       padding: 0,
       margin: 0,
       color: "text",
     },
     p: {
-      fonts: "body",
+      fontFamily: "Inter, sans-serif",
       fontWeight: "body",
       color: "text",
+    },
+    root: {
+      backgroundColor: "rgb(11, 28, 44)",
+      fonts: "body",
+      overflowX: "hidden",
+      position: "relative",
     },
   },
 };

@@ -86,7 +86,11 @@ const IndexPage = () => {
   console.log(data.allInstagramContent.edges);
 
   const HeaderComponent = () => (
-    <div>
+    <div
+      sx={{
+        marginBottom: "40px",
+      }}
+    >
       <div>
         <h1
           sx={{

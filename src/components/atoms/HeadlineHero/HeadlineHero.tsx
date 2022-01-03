@@ -15,10 +15,17 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HeadlineHero = ({ heroHeadline }: Props) => {
   return (
-    <div>
+    <div
+      sx={{
+        marginBottom: "40px",
+      }}
+    >
       <Themed.h1
         sx={{
           fontFamily: "heading",
+          fontWeight: "heading",
+          fontSize: 6,
+          lineHeight: "heading",
           color: "white",
           gridColumn: ["1 / span 5", null, "5 / span auto"],
         }}
