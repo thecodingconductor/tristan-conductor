@@ -3,6 +3,7 @@ import { jsx } from "theme-ui";
 import * as PropTypes from "prop-types";
 import HeadlineHero from "../../atoms/HeadlineHero/HeadlineHero";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
+import mediaQueries from "../../../theme/media-queries";
 
 const propTypesShape = {
   heroHeadline: PropTypes.string.isRequired,
@@ -19,7 +20,7 @@ const StyledHeroContainer = ({ children }) => (
       gridGap: [null, null, "20px"],
       gridTemplateColumns: [null, null, "repeat(12, 1fr)"],
       gridRowStart: "1",
-      flexDirection: ["row", null, null],
+      flexDirection: "column",
       marginTop: "40px",
     }}
   >
