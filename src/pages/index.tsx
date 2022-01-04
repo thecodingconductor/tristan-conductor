@@ -34,7 +34,7 @@ const dummySocialMedia = [
 
 // markup
 const IndexPage = () => {
-  const { isLarge } = useBreakpoints();
+  const { isSmall } = useBreakpoints();
   const data = useStaticQuery(graphql`
     query {
       allContentfulHeaderBio {
@@ -108,12 +108,12 @@ const IndexPage = () => {
       />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
-      {isLarge ? (
-        <DesktopInstaModule
+      {isSmall ? (
+        <InstaCarousel
           instaPosts={data.allInstagramContent.edges.slice(0, 3)}
         />
       ) : (
-        <InstaCarousel
+        <DesktopInstaModule
           instaPosts={data.allInstagramContent.edges.slice(0, 3)}
         />
       )}

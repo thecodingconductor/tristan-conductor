@@ -30,7 +30,7 @@ const DesktopInstaModule = ({ instaPosts }: Props) => {
   return (
     <div
       sx={{
-        gridColumn: "1 / span 12",
+        gridColumn: ["1/ span 5", null, "1 / span 12"],
         display: "grid",
         gridGap: "20px",
         gridTemplateColumns: "repeat(12, 1fr)",

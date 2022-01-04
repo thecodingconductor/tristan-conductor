@@ -24,7 +24,11 @@ const HeaderComponent = () => {
           <div
             sx={{
               height: "43px",
+              width: "264px",
               marginBottom: "2px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Themed.h1
@@ -33,9 +37,6 @@ const HeaderComponent = () => {
                 fontWeight: 800,
                 fontSize: "21px",
                 height: "100%",
-                width: ["73%", null, "75%"],
-                display: "flex",
-                alignItems: "center",
               }}
             >
               Tristan Rais-Sherman,
@@ -45,7 +46,11 @@ const HeaderComponent = () => {
             sx={{
               gridColumn: "1 / span 5",
               height: "43px",
+              width: "146px",
               marginBottom: "40px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Themed.h1
@@ -54,9 +59,6 @@ const HeaderComponent = () => {
                 fontWeight: 800,
                 fontSize: "21px",
                 height: "100%",
-                width: ["35%", null, "37%"],
-                display: "flex",
-                alignItems: "center",
               }}
             >
               Conductor

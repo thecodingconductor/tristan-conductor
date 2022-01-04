@@ -6,7 +6,7 @@ const defaultCircleStyles = {
   width: "506px",
   height: "506px",
   filter: "blur(524px)",
-  zIndex: "-1",
+  // zIndex: "-1",
 };
 
 const Background = () => {
