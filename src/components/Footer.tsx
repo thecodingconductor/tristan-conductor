@@ -17,10 +17,14 @@ const Footer = () => {
         flexDirection: ["column", null, "row"],
       }}
     >
-      <Themed.p>e: tristan.raissherman@gmail.com</Themed.p>
+      <Themed.p sx={{
+        marginTop: '42px',
+        marginBottom: '25px'
+      }}>e: tristan.raissherman@gmail.com</Themed.p>
       <Themed.p
         sx={{
           color: "#FCFDFF69",
+           marginBottom: '25px'
         }}
       >
         &copy; 2022 Tristan Rais-Sherman
@@ -28,6 +32,7 @@ const Footer = () => {
       <Themed.p
         sx={{
           color: "#FCFDFF69",
+           marginBottom: '25px'
         }}
       >
         Website built by Tristan Rais-Sherman
