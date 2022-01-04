@@ -18,6 +18,8 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
     <div
       sx={{
         marginBottom: "40px",
+        gridColumn: [null, null, "5 / span 11"],
+        gridRowStart: "1",
       }}
     >
       <Themed.h1
@@ -27,7 +29,6 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
           fontSize: "28px",
           lineHeight: "heading",
           color: "white",
-          gridColumn: ["1 / span 5", null, "5 / span auto"],
         }}
       >
         {heroHeadline}

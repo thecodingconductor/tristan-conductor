@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-
+import React from "react";
 import Layout from "../components/Layout";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
@@ -14,31 +14,10 @@ import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
 import Image from "gatsby-image";
 import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
 
-// const TestDiv = (props) => (
-//   <div
-//     {...props}
-//     sx={{
-//       backgroundColor: "vuoriBlue",
-//       color: "alert",
-//     }}
-//   />
-// );
-
 const headerComponentStyles = {
   background: "white",
   fontFamily: "heading",
   color: "#000",
-};
-
-const dummyNewsItem = {
-  newsDate: "05.20.2021",
-  newsTitle:
-    "Tristan to compete in the the Khachaturian International Conducting Competition 2021 in Armenia",
-};
-
-const dummyBio = {
-  bioText:
-    "Driven by the mission to create the future of classical music through unconventional and innovative means, Tristan has been building audiences on digital platforms such as Twitch, and exploring the possibilities of combining classical music with interactive mediums. His aim is nothing less than to blaze a new path for the future of classical music—one that is exciting, inclusive, and engaging. He is the recipient of the Friedlander Family Presidential Scholarship, and is the inaugural Artist Diploma in Orchestral Conducting at New England Conservatory.",
 };
 
 const dummySocialMedia = [
@@ -61,22 +40,22 @@ const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulHeaderBio {
-    edges {
-      node {
-        text
-      }
-    }
-  }
-  allContentfulHomepageBioExcerpt {
-    edges {
-      node {
-        text {
-          text
+        edges {
+          node {
+            text
+          }
         }
       }
-    }
-  }
-      
+      allContentfulHomepageBioExcerpt {
+        edges {
+          node {
+            text {
+              text
+            }
+          }
+        }
+      }
+
       allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
@@ -109,34 +88,50 @@ const IndexPage = () => {
   `);
 
   const HeaderComponent = () => (
-    <div
-      sx={{
-        marginBottom: "40px",
-      }}
-    >
-      <div>
-        <h1
+    <>
+      <div
+        sx={{
+          gridColumn: "1 / span 5",
+          height: "43px",
+          marginBottom: "2px",
+        }}
+      >
+        <Themed.h1
           sx={{
             ...headerComponentStyles,
             fontWeight: 800,
             fontSize: "21px",
+            height: "100%",
+            width: "73%",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           Tristan Rais-Sherman,
-        </h1>
+        </Themed.h1>
       </div>
-      <div>
-        <h1
+      <div
+        sx={{
+          gridColumn: "1 / span 5",
+          height: "43px",
+          marginBottom: "40px",
+        }}
+      >
+        <Themed.h1
           sx={{
             ...headerComponentStyles,
             fontWeight: 800,
             fontSize: "21px",
+            height: "100%",
+            width: "35%",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           Conductor
-        </h1>
+        </Themed.h1>
       </div>
-    </div>
+    </>
   );
 
   return (

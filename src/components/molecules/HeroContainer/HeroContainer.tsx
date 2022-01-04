@@ -13,11 +13,13 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 const StyledHeroContainer = ({ children }) => (
   <div
     sx={{
-      display: "flex",
-
-      width: "100%",
       gridColumn: ["1 / span 5", null, "1 / span 16"],
-      flexDirection: ["column", null, "row"],
+      display: ["flex", null, "grid"],
+      gridGap: [null, null, "20px"],
+      gridTemplateColumns: [null, null, "repeat(16, 1fr)"],
+      gridRowStart: "1",
+      flexDirection: ["row", null, null],
+      marginTop: "40px",
     }}
   >
     {children}
