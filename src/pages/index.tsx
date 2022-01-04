@@ -85,6 +85,8 @@ const IndexPage = () => {
     }
   `);
 
+  const videoURL = "https://www.youtube.com/embed/wct93OnrrYA";
+
   return (
     <Layout>
       <HeroContainer
@@ -92,12 +94,12 @@ const IndexPage = () => {
         headerElement={<HeaderComponent />}
       />
       <HomePageVideo
-        videoSrcURL={"https://www.youtube.com/embed/wct93OnrrYA"}
+        videoSrcURL={videoURL}
         videoTitle={
           "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
         }
       />
-      <HomePageVideoSubtitle />
+      <HomePageVideoSubtitle videoURL={videoURL} />
       <Divider />
       <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />

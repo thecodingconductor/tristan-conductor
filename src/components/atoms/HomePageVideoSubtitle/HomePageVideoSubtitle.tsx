@@ -1,6 +1,13 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React from "react";
+import * as PropTypes from "prop-types";
+
+const propTypesShape = {
+  videoURL: PropTypes.string.isRequired,
+};
+
+type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const TitleContainer = ({ children }) => (
   <div
@@ -22,7 +29,7 @@ const DescriptionContainer = ({ children }) => (
   </div>
 );
 
-const HomePageVideoSubtitle = () => {
+const HomePageVideoSubtitle = ({ videoURL }: Props) => {
   return (
     <>
       <TitleContainer>
@@ -40,7 +47,9 @@ const HomePageVideoSubtitle = () => {
         </Themed.p>
       </TitleContainer>
       <DescriptionContainer>
-        <Themed.p>Watch Tristan perform with the NEC Philharmonia</Themed.p>
+        <Themed.a href={videoURL}>
+          Watch Tristan perform with the NEC Philharmonia
+        </Themed.a>
       </DescriptionContainer>
     </>
   );

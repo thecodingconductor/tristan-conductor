@@ -4,6 +4,7 @@ import React from "react";
 import * as PropTypes from "prop-types";
 import HomePageNewsItem from "../../atoms/HomePageNewsItem/HomePageNewsItem";
 import { resetLink } from "../../../lib/utils/mixins";
+import { Link } from "gatsby";
 
 const propTypesShape = {
   // Array of NewsItem Components
@@ -42,8 +43,8 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
         );
       })}
 
-      <a
-        href="#"
+      <Link
+        to="/news"
         sx={{
           ...resetLink,
           fontFamily: "Inter, sans-serif",
@@ -53,7 +54,7 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
         }}
       >
         All News
-      </a>
+      </Link>
     </div>
   );
 };
