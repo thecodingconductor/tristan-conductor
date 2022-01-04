@@ -60,11 +60,23 @@ const dummySocialMedia = [
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      contentfulSiteCopy {
-        heroHeadline {
-          heroHeadline
+      allContentfulHeaderBio {
+    edges {
+      node {
+        text
+      }
+    }
+  }
+  allContentfulHomepageBioExcerpt {
+    edges {
+      node {
+        text {
+          text
         }
       }
+    }
+  }
+      
       allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
@@ -93,19 +105,8 @@ const IndexPage = () => {
           }
         }
       }
-      allContentfulSiteCopy {
-        nodes {
-          homePageBio {
-            homePageBio
-          }
-        }
-      }
     }
   `);
-
-  // console.log(data.allInstagramContent.edges);
-  // console.log(data.allContentfulNewsStory.edges);
-  // console.log(data.allContentfulSiteCopy.nodes[1].homePageBio.homePageBio);
 
   const HeaderComponent = () => (
     <div
@@ -141,7 +142,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <HeroContainer
-        heroHeadline={data.contentfulSiteCopy.heroHeadline.heroHeadline}
+        heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
         headerElement={<HeaderComponent />}
       />
       <HomePageVideo
@@ -155,7 +156,7 @@ const IndexPage = () => {
       <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />
       <HomePageBio
-        bioText={data.allContentfulSiteCopy.nodes[1].homePageBio.homePageBio}
+        bioText={data.allContentfulHomepageBioExcerpt.edges[0].node.text.text}
       />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
