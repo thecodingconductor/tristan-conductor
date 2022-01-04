@@ -13,12 +13,8 @@ import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocia
 import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
 import Image from "gatsby-image";
 import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
-
-const headerComponentStyles = {
-  background: "white",
-  fontFamily: "heading",
-  color: "#000",
-};
+import useBreakpoints from "../lib/hooks/useBreakpoints";
+import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
 
 const dummySocialMedia = [
   {
@@ -86,53 +82,6 @@ const IndexPage = () => {
       }
     }
   `);
-
-  const HeaderComponent = () => (
-    <>
-      <div
-        sx={{
-          gridColumn: "1 / span 5",
-          height: "43px",
-          marginBottom: "2px",
-        }}
-      >
-        <Themed.h1
-          sx={{
-            ...headerComponentStyles,
-            fontWeight: 800,
-            fontSize: "21px",
-            height: "100%",
-            width: "73%",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          Tristan Rais-Sherman,
-        </Themed.h1>
-      </div>
-      <div
-        sx={{
-          gridColumn: "1 / span 5",
-          height: "43px",
-          marginBottom: "40px",
-        }}
-      >
-        <Themed.h1
-          sx={{
-            ...headerComponentStyles,
-            fontWeight: 800,
-            fontSize: "21px",
-            height: "100%",
-            width: "35%",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          Conductor
-        </Themed.h1>
-      </div>
-    </>
-  );
 
   return (
     <Layout>

@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import * as PropTypes from "prop-types";
 import HeadlineHero from "../../atoms/HeadlineHero/HeadlineHero";
+import useBreakpoints from "../../../lib/hooks/useBreakpoints";
 
 const propTypesShape = {
   heroHeadline: PropTypes.string.isRequired,
@@ -27,6 +28,7 @@ const StyledHeroContainer = ({ children }) => (
 );
 
 const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
+  const { isLarge } = useBreakpoints();
   return (
     <StyledHeroContainer>
       {headerElement}

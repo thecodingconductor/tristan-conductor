@@ -18,7 +18,7 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
     <div
       sx={{
         marginBottom: "40px",
-        gridColumn: [null, null, "5 / span 11"],
+        gridColumn: [null, null, "6 / span 11"],
         gridRowStart: "1",
       }}
     >
