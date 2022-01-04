@@ -15,6 +15,7 @@ import Image from "gatsby-image";
 import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
 import useBreakpoints from "../lib/hooks/useBreakpoints";
 import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
+import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
 
 const dummySocialMedia = [
   {
@@ -33,6 +34,7 @@ const dummySocialMedia = [
 
 // markup
 const IndexPage = () => {
+  const { isLarge } = useBreakpoints();
   const data = useStaticQuery(graphql`
     query {
       allContentfulHeaderBio {
@@ -104,7 +106,15 @@ const IndexPage = () => {
       />
       <Divider />
       <HomePageSocial socialIcons={dummySocialMedia} />
-      <InstaCarousel instaPosts={data.allInstagramContent.edges} />
+      {isLarge ? (
+        <DesktopInstaModule
+          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+        />
+      ) : (
+        <InstaCarousel
+          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+        />
+      )}
     </Layout>
   );
 };

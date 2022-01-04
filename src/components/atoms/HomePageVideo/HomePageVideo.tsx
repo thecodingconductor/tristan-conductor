@@ -11,7 +11,7 @@ const videoContainerStyles = {
 const VideoContainer = ({ children }) => (
   <div
     sx={{
-      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      gridColumn: ["1 / span 5", null, "1 / span 12"],
       paddingBottom: "56.25%",
       height: 0,
       position: "relative",

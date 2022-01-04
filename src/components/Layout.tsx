@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
           width: "inherit",
           display: "grid",
           gridGap: "20px",
-          gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(16, 1fr)"],
+          gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
           padding: ["0 30px", null, "0 140px"],
         }}
       >

@@ -22,24 +22,34 @@ const propTypesShape = {
   ).isRequired,
 };
 
-const SocialContainer = ({ children }) => (
+const SocialGridContainer = ({ children }) => (
   <div
     sx={{
-      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      gridColumn: ["1 / span 5", null, "1 / span 12"],
       display: "grid",
       gridGap: "20px",
-      gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(16, 1fr)"],
+      gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
     }}
   >
     {children}
   </div>
 );
 
+const SocialFlexContainer = ({ children }) => <div>{children}</div>;
+
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HomePageSocial = ({ socialIcons }: Props) => {
   return (
-    <SocialContainer>
+    <div
+      sx={{
+        gridColumn: ["1 / span 5", null, "1 / span 12"],
+        display: ["grid", null, "flex"],
+        gridGap: "20px",
+        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
+        justifyContent: "space-between",
+      }}
+    >
       <div
         sx={{
           gridColumn: "1 / span 2",
@@ -61,6 +71,7 @@ const HomePageSocial = ({ socialIcons }: Props) => {
           gridColumn: "3 / span 3",
           display: "flex",
           justifyContent: "space-between",
+          width: [null, null, "20%"],
         }}
       >
         {socialIcons.map(({ url, type }) => {
@@ -72,7 +83,7 @@ const HomePageSocial = ({ socialIcons }: Props) => {
           );
         })}
       </div>
-    </SocialContainer>
+    </div>
   );
 };
 

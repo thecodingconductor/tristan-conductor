@@ -3,14 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import * as PropTypes from "prop-types";
 
-// import "swiper/swiper-bundle.min.css";
-import "swiper/css";
-
-import SwiperCore, { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import HomePageInstaTile from "../../atoms/HomePageInstaTile/HomePageInstaTile";
-
-SwiperCore.use([Navigation]);
 
 const propTypesShape = {
   instaPosts: PropTypes.arrayOf(
@@ -33,30 +26,31 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const swiperWrapperStyles = {
-  gridColumn: ["1 / span 5", null, "1 / span 12"],
-};
-
-const InstaCarousel = ({ instaPosts }: Props) => {
-  console.log(instaPosts);
+const DesktopInstaModule = ({ instaPosts }: Props) => {
   return (
     <div
       sx={{
-        ...swiperWrapperStyles,
+        gridColumn: "1 / span 12",
+        display: "grid",
+        gridGap: "20px",
+        gridTemplateColumns: "repeat(12, 1fr)",
       }}
     >
-      <Swiper watchSlidesProgress spaceBetween={14} slidesPerView={1.5}>
-        {instaPosts.map((post) => {
-          console.log(post);
-          return (
-            <SwiperSlide key={post.node.id}>
-              <HomePageInstaTile node={post.node} />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      {instaPosts.map((post) => {
+        console.log(post);
+        return (
+          <div
+            sx={{
+              gridColumn: "auto / span 4",
+            }}
+            key={post.node.id}
+          >
+            <HomePageInstaTile node={post.node} />
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-export default InstaCarousel;
+export default DesktopInstaModule;

@@ -15,7 +15,7 @@ const TitleContainer = ({ children }) => (
 const DescriptionContainer = ({ children }) => (
   <div
     sx={{
-      gridColumn: ["3 / span 3", null, "6"],
+      gridColumn: ["3 / span 3", null, "6 / span 7"],
     }}
   >
     {children}

@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 
 const DividerDiv = (props) => (
     <div {...props} sx={{
-        gridColumn: ['1 / span 5', null, '1  / span 16'],
+        gridColumn: ['1 / span 5', null, '1  / span 12'],
         marginTop: '50px'
     }}/>
 )

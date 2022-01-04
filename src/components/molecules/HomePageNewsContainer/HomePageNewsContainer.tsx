@@ -25,10 +25,10 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
   return (
     <div
       sx={{
-        gridColumn: ["1 / span 5", null, "1 / span 16"],
+        gridColumn: ["1 / span 5", null, "1 / span 12"],
         display: "grid",
         gridGap: "20px",
-        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(16, 1fr)"],
+        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
       }}
     >
       {newsItems.map((newsItem, index) => {
@@ -48,7 +48,7 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
           ...resetLink,
           fontFamily: "Inter, sans-serif",
           marginTop: "70px",
-          gridColumn: "3 / span 2",
+          gridColumn: ["3 / span 2", null, "6 / span 7"],
           textDecoration: "underline",
         }}
       >

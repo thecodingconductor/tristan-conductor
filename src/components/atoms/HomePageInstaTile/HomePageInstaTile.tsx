@@ -25,7 +25,7 @@ const TileContainer = (props) => (
     {...props}
     sx={{
       height: "650px",
-      gridColumn: ["1 / span 5", null, "1 / span 16"],
+      gridColumn: ["1 / span 5", null, "1 / span 12"],
     }}
   />
 );

@@ -17,8 +17,9 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
   return (
     <div
       sx={{
+        marginTop: [null, null, "-12px"],
         marginBottom: "40px",
-        gridColumn: [null, null, "6 / span 11"],
+        gridColumn: [null, null, "6 / span 7"],
         gridRowStart: "1",
       }}
     >
@@ -26,8 +27,8 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
         sx={{
           fontFamily: "heading",
           fontWeight: "heading",
-          fontSize: "28px",
-          lineHeight: "heading",
+          fontSize: ["28px", null, "53px"],
+          lineHeight: ["heading", null, "71px"],
           color: "white",
         }}
       >
