@@ -29,14 +29,15 @@ const HeaderComponent = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              background: "white",
             }}
           >
             <Themed.h1
               sx={{
-                ...headerComponentStyles,
+                fontFamily: "heading",
+                color: "#000",
                 fontWeight: 800,
                 fontSize: "21px",
-                height: "100%",
               }}
             >
               Tristan Rais-Sherman,
@@ -51,14 +52,15 @@ const HeaderComponent = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              background: "white",
             }}
           >
             <Themed.h1
               sx={{
-                ...headerComponentStyles,
+                fontFamily: "heading",
+                color: "#000",
                 fontWeight: 800,
                 fontSize: "21px",
-                height: "100%",
               }}
             >
               Conductor
@@ -71,18 +73,20 @@ const HeaderComponent = () => {
             sx={{
               gridColumn: "1 / span 5",
               height: "43px",
+              width: "264px",
               marginBottom: "2px",
+              background: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Themed.h1
               sx={{
-                ...headerComponentStyles,
+                fontFamily: "heading",
+                color: "#000",
                 fontWeight: 800,
                 fontSize: "21px",
-                height: "100%",
-                width: "73%",
-                display: "flex",
-                alignItems: "center",
               }}
             >
               Tristan Rais-Sherman,
@@ -92,18 +96,21 @@ const HeaderComponent = () => {
             sx={{
               gridColumn: "1 / span 5",
               height: "43px",
+              width: "146px",
               marginBottom: "40px",
+              background: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Themed.h1
               sx={{
-                ...headerComponentStyles,
+                background: "white",
+                fontFamily: "heading",
+                color: "#000",
                 fontWeight: 800,
                 fontSize: "21px",
-                height: "100%",
-                width: "35%",
-                display: "flex",
-                alignItems: "center",
               }}
             >
               Conductor
