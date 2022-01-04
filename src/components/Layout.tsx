@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import Footer from "./Footer";
 import Background from "./atoms/Background/Background";
+import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
 
 import "@fontsource/inter";
 
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <Background />
+      <MobileNavOverlay />
     </div>
   );
 };
