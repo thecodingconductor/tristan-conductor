@@ -12,9 +12,19 @@ const MobileNavOverlayHeader = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "40px",
+        marginBottom: "30px",
       }}
     >
-      <Themed.h1>Tristan Rais-Sherman</Themed.h1>
+      <Themed.h1
+        sx={{
+          color: "black",
+          fontSize: "21px",
+          fontWeight: 800,
+        }}
+      >
+        Tristan Rais-Sherman
+      </Themed.h1>
     </div>
   );
 };

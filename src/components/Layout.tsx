@@ -1,12 +1,27 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import React, { useState, createContext } from "react";
+import * as PropTypes from "prop-types";
 import Footer from "./Footer";
 import Background from "./atoms/Background/Background";
 import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
+import useBreakpoints from "../lib/hooks/useBreakpoints";
 
 import "@fontsource/inter";
 
+const propTypesShape = {
+  onClick: PropTypes.func.isRequired,
+};
+
 const Layout = ({ children }) => {
+  const { isLarge } = useBreakpoints();
+  const [isOpen, setIsOpen] = useState(true);
+
+  const defaultState = {
+    isOpen,
+    setIsOpen,
+  };
+
   return (
     <div
       sx={{
@@ -28,7 +43,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <Background />
-      <MobileNavOverlay />
+      {!isLarge && isOpen && <MobileNavOverlay />}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import { jsx, Themed } from "theme-ui";
 import React from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
+import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 
 const MobileNavOverlay = () => {
   return (
@@ -14,18 +15,13 @@ const MobileNavOverlay = () => {
         right: "40px",
         background: "rgba(49, 72, 94, 0.62)",
         backdropFilter: "blur(74px)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <div>
-        <MobileNavOverlayHeader />
-      </div>
-      <ul>
-        <li>Test</li>
-        <li>Test</li>
-        <li>Test</li>
-        <li>Test</li>
-        <li>Test</li>
-      </ul>
+      <MobileNavOverlayHeader />
+      <MobileNavOverlayLinks />
     </div>
   );
 };

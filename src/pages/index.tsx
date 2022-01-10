@@ -33,7 +33,7 @@ const dummySocialMedia = [
 ];
 
 // markup
-const IndexPage = () => {
+const IndexPage = (props) => {
   const { isSmall } = useBreakpoints();
   const data = useStaticQuery(graphql`
     query {
