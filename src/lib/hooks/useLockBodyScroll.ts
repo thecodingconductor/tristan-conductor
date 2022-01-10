@@ -2,8 +2,8 @@ import {
   clearAllBodyScrollLocks,
   disableBodyScroll,
   enableBodyScroll,
-} from 'body-scroll-lock';
-import { useEffect } from 'react';
+} from "body-scroll-lock";
+import { useEffect } from "react";
 
 const useLockBodyScroll = (
   lockBody: boolean,

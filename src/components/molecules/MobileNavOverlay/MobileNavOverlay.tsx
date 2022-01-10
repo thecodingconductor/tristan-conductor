@@ -1,10 +1,20 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
+import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
 
-const MobileNavOverlay = () => {
+const MobileNavOverlay = ({ isExpanded }) => {
+  const [shouldLockScroll, setShouldLockScroll] = useState(isExpanded);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    setShouldLockScroll(isExpanded);
+  }, [isExpanded]);
+
+  useLockBodyScroll(shouldLockScroll, wrapperRef.current);
+
   return (
     <div
       sx={{
@@ -19,6 +29,7 @@ const MobileNavOverlay = () => {
         flexDirection: "column",
         alignItems: "center",
       }}
+      ref={wrapperRef}
     >
       <MobileNavOverlayHeader />
       <MobileNavOverlayLinks />
