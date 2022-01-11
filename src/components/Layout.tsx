@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <Background />
-      {!isLarge && isOpen && <MobileNavOverlay />}
+      {!isLarge && isOpen && <MobileNavOverlay isExpanded={isOpen} />}
     </div>
   );
 };

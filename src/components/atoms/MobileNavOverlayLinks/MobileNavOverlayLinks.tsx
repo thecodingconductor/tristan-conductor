@@ -13,7 +13,7 @@ const MobileNavOverlayLinks = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "100vh",
+        height: "75vh",
         ...resetList,
       }}
     >

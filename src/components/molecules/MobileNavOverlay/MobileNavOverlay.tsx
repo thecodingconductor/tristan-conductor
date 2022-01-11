@@ -1,19 +1,34 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
+import * as PropTypes from "prop-types";
 import React, { useState, useEffect, useRef } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
 
-const MobileNavOverlay = ({ isExpanded }) => {
+const propTypesShape = {
+  isExpanded: PropTypes.bool.isRequired,
+};
+
+type Props = PropTypes.InferProps<typeof propTypesShape>;
+
+const MobileNavOverlay = ({ isExpanded }: Props) => {
   const [shouldLockScroll, setShouldLockScroll] = useState(isExpanded);
   const wrapperRef = useRef(null);
 
   useEffect(() => {
+    if (isExpanded) {
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.height = "";
+    }
+
     setShouldLockScroll(isExpanded);
   }, [isExpanded]);
 
   useLockBodyScroll(shouldLockScroll, wrapperRef.current);
+
+  console.log(document.body);
 
   return (
     <div
