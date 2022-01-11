@@ -16,6 +16,7 @@ import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer
 import useBreakpoints from "../lib/hooks/useBreakpoints";
 import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
 import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
+import { motion } from "framer-motion";
 
 const dummySocialMedia = [
   {

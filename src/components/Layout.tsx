@@ -14,8 +14,8 @@ const propTypesShape = {
 };
 
 const Layout = ({ children }) => {
-  const { isLarge } = useBreakpoints();
-  const [isOpen, setIsOpen] = useState(true);
+  const { isLarge, isMediumAndBelow } = useBreakpoints();
+  const [isOpen, setIsOpen] = useState(false);
 
   const defaultState = {
     isOpen,
@@ -43,7 +43,8 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <Background />
-      {!isLarge && isOpen && <MobileNavOverlay isExpanded={isOpen} />}
+      {/* Change this */}
+      {isMediumAndBelow && isOpen && <MobileNavOverlay isExpanded={false} />}
     </div>
   );
 };
