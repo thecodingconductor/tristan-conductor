@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Background from "./atoms/Background/Background";
 import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
 import useBreakpoints from "../lib/hooks/useBreakpoints";
-
+import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
 import "@fontsource/inter";
 
 const propTypesShape = {
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
         height: "100%",
       }}
     >
+      <MobileNavIcon onClick={() => console.log("testing")} />
       <div
         sx={{
           height: "inherit",
