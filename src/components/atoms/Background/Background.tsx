@@ -13,7 +13,7 @@ const Background = () => {
   return (
     <div
       sx={{
-        overflow: "hidden",
+        // overflow: "hidden",
         position: "absolute",
         top: 0,
         bottom: 0,
@@ -72,7 +72,7 @@ const Background = () => {
           background: "rgba(173, 0, 125, 0.7)",
         }}
       ></div>
-      <div
+      {/* <div
         className="darkBlue"
         sx={{
           ...defaultCircleStyles,
@@ -81,7 +81,7 @@ const Background = () => {
           top: "3027px",
           background: "rgba(1, 7, 150, 0.6)",
         }}
-      ></div>
+      ></div> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import RelativeTime from "@yaireo/relative-time";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const propTypesShape = {
   node: PropTypes.shape({
