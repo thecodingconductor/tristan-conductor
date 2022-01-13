@@ -52,6 +52,7 @@ const HomePageInstaTile = ({ node }: Props) => {
   return (
     <TileContainer>
       {/* ToDO fix img dimensions. Maybe create an atom Component */}
+
       <img
         src={thumbnail_url || media_url}
         sx={{

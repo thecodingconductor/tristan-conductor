@@ -17,9 +17,8 @@ const Layout = ({ children }) => {
   const { isLarge, isMediumAndBelow } = useBreakpoints();
   const [isOpen, setIsOpen] = useState(false);
 
-  const defaultState = {
-    isOpen,
-    setIsOpen,
+  const handleOverlayClick = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -29,7 +28,7 @@ const Layout = ({ children }) => {
         height: "100%",
       }}
     >
-      <MobileNavIcon onClick={() => console.log("testing")} />
+      <MobileNavIcon onClick={handleOverlayClick} />
       <div
         sx={{
           height: "inherit",
@@ -45,7 +44,7 @@ const Layout = ({ children }) => {
       <Footer />
       <Background />
       {/* Change this */}
-      {isMediumAndBelow && isOpen && <MobileNavOverlay isExpanded={false} />}
+      {isOpen && <MobileNavOverlay isExpanded={isOpen} />}
     </div>
   );
 };

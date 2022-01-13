@@ -11,7 +11,6 @@ const propTypesShape = {
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const MobileNavIcon = ({ onClick }: Props) => {
-  console.log(onClick);
   return (
     <div
       sx={{

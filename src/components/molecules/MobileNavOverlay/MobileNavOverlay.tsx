@@ -33,7 +33,7 @@ const MobileNavOverlay = ({ isExpanded }: Props) => {
   return (
     <div
       sx={{
-        position: "absolute",
+        position: "fixed",
         left: 0,
         top: 0,
         bottom: 0,
@@ -43,6 +43,7 @@ const MobileNavOverlay = ({ isExpanded }: Props) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        zIndex: 99,
       }}
       ref={wrapperRef}
     >
