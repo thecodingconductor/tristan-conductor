@@ -13,7 +13,7 @@ const Background = () => {
   return (
     <div
       sx={{
-        // overflow: "hidden",
+        overflowX: "hidden",
         position: "absolute",
         top: 0,
         bottom: 0,

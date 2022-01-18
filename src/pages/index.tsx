@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../components/Layout";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
@@ -36,6 +36,7 @@ const dummySocialMedia = [
 // markup
 const IndexPage = (props) => {
   const { isSmall } = useBreakpoints();
+
   const data = useStaticQuery(graphql`
     query {
       allContentfulHeaderBio {

@@ -9,6 +9,8 @@ import useBreakpoints from "../lib/hooks/useBreakpoints";
 import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
 import "@fontsource/inter";
 
+import MenuState from "../context/menu/MenuState";
+
 const propTypesShape = {
   onClick: PropTypes.func.isRequired,
 };
@@ -22,30 +24,32 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div
-      sx={{
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <MobileNavIcon onClick={handleOverlayClick} />
+    <MenuState>
       <div
         sx={{
-          height: "inherit",
-          width: "inherit",
-          display: "grid",
-          gridGap: "20px",
-          gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-          padding: ["0 30px", null, "0 140px"],
+          width: "100%",
+          height: "100%",
         }}
       >
-        {children}
+        <MobileNavIcon onClick={handleOverlayClick} />
+        <div
+          sx={{
+            height: "inherit",
+            width: "inherit",
+            display: "grid",
+            gridGap: "20px",
+            gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
+            padding: ["0 30px", null, "0 140px"],
+          }}
+        >
+          {children}
+        </div>
+        <Footer />
+        <Background />
+        {/* Change this */}
+        {isOpen && <MobileNavOverlay isExpanded={isOpen} />}
       </div>
-      <Footer />
-      <Background />
-      {/* Change this */}
-      {isOpen && <MobileNavOverlay isExpanded={isOpen} />}
-    </div>
+    </MenuState>
   );
 };
 

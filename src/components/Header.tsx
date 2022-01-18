@@ -2,6 +2,8 @@
 import { jsx, Themed } from "theme-ui";
 import { Link } from "gatsby";
 import { resetList } from "../lib/utils/mixins";
+import { useContext } from "react";
+import { LayoutContext } from "../context/LayoutContext";
 
 const headerContainerStyles = {};
 
@@ -24,6 +26,9 @@ const HeaderContainer = ({ children }) => (
 );
 
 const Header = () => {
+  const layoutContext = useContext(LayoutContext);
+
+  console.log(layoutContext);
   return (
     <div
       sx={{
