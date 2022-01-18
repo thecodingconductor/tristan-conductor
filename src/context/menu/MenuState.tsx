@@ -3,7 +3,7 @@ import React, { useReducer } from "react";
 import MenuContext from "./menuContext";
 import menuReducer from "./menuReducer";
 
-import { OPEN_MENU, CLOSE_MENU } from "../types";
+import { OPEN_MENU, CLOSE_MENU, MENU_ACTION } from "../types";
 
 const MenuState = (props) => {
   const initialState = {
@@ -13,23 +13,28 @@ const MenuState = (props) => {
   const [state, dispatch] = useReducer(menuReducer, initialState);
 
   const openMenu = () => {
-    console.log("this is open menu");
     dispatch({
       type: OPEN_MENU,
     });
   };
 
   const closeMenu = () => {
-    console.log("this is close menu");
     dispatch({
       type: CLOSE_MENU,
     });
   };
 
+  // const menuAction = () => {
+  //   console.log(state);
+  //   dispatch({
+  //     type: MENU_ACTION,
+  //   });
+  // };
+
   return (
     <MenuContext.Provider
       value={{
-        isOpen: state,
+        isOpen: state.isOpen,
         openMenu,
         closeMenu,
       }}

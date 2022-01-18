@@ -1,55 +1,59 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
+import MenuContext from "../../../context/menu/menuContext";
 
-const propTypesShape = {
-  isExpanded: PropTypes.bool.isRequired,
-};
+const MobileNavOverlay = (props) => {
+  const menuContext = useContext(MenuContext);
+  const { isOpen } = menuContext;
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
-
-const MobileNavOverlay = ({ isExpanded }: Props) => {
-  const [shouldLockScroll, setShouldLockScroll] = useState(isExpanded);
+  const [shouldLockScroll, setShouldLockScroll] = useState(isOpen);
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    if (isExpanded) {
+    console.log(isOpen);
+    // This is causing the background bug
+    if (isOpen) {
+      console.log("is open is true");
       document.body.style.height = "100vh";
     } else {
+      console.log("is open is false");
       document.body.style.height = "";
     }
 
-    setShouldLockScroll(isExpanded);
-  }, [isExpanded]);
+    setShouldLockScroll(isOpen);
+  }, [isOpen]);
 
   useLockBodyScroll(shouldLockScroll, wrapperRef.current);
 
-  console.log(document.body);
-
   return (
-    <div
-      sx={{
-        position: "fixed",
-        left: 0,
-        top: 0,
-        bottom: 0,
-        right: "40px",
-        background: "rgba(49, 72, 94, 0.62)",
-        backdropFilter: "blur(74px)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        zIndex: 99,
-      }}
-      ref={wrapperRef}
-    >
-      <MobileNavOverlayHeader />
-      <MobileNavOverlayLinks />
-    </div>
+    <>
+      {isOpen && (
+        <div
+          sx={{
+            position: "fixed",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            right: "40px",
+            background: "rgba(49, 72, 94, 0.62)",
+            backdropFilter: "blur(74px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            zIndex: 99,
+          }}
+          ref={wrapperRef}
+        >
+          <MobileNavOverlayHeader />
+          <MobileNavOverlayLinks />
+        </div>
+      )}
+    </>
   );
 };
 

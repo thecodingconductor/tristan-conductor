@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { useState, createContext } from "react";
+import React, { useState, useContext } from "react";
 import * as PropTypes from "prop-types";
 import Footer from "./Footer";
 import Background from "./atoms/Background/Background";
@@ -17,11 +17,15 @@ const propTypesShape = {
 
 const Layout = ({ children }) => {
   const { isLarge, isMediumAndBelow } = useBreakpoints();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const handleOverlayClick = () => {
-    setIsOpen(!isOpen);
-  };
+  // const handleOverlayClick = () => {
+  //   if (isOpen) {
+  //     openMenu();
+  //   } else {
+  //     closeMenu();
+  //   }
+  // };
 
   return (
     <MenuState>
@@ -31,7 +35,7 @@ const Layout = ({ children }) => {
           height: "100%",
         }}
       >
-        <MobileNavIcon onClick={handleOverlayClick} />
+        <MobileNavIcon />
         <div
           sx={{
             height: "inherit",
@@ -45,9 +49,12 @@ const Layout = ({ children }) => {
           {children}
         </div>
         <Footer />
+
+        {/* <button onClick={() => openMenu()}>Test Button</button>
+        <button onClick={() => closeMenu()}>Test Closen Button</button> */}
         <Background />
         {/* Change this */}
-        {isOpen && <MobileNavOverlay isExpanded={isOpen} />}
+        <MobileNavOverlay />
       </div>
     </MenuState>
   );

@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU } from "../types";
+import { OPEN_MENU, CLOSE_MENU, MENU_ACTION } from "../types";
 
 const menuReducer = (state, action) => {
   switch (action.type) {
