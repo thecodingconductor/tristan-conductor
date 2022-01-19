@@ -22,24 +22,33 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const Button = ({ onClick, label }: Props) => {
   return (
-    <button
-      onClick={onClick}
+    <div
       sx={{
-        ...resetButton,
         ...defaultFullWidthGridChild,
-        height: "60px",
-        width: "274px",
-        border: "1px solid #FFFFFF",
+        display: "flex",
+        justifyContent: "center",
+        mb: "100px",
       }}
     >
-      <span
+      <button
+        onClick={onClick}
         sx={{
-          color: "white",
+          ...resetButton,
+
+          height: "60px",
+          width: "274px",
+          border: "1px solid #FFFFFF",
         }}
       >
-        {label}
-      </span>
-    </button>
+        <span
+          sx={{
+            color: "white",
+          }}
+        >
+          {label}
+        </span>
+      </button>
+    </div>
   );
 };
 

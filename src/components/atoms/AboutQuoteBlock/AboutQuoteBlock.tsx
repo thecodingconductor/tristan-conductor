@@ -21,6 +21,7 @@ const AboutQuoteBlock = ({ quoteText }: Props) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        my: "120px",
       }}
     >
       <div>
@@ -34,7 +35,17 @@ const AboutQuoteBlock = ({ quoteText }: Props) => {
         </Themed.p>
       </div>
       <div>
-        <Themed.p>{quoteText}</Themed.p>
+        <Themed.p
+          sx={{
+            fontFamily: "quote",
+            fontStyle: "italic",
+            fontSize: "25px",
+            textAlign: "center",
+            mb: "50px",
+          }}
+        >
+          {quoteText}
+        </Themed.p>
       </div>
       <div>
         <Themed.p>-Tristan</Themed.p>

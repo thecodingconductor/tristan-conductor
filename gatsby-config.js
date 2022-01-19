@@ -37,6 +37,8 @@ module.exports = {
       __key: "pages",
     },
     "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",

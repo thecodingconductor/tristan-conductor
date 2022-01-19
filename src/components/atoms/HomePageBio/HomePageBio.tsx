@@ -19,7 +19,10 @@ const BioContainer = (props) => (
 );
 
 const HomePageBio = ({ bioText }: Props) => {
-  const splitText = JSON.stringify(bioText).split("\\n\\n");
+  let splitText = JSON.stringify(bioText).split("\\n\\n");
+  if (splitText.length < 2) {
+    splitText = JSON.stringify(bioText).split("\\n");
+  }
 
   return (
     <BioContainer>
