@@ -22,9 +22,7 @@ const GalleryGrid = ({ mediaItemsArray }: Props) => {
       }}
     >
       {mediaItemsArray.map((imageItem, i) => {
-        // console.log(imageItem.node.image.gatsbyImageData);
         const image = getImage(imageItem.node.image.gatsbyImageData);
-        // console.log(image);
 
         return (
           <div
@@ -34,7 +32,7 @@ const GalleryGrid = ({ mediaItemsArray }: Props) => {
             }}
             key={i}
           >
-            <GalleryMediaTile image={image} />
+            <GalleryMediaTile image={image} alt={imageItem.node.alt} />
           </div>
         );
       })}

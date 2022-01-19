@@ -69,7 +69,7 @@ const Gallery = (props) => {
 
   return (
     <Layout>
-      <HeaderComponent />
+      <HeaderComponent margin={50} />
       <GalleryGrid mediaItemsArray={data.allContentfulImageGallery.edges} />
       <Button
         label={"Download Press Kit"}
