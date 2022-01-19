@@ -5,7 +5,10 @@ import * as PropTypes from "prop-types";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
 import useIntersectionObserver from "../../../lib/hooks/useIntersectionObserver";
 import MenuContext from "../../../context/menu/menuContext";
-
+import {
+  resetButton,
+  defaultFullWidthGridChild,
+} from "../../../lib/utils/mixins";
 const propTypesShape = {
   margin: PropTypes.number,
 };
@@ -14,7 +17,14 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HeaderComponent = ({ margin }: Props) => {
   const menuContext = useContext(MenuContext);
-  const { isSideNavVisible, showSideNav, hideSideNav } = menuContext;
+  const {
+    isSideNavVisible,
+    showSideNav,
+    hideSideNav,
+    isOpen,
+    openMenu,
+    closeMenu,
+  } = menuContext;
   const headerComponentStyles = {
     background: "white",
     fontFamily: "heading",
@@ -29,6 +39,14 @@ const HeaderComponent = ({ margin }: Props) => {
 
   const isOnScreen = useIntersectionObserver(containerRef);
 
+  const handleHeaderClick = () => {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
+
   useEffect(() => {
     if (isSideNavVisible) {
       hideSideNav();
@@ -40,60 +58,69 @@ const HeaderComponent = ({ margin }: Props) => {
   return (
     <>
       {isLarge ? (
-        <div
+        <button
           sx={{
-            gridColumn: "1 / span 5",
-            gridRowStart: "1",
-            marginTop: `${margin}px`,
+            ...resetButton,
+            ...defaultFullWidthGridChild,
+            gridRow: "1",
           }}
-          ref={containerRef}
+          onClick={handleHeaderClick}
         >
           <div
             sx={{
-              height: "43px",
-              width: "264px",
-              marginBottom: "2px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              background: "white",
-            }}
-          >
-            <Themed.h1
-              sx={{
-                fontFamily: "heading",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "21px",
-              }}
-            >
-              Tristan Rais-Sherman,
-            </Themed.h1>
-          </div>
-          <div
-            sx={{
               gridColumn: "1 / span 5",
-              height: "43px",
-              width: "146px",
-              marginBottom: "40px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              background: "white",
+              gridRowStart: "1",
+              marginTop: `${margin}px`,
             }}
+            ref={containerRef}
           >
-            <Themed.h1
+            <div
               sx={{
-                fontFamily: "heading",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "21px",
+                height: "43px",
+                width: "264px",
+                marginBottom: "2px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "white",
               }}
             >
-              Conductor
-            </Themed.h1>
+              <Themed.h1
+                sx={{
+                  fontFamily: "heading",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "21px",
+                }}
+              >
+                Tristan Rais-Sherman,
+              </Themed.h1>
+            </div>
+            <div
+              sx={{
+                gridColumn: "1 / span 5",
+                height: "43px",
+                width: "146px",
+                marginBottom: "40px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "white",
+              }}
+            >
+              <Themed.h1
+                sx={{
+                  fontFamily: "heading",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "21px",
+                }}
+              >
+                Conductor
+              </Themed.h1>
+            </div>
           </div>
-        </div>
+        </button>
       ) : (
         <>
           <div
