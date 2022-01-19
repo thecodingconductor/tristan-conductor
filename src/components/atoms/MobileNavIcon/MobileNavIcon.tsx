@@ -13,7 +13,7 @@ import MenuContext from "../../../context/menu/menuContext";
 
 const MobileNavIcon = (props) => {
   const menuContext = useContext(MenuContext);
-  const { isOpen, openMenu, closeMenu } = menuContext;
+  const { isOpen, openMenu, closeMenu, isSideNavVisible } = menuContext;
 
   const menuToggle = () => {
     if (isOpen) {
@@ -24,38 +24,42 @@ const MobileNavIcon = (props) => {
   };
 
   return (
-    <div
-      sx={{
-        height: "43px",
-        width: "88px",
-        background: "white",
-        position: "fixed",
-        zIndex: 100,
-        top: "30px",
-        left: 0,
-      }}
-    >
-      <button
-        sx={{
-          ...resetButton,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          width: "100%",
-        }}
-        onClick={menuToggle}
-      >
-        <Themed.h1
+    <>
+      {isSideNavVisible && (
+        <div
           sx={{
-            color: "black",
-            fontSize: "21px",
+            height: "43px",
+            width: "88px",
+            background: "white",
+            position: "fixed",
+            zIndex: 100,
+            top: "30px",
+            left: 0,
           }}
         >
-          T R - S
-        </Themed.h1>
-      </button>
-    </div>
+          <button
+            sx={{
+              ...resetButton,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+              width: "100%",
+            }}
+            onClick={menuToggle}
+          >
+            <Themed.h1
+              sx={{
+                color: "black",
+                fontSize: "21px",
+              }}
+            >
+              T R - S
+            </Themed.h1>
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 

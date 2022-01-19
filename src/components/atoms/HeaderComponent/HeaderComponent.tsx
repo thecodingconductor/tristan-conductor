@@ -1,16 +1,38 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
+import useIntersectionObserver from "../../../lib/hooks/useIntersectionObserver";
+import MenuContext from "../../../context/menu/menuContext";
 
 const HeaderComponent = () => {
+  const menuContext = useContext(MenuContext);
+  const { isSideNavVisible, showSideNav, hideSideNav } = menuContext;
   const headerComponentStyles = {
     background: "white",
     fontFamily: "heading",
     color: "#000",
   };
 
+  // const desktopContainerRef = useRef<HTMLDivElement>(null);
+  // const mobileContainerRef = useRef<HTMLDivElement>(null);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const { isLarge } = useBreakpoints();
+
+  // const desktopIsOnScreen = useIntersectionObserver(desktopContainerRef);
+  // const mobileIsOnScreen = useIntersectionObserver(mobileContainerRef);
+
+  const isOnScreen = useIntersectionObserver(containerRef);
+
+  useEffect(() => {
+    if (isSideNavVisible) {
+      hideSideNav();
+    } else {
+      showSideNav();
+    }
+  }, [isOnScreen]);
 
   return (
     <>
@@ -20,6 +42,7 @@ const HeaderComponent = () => {
             gridColumn: "1 / span 5",
             gridRowStart: "1",
           }}
+          ref={containerRef}
         >
           <div
             sx={{
@@ -80,6 +103,7 @@ const HeaderComponent = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
+            ref={containerRef}
           >
             <Themed.h1
               sx={{

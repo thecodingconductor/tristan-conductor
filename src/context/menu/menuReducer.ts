@@ -1,4 +1,10 @@
-import { OPEN_MENU, CLOSE_MENU, MENU_ACTION } from "../types";
+import {
+  OPEN_MENU,
+  CLOSE_MENU,
+  MENU_ACTION,
+  SHOW_SIDE_NAV,
+  HIDE_SIDE_NAV,
+} from "../types";
 
 const menuReducer = (state, action) => {
   switch (action.type) {
@@ -11,6 +17,16 @@ const menuReducer = (state, action) => {
       return {
         ...state,
         isOpen: false,
+      };
+    case SHOW_SIDE_NAV:
+      return {
+        ...state,
+        isSideNavVisible: true,
+      };
+    case HIDE_SIDE_NAV:
+      return {
+        ...state,
+        isSideNavVisible: false,
       };
     default:
       return state;

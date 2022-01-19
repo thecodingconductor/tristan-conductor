@@ -13,7 +13,7 @@ const useIntersectionObserver = (
   intersectionObserverOptions?: IntersectionObserverOptions
 ) => {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [isOnScreen, setIsOnScreen] = useState(false);
+  const [isOnScreen, setIsOnScreen] = useState(true);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(([entry]) => {
@@ -22,7 +22,9 @@ const useIntersectionObserver = (
   }, []);
 
   useEffect(() => {
-    observerRef.current.observe(ref.current);
+    if (ref.current !== null) {
+      observerRef.current.observe(ref.current);
+    }
 
     return () => {
       observerRef.current.disconnect();
