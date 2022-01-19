@@ -8,6 +8,7 @@ import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
 import useBreakpoints from "../lib/hooks/useBreakpoints";
 import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
 import "@fontsource/inter";
+import "@fontsource/lora";
 
 import MenuState from "../context/menu/MenuState";
 

@@ -17,6 +17,7 @@ export default {
     body: "Inter, sans-serif",
     heading: "Inter, sans-serif",
     monospace: "Menlo, monospace",
+    quote: "Lora, sans-serif",
   },
   fontWeights: {
     body: 400,
