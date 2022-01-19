@@ -18,7 +18,7 @@ const MobileNavOverlayLinks = () => {
       }}
     >
       <li>
-        <MobileNavLink slug={"/latest"} text={"Latest"} />
+        <MobileNavLink slug={"/"} text={"Home"} />
       </li>
       <li>
         <MobileNavLink slug={"/about"} text={"About"} />

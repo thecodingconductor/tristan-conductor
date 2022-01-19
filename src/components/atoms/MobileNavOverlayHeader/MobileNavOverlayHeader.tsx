@@ -6,7 +6,7 @@ import MenuContext from "../../../context/menu/menuContext";
 
 const MobileNavOverlayHeader = () => {
   const menuContext = useContext(MenuContext);
-  const { isOpen, closeMenu, openMenu } = menuContext;
+  const { closeMenu } = menuContext;
 
   return (
     <button
