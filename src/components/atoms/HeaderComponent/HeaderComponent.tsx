@@ -31,7 +31,7 @@ const HeaderComponent = ({ margin }: Props) => {
     color: "#000",
   };
 
-  console.log(margin);
+  // console.log(margin);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
