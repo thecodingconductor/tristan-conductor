@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
 import React from "react";
 import * as PropTypes from "prop-types";
+import { defaultFullWidthGridChild } from "../../../lib/utils/mixins";
 
 const propTypesShape = {
   /**
@@ -16,26 +17,27 @@ const AboutQuoteBlock = ({ quoteText }: Props) => {
   return (
     <div
       sx={{
+        ...defaultFullWidthGridChild,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
       <div>
-        <p
+        <Themed.p
           sx={{
             fontFamily: "quote",
             fontSize: "128px",
           }}
         >
           "
-        </p>
+        </Themed.p>
       </div>
       <div>
-        <p>{quoteText}</p>
+        <Themed.p>{quoteText}</Themed.p>
       </div>
       <div>
-        <p>-Tristan</p>
+        <Themed.p>-Tristan</Themed.p>
       </div>
     </div>
   );

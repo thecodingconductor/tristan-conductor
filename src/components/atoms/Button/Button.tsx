@@ -2,7 +2,10 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import * as PropTypes from "prop-types";
-import { resetButton } from "../../../lib/utils/mixins";
+import {
+  resetButton,
+  defaultFullWidthGridChild,
+} from "../../../lib/utils/mixins";
 
 const propTypesShape = {
   /**
@@ -23,6 +26,7 @@ const Button = ({ onClick, label }: Props) => {
       onClick={onClick}
       sx={{
         ...resetButton,
+        ...defaultFullWidthGridChild,
         height: "60px",
         width: "274px",
         border: "1px solid #FFFFFF",

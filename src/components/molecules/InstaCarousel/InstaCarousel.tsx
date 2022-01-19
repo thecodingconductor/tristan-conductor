@@ -38,7 +38,6 @@ const swiperWrapperStyles = {
 };
 
 const InstaCarousel = ({ instaPosts }: Props) => {
-  console.log(instaPosts);
   return (
     <div
       sx={{
@@ -47,7 +46,6 @@ const InstaCarousel = ({ instaPosts }: Props) => {
     >
       <Swiper watchSlidesProgress spaceBetween={14} slidesPerView={1.5}>
         {instaPosts.map((post) => {
-          console.log(post);
           return (
             <SwiperSlide key={post.node.id}>
               <HomePageInstaTile node={post.node} />

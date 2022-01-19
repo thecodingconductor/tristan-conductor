@@ -23,3 +23,7 @@ export const resetButton = {
   margin: 0,
   padding: 0,
 };
+
+export const defaultFullWidthGridChild = {
+  gridColumn: ["1 / span 5", null, "1 / span 12"],
+};

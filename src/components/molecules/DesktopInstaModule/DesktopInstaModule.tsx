@@ -37,7 +37,6 @@ const DesktopInstaModule = ({ instaPosts }: Props) => {
       }}
     >
       {instaPosts.map((post) => {
-        console.log(post);
         return (
           <div
             sx={{

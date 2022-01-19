@@ -21,9 +21,6 @@ const HeaderComponent = () => {
 
   const { isLarge } = useBreakpoints();
 
-  // const desktopIsOnScreen = useIntersectionObserver(desktopContainerRef);
-  // const mobileIsOnScreen = useIntersectionObserver(mobileContainerRef);
-
   const isOnScreen = useIntersectionObserver(containerRef);
 
   useEffect(() => {

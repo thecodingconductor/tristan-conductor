@@ -1,15 +1,9 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { resetButton } from "../../../lib/utils/mixins";
 import MenuContext from "../../../context/menu/menuContext";
-
-// const propTypesShape = {
-//   onClick: PropTypes.func.isRequired,
-// };
-
-// type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const MobileNavIcon = (props) => {
   const menuContext = useContext(MenuContext);
