@@ -24,13 +24,6 @@ const MenuState = (props) => {
     });
   };
 
-  // const menuAction = () => {
-  //   console.log(state);
-  //   dispatch({
-  //     type: MENU_ACTION,
-  //   });
-  // };
-
   return (
     <MenuContext.Provider
       value={{

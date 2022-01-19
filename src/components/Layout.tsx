@@ -17,15 +17,6 @@ const propTypesShape = {
 
 const Layout = ({ children }) => {
   const { isLarge, isMediumAndBelow } = useBreakpoints();
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // const handleOverlayClick = () => {
-  //   if (isOpen) {
-  //     openMenu();
-  //   } else {
-  //     closeMenu();
-  //   }
-  // };
 
   return (
     <MenuState>
@@ -50,10 +41,8 @@ const Layout = ({ children }) => {
         </div>
         <Footer />
 
-        {/* <button onClick={() => openMenu()}>Test Button</button>
-        <button onClick={() => closeMenu()}>Test Closen Button</button> */}
         <Background />
-        {/* Change this */}
+
         <MobileNavOverlay />
       </div>
     </MenuState>

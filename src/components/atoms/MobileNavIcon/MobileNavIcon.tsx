@@ -15,12 +15,7 @@ const MobileNavIcon = (props) => {
   const menuContext = useContext(MenuContext);
   const { isOpen, openMenu, closeMenu } = menuContext;
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
-
   const menuToggle = () => {
-    console.log(isOpen);
     if (isOpen) {
       closeMenu();
     } else {

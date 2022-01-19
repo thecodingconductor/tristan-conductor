@@ -15,13 +15,9 @@ const MobileNavOverlay = (props) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    console.log(isOpen);
-    // This is causing the background bug
     if (isOpen) {
-      console.log("is open is true");
       document.body.style.height = "100vh";
     } else {
-      console.log("is open is false");
       document.body.style.height = "";
     }
 
