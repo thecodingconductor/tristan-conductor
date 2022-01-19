@@ -1,11 +1,18 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React, { useRef, useState, useEffect, useContext } from "react";
+import * as PropTypes from "prop-types";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
 import useIntersectionObserver from "../../../lib/hooks/useIntersectionObserver";
 import MenuContext from "../../../context/menu/menuContext";
 
-const HeaderComponent = () => {
+const propTypesShape = {
+  margin: PropTypes.number,
+};
+
+type Props = PropTypes.InferProps<typeof propTypesShape>;
+
+const HeaderComponent = ({ margin }: Props) => {
   const menuContext = useContext(MenuContext);
   const { isSideNavVisible, showSideNav, hideSideNav } = menuContext;
   const headerComponentStyles = {
@@ -14,8 +21,7 @@ const HeaderComponent = () => {
     color: "#000",
   };
 
-  // const desktopContainerRef = useRef<HTMLDivElement>(null);
-  // const mobileContainerRef = useRef<HTMLDivElement>(null);
+  console.log(margin);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -38,6 +44,7 @@ const HeaderComponent = () => {
           sx={{
             gridColumn: "1 / span 5",
             gridRowStart: "1",
+            marginTop: `${margin}px`,
           }}
           ref={containerRef}
         >
@@ -95,6 +102,7 @@ const HeaderComponent = () => {
               height: "43px",
               width: "264px",
               marginBottom: "2px",
+              marginTop: `${margin}px`,
               background: "white",
               display: "flex",
               justifyContent: "center",

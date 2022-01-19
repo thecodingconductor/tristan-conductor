@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Themed } from "theme-ui";
 import React from "react";
 import Layout from "../../components/Layout";
 import Button from "../../components/atoms/Button/Button";
@@ -20,11 +22,17 @@ const About = () => {
 
   return (
     <Layout>
-      <HeaderComponent />
+      <HeaderComponent margin={50} />
       {!isLarge && <MobileAboutSpacer />}
       <StaticImage
         src="../../images/tristan-portrait 1.jpg"
         alt="Tristan sitting against brick wall."
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: -20,
+        }}
       />
       <HomePageBio bioText={dummyAboutText.bio1} />
       <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
