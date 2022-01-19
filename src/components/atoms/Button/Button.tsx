@@ -16,15 +16,19 @@ const propTypesShape = {
    * Text string which appears in button.
    */
   label: PropTypes.string.isRequired,
+  /**
+   * Boolean for if it is not wrapped
+   */
+  isParent: PropTypes.bool,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const Button = ({ onClick, label }: Props) => {
+const Button = ({ onClick, label, isParent }: Props) => {
   return (
     <div
       sx={{
-        ...defaultFullWidthGridChild,
+        ...(isParent && { gridColumn: ["1 / span 5", null, "1 / span 12"] }),
         display: "flex",
         justifyContent: "center",
         mb: "100px",
