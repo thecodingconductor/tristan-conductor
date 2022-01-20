@@ -3,3 +3,7 @@ export const CLOSE_MENU = "CLOSE_MENU";
 export const MENU_ACTION = "MENU_ACTION";
 export const SHOW_SIDE_NAV = "SHOW_SIDE_NAV";
 export const HIDE_SIDE_NAV = "HIDE_SIDE_NAV";
+export const SHOW_PHOTO_VIEW = "SHOW_PHOTO_VIEW";
+export const SHOW_VIDEO_VIEW = "SHOW_VIDEO_VIEW";
+export const SET_VIDEO = "SET_VIDEO";
+export const SET_PHOTO = "SET_PHOTO";

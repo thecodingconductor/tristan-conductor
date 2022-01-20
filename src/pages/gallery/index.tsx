@@ -8,7 +8,10 @@ import Button from "../../components/atoms/Button/Button";
 import GalleryGrid from "../../components/molecules/GalleryGrid/GalleryGrid";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 import { resetButton } from "../../lib/utils/mixins";
-
+import GalleryContext from "../../context/gallery/galleryContext";
+import MenuContext from "../../context/menu/menuContext";
+import GalleryState from "../../context/gallery/GalleryState";
+import GalleryButton from "../../components/atoms/GalleryButton/GalleryButton";
 const dummyGridImages = [
   {
     src: "../../images/tristan-portrait 1.jpg",
@@ -66,88 +69,48 @@ const Gallery = (props) => {
           }
         }
       }
+      allContentfulVideos {
+        edges {
+          node {
+            videoTitle
+            videoUrl
+          }
+        }
+      }
     }
   `);
 
-  // console.log(data.allContentfulImageGallery.edges);
-
   return (
     <Layout>
-      <HeaderComponent margin={50} />
-      <div
-        sx={{
-          position: "absolute",
-          top: "200px",
-          left: 0,
-          right: 0,
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          borderBottom: "1px solid rgba(255,255,255, 0.13)",
+      <GalleryState>
+        <HeaderComponent margin={50} />
+        <div
+          sx={{
+            position: "absolute",
+            top: "200px",
+            left: 0,
+            right: 0,
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            borderBottom: "1px solid rgba(255,255,255, 0.13)",
+          }}
+        >
+          <GalleryButton label={"Photo"} />
+          <GalleryButton label={"Video"} />
+        </div>
 
-          // ":not(:empty)::before": {
-          //   marginRight: ".25em",
-          // },
-          // ":not(:empty)::after": {
-          //   marginLeft: ".25em",
-          // },
-        }}
-      >
-        <button
-          sx={{
-            ...resetButton,
-            // "::before": {
-            //   // display: "flex",
-            //   // justifyContent: "space-evenly",
-            //   // alignItems: "center",
-            //   content: '""',
-            //   width: "100px",
-            //   borderBottom: "1px solid rgba(255,255,255, 0.13)",
-            // },
-          }}
-        >
-          <Themed.h2>Photo</Themed.h2>
-        </button>
-        <button
-          sx={{
-            ...resetButton,
-            // "::before, ::after": {
-            //   content: '""',
-            //   // flex: 1,
-            //   borderBottom: "1px solid rgba(255,255,255, 0.13)",
-            // },
-          }}
-        >
-          <Themed.h2>Video</Themed.h2>
-        </button>
+        <GalleryGrid
+          photoItemsArray={data.allContentfulImageGallery.edges}
+          videoItemsArray={data.allContentfulVideos.edges}
+        />
 
-        {/* <span
-          sx={{
-            padding: "0 10px",
-          }}
-        >
-          <Themed.h2
-            sx={{
-              display: "inline-block",
-            }}
-          >
-            Photo
-          </Themed.h2>
-        </span>
-        <span
-          sx={{
-            padding: "0 10px",
-          }}
-        >
-          <Themed.h2>Video</Themed.h2> */}
-        {/* </span> */}
-      </div>
-      <GalleryGrid mediaItemsArray={data.allContentfulImageGallery.edges} />
-      <Button
-        label={"Download Press Kit"}
-        onClick={() => console.log("download press kit")}
-        isParent
-      />
+        <Button
+          label={"Download Press Kit"}
+          onClick={() => console.log("download press kit")}
+          isParent
+        />
+      </GalleryState>
     </Layout>
   );
 };

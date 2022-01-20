@@ -17,6 +17,7 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HeaderComponent = ({ margin }: Props) => {
   const menuContext = useContext(MenuContext);
+
   const {
     isSideNavVisible,
     showSideNav,
@@ -25,6 +26,7 @@ const HeaderComponent = ({ margin }: Props) => {
     openMenu,
     closeMenu,
   } = menuContext;
+
   const headerComponentStyles = {
     background: "white",
     fontFamily: "heading",

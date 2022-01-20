@@ -7,16 +7,16 @@ import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
 import HomePageVideoSubtitle from "../components/atoms/HomePageVideoSubtitle/HomePageVideoSubtitle";
 import Divider from "../components/atoms/Divider/Divider";
-import HomePageNewsItem from "../components/atoms/HomePageNewsItem/HomePageNewsItem";
+
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
 import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
-import Image from "gatsby-image";
 import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
 import useBreakpoints from "../lib/hooks/useBreakpoints";
 import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
 import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
-import MobileNavIcon from "../components/atoms/MobileNavIcon/MobileNavIcon";
+
+import GalleryContext from "../context/gallery/galleryContext";
 
 const dummySocialMedia = [
   {

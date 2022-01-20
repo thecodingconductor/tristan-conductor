@@ -7,6 +7,7 @@ import MenuContext from "../../../context/menu/menuContext";
 
 const MobileNavIcon = (props) => {
   const menuContext = useContext(MenuContext);
+
   const { isOpen, openMenu, closeMenu, isSideNavVisible } = menuContext;
 
   const menuToggle = () => {
