@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Button from "../../components/atoms/Button/Button";
 import AboutQuoteBlock from "../../components/atoms/AboutQuoteBlock/AboutQuoteBlock";
@@ -11,6 +12,7 @@ import HomePageBio from "../../components/atoms/HomePageBio/HomePageBio";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
+import GalleryMediaTile from "../../components/atoms/GalleryMediaTile/GalleryMediaTile";
 
 const dummyAboutText = {
   bio1: `Driven by the mission to create the future of classical music through unconventional and innovative means, Tristan has been building audiences on digital platforms such as Twitch, and exploring the possibilities of combining classical music with interactive mediums. His aim is nothing less than to blaze a new path for the future of classical music—one that is exciting, inclusive, and engaging. 

@@ -7,6 +7,7 @@ import Layout from "../../components/Layout";
 import Button from "../../components/atoms/Button/Button";
 import GalleryGrid from "../../components/molecules/GalleryGrid/GalleryGrid";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
+import { resetButton } from "../../lib/utils/mixins";
 
 const dummyGridImages = [
   {
@@ -82,15 +83,43 @@ const Gallery = (props) => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
-          "::before, ::after": {
-            content: '""',
-            flex: 1,
-            borderBottom: "1px solid rgba(255,255,255, 0.13)",
-          },
+          borderBottom: "1px solid rgba(255,255,255, 0.13)",
+
+          // ":not(:empty)::before": {
+          //   marginRight: ".25em",
+          // },
+          // ":not(:empty)::after": {
+          //   marginLeft: ".25em",
+          // },
         }}
       >
-        <Themed.h2>Photo</Themed.h2>
-        <Themed.h2>Video</Themed.h2>
+        <button
+          sx={{
+            ...resetButton,
+            // "::before": {
+            //   // display: "flex",
+            //   // justifyContent: "space-evenly",
+            //   // alignItems: "center",
+            //   content: '""',
+            //   width: "100px",
+            //   borderBottom: "1px solid rgba(255,255,255, 0.13)",
+            // },
+          }}
+        >
+          <Themed.h2>Photo</Themed.h2>
+        </button>
+        <button
+          sx={{
+            ...resetButton,
+            // "::before, ::after": {
+            //   content: '""',
+            //   // flex: 1,
+            //   borderBottom: "1px solid rgba(255,255,255, 0.13)",
+            // },
+          }}
+        >
+          <Themed.h2>Video</Themed.h2>
+        </button>
 
         {/* <span
           sx={{
