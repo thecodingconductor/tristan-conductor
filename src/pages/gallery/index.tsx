@@ -53,11 +53,14 @@ const Gallery = (props) => {
       allContentfulImageGallery {
         edges {
           node {
-            height
-            width
             alt
             image {
-              gatsbyImageData(aspectRatio: 1)
+              gatsbyImageData(
+                aspectRatio: 1
+                layout: CONSTRAINED
+                width: 368
+                height: 368
+              )
             }
           }
         }
@@ -65,7 +68,7 @@ const Gallery = (props) => {
     }
   `);
 
-  console.log(data.allContentfulImageGallery.edges);
+  // console.log(data.allContentfulImageGallery.edges);
 
   return (
     <Layout>
