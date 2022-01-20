@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
@@ -73,6 +73,46 @@ const Gallery = (props) => {
   return (
     <Layout>
       <HeaderComponent margin={50} />
+      <div
+        sx={{
+          position: "absolute",
+          top: "200px",
+          left: 0,
+          right: 0,
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          "::before, ::after": {
+            content: '""',
+            flex: 1,
+            borderBottom: "1px solid rgba(255,255,255, 0.13)",
+          },
+        }}
+      >
+        <Themed.h2>Photo</Themed.h2>
+        <Themed.h2>Video</Themed.h2>
+
+        {/* <span
+          sx={{
+            padding: "0 10px",
+          }}
+        >
+          <Themed.h2
+            sx={{
+              display: "inline-block",
+            }}
+          >
+            Photo
+          </Themed.h2>
+        </span>
+        <span
+          sx={{
+            padding: "0 10px",
+          }}
+        >
+          <Themed.h2>Video</Themed.h2> */}
+        {/* </span> */}
+      </div>
       <GalleryGrid mediaItemsArray={data.allContentfulImageGallery.edges} />
       <Button
         label={"Download Press Kit"}
