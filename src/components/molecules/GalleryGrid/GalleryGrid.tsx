@@ -19,8 +19,9 @@ const GalleryGrid = ({ photoItemsArray, videoItemsArray }: Props) => {
   const galleryContext = useContext(GalleryContext);
   const { gridMediaType } = galleryContext;
 
-  console.log(gridMediaType);
-
+  useEffect(() => {
+    console.log(galleryContext);
+  }, [galleryContext]);
   return (
     <div
       sx={{

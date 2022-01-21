@@ -13,16 +13,6 @@ const GalleryState = (props) => {
   const [state, dispatch] = useReducer(galleryReducer, initialState);
 
   const changeMediaType = (label: string) => {
-    // if (label.toLowerCase().trim() === "photo") {
-    //   dispatch({
-    //     type: SET_VIDEO,
-    //   });
-    // } else if (label.toLowerCase().trim() === "video") {
-    //   dispatch({
-    //     type: SET_PHOTO,
-    //   });
-    // }
-
     if (label.toLocaleLowerCase().trim() === state.gridMediaType) {
       return;
     }

@@ -8,10 +8,8 @@ import Button from "../../components/atoms/Button/Button";
 import GalleryGrid from "../../components/molecules/GalleryGrid/GalleryGrid";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 import { resetButton } from "../../lib/utils/mixins";
-import GalleryContext from "../../context/gallery/galleryContext";
-import MenuContext from "../../context/menu/menuContext";
-import GalleryState from "../../context/gallery/GalleryState";
 import GalleryButton from "../../components/atoms/GalleryButton/GalleryButton";
+import GlobalContext from "../../context/global/globalContext";
 const dummyGridImages = [
   {
     src: "../../images/tristan-portrait 1.jpg",
@@ -80,37 +78,46 @@ const Gallery = (props) => {
     }
   `);
 
+  console.log(props);
+
   return (
     <Layout>
-      <GalleryState>
-        <HeaderComponent margin={50} />
-        <div
-          sx={{
-            position: "absolute",
-            top: "200px",
-            left: 0,
-            right: 0,
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            borderBottom: "1px solid rgba(255,255,255, 0.13)",
-          }}
-        >
-          <GalleryButton label={"Photo"} />
-          <GalleryButton label={"Video"} />
-        </div>
+      <GlobalContext.Consumer>
+        {(context) => {
+          console.log(context);
+          return (
+            <>
+              <HeaderComponent margin={50} />
+              <div
+                sx={{
+                  position: "absolute",
+                  top: "200px",
+                  left: 0,
+                  right: 0,
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                  borderBottom: "1px solid rgba(255,255,255, 0.13)",
+                }}
+              >
+                <GalleryButton label={"Photo"} />
+                <GalleryButton label={"Video"} />
+              </div>
 
-        <GalleryGrid
-          photoItemsArray={data.allContentfulImageGallery.edges}
-          videoItemsArray={data.allContentfulVideos.edges}
-        />
+              <GalleryGrid
+                photoItemsArray={data.allContentfulImageGallery.edges}
+                videoItemsArray={data.allContentfulVideos.edges}
+              />
 
-        <Button
-          label={"Download Press Kit"}
-          onClick={() => console.log("download press kit")}
-          isParent
-        />
-      </GalleryState>
+              <Button
+                label={"Download Press Kit"}
+                onClick={() => console.log("download press kit")}
+                isParent
+              />
+            </>
+          );
+        }}
+      </GlobalContext.Consumer>
     </Layout>
   );
 };

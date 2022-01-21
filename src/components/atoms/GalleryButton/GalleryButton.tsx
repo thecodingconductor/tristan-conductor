@@ -14,7 +14,11 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 const GalleryButton = ({ label }: Props) => {
   const galleryContext = useContext(GalleryContext);
 
-  const { changeMediaType } = galleryContext;
+  const { changeMediaType, gridMediaType } = galleryContext;
+
+  // useEffect(() => {
+  //   console.log(gridMediaType);
+  // }, [gridMediaType]);
 
   return (
     <button
