@@ -17,7 +17,6 @@ const MobileNavIcon = ({
   isSideNavVisible,
   isOpen,
 }: Props) => {
-  console.log(closeMenu, openMenu, isSideNavVisible, isOpen);
   const menuToggle = () => {
     if (isOpen) {
       closeMenu();

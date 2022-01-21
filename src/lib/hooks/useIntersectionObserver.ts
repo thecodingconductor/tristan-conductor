@@ -2,6 +2,7 @@ import "intersection-observer";
 
 import { RefObject, useEffect, useRef, useState } from "react";
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 type IntersectionObserverOptions = {
   root?: Element | Document;
   rootMargin?: string;
@@ -13,7 +14,7 @@ const useIntersectionObserver = (
   intersectionObserverOptions?: IntersectionObserverOptions
 ) => {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [isOnScreen, setIsOnScreen] = useState(true);
+  const [isOnScreen, setIsOnScreen] = useState(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(([entry]) => {
@@ -22,9 +23,7 @@ const useIntersectionObserver = (
   }, []);
 
   useEffect(() => {
-    if (ref.current !== null) {
-      observerRef.current.observe(ref.current);
-    }
+    observerRef.current.observe(ref.current);
 
     return () => {
       observerRef.current.disconnect();

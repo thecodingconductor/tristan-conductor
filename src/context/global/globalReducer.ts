@@ -40,12 +40,16 @@ const globalReducer = (state, action) => {
     case SHOW_SIDE_NAV:
       return {
         ...state,
-        isSideNavVisible: true,
+        menu: {
+          isSideNavVisible: true,
+        },
       };
     case HIDE_SIDE_NAV:
       return {
         ...state,
-        isSideNavVisible: false,
+        menu: {
+          isSideNavVisible: false,
+        },
       };
     default:
       return state;

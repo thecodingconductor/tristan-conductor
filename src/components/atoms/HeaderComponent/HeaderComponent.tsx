@@ -35,7 +35,7 @@ const HeaderComponent = ({
     color: "#000",
   };
 
-  // console.log(margin);
+  const [hasBeenScrolledTo, setHasBeenScrolledTo] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +52,7 @@ const HeaderComponent = ({
   };
 
   useEffect(() => {
-    if (isSideNavVisible) {
+    if (isOnScreen) {
       hideSideNav();
     } else {
       showSideNav();
