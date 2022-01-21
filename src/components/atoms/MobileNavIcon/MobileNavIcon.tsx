@@ -4,14 +4,12 @@ import * as PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { resetButton } from "../../../lib/utils/mixins";
 
-const propTypesShape = {
-  closeMenu: PropTypes.func.isRequired,
-  openMenu: PropTypes.func.isRequired,
-  isSideNavVisible: PropTypes.bool.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+type Props = {
+  closeMenu: Function;
+  openMenu: Function;
+  isSideNavVisible: boolean;
+  isOpen: boolean;
 };
-
-type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const MobileNavIcon = ({
   closeMenu,

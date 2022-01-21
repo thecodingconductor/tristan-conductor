@@ -6,13 +6,12 @@ import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNav
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
 
-const propTypesShape = {
-  isOpen: PropTypes.bool.isRequired,
+type Props = {
+  isOpen: boolean;
+  closeMenu: Function;
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
-
-const MobileNavOverlay = ({ isOpen }: Props) => {
+const MobileNavOverlay = ({ isOpen, closeMenu }: Props) => {
   const [shouldLockScroll, setShouldLockScroll] = useState(isOpen);
   const wrapperRef = useRef(null);
 
@@ -47,7 +46,7 @@ const MobileNavOverlay = ({ isOpen }: Props) => {
           }}
           ref={wrapperRef}
         >
-          <MobileNavOverlayHeader />
+          <MobileNavOverlayHeader closeMenu={closeMenu} />
           <MobileNavOverlayLinks />
         </div>
       )}

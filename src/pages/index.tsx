@@ -94,11 +94,28 @@ const IndexPage = (props) => {
     <Layout>
       <GlobalContext.Consumer>
         {({ menu, gallery }) => {
+          const {
+            closeMenu,
+            openMenu,
+            isSideNavVisible,
+            isOpen,
+            showSideNav,
+            hideSideNav,
+          } = menu;
           return (
             <>
               <HeroContainer
                 heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
-                headerElement={<HeaderComponent />}
+                headerElement={
+                  <HeaderComponent
+                    closeMenu={closeMenu}
+                    openMenu={openMenu}
+                    isSideNavVisible={isSideNavVisible}
+                    isOpen={isOpen}
+                    showSideNav={showSideNav}
+                    hideSideNav={hideSideNav}
+                  />
+                }
               />
               <HomePageVideo
                 videoSrcURL={videoURL}

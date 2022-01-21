@@ -4,22 +4,21 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import * as PropTypes from "prop-types";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
 import useIntersectionObserver from "../../../lib/hooks/useIntersectionObserver";
-import MenuContext from "../../../context/menu/menuContext";
+
 import {
   resetButton,
   defaultFullWidthGridChild,
 } from "../../../lib/utils/mixins";
-const propTypesShape = {
-  margin: PropTypes.number,
-  closeMenu: PropTypes.func.isRequired,
-  openMenu: PropTypes.func.isRequired,
-  isSideNavVisible: PropTypes.bool.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  showSideNav: PropTypes.func.isRequired,
-  hideSideNav: PropTypes.func.isRequired,
-};
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+type Props = {
+  margin?: number;
+  closeMenu: Function;
+  openMenu: Function;
+  isSideNavVisible: boolean;
+  isOpen: boolean;
+  showSideNav: Function;
+  hideSideNav: Function;
+};
 
 const HeaderComponent = ({
   margin,

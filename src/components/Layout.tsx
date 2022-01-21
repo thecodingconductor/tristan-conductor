@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
   return (
     <GlobalContext.Consumer>
       {({ gallery, menu }) => {
+        const { isOpen, isSideNavVisible, openMenu, closeMenu } = menu;
         return (
           <div
             sx={{
@@ -30,10 +31,10 @@ const Layout = ({ children }) => {
             }}
           >
             <MobileNavIcon
-              closeMenu={() => menu.closeMenu()}
-              openMenu={() => menu.openMenu()}
-              isOpen={menu.isOpen}
-              isSideNavVisible={menu.isSideNavVisible}
+              closeMenu={closeMenu}
+              openMenu={openMenu}
+              isOpen={isOpen}
+              isSideNavVisible={isSideNavVisible}
             />
             <div
               sx={{
@@ -55,7 +56,7 @@ const Layout = ({ children }) => {
 
             <Background />
 
-            <MobileNavOverlay isOpen={menu.isOpen} />
+            <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu} />
           </div>
         );
       }}
