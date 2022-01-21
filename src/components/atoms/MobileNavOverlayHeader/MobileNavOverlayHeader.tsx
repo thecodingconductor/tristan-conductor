@@ -1,13 +1,16 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React, { useContext } from "react";
+import * as PropTypes from "prop-types";
 import { resetButton } from "../../../lib/utils/mixins";
-import MenuContext from "../../../context/menu/menuContext";
 
-const MobileNavOverlayHeader = () => {
-  const menuContext = useContext(MenuContext);
-  const { closeMenu } = menuContext;
+const propTypesShape = {
+  closeMenu: PropTypes.func.isRequired,
+};
 
+type Props = PropTypes.InferProps<typeof propTypesShape>;
+
+const MobileNavOverlayHeader = ({ closeMenu }: Props) => {
   return (
     <button
       sx={{

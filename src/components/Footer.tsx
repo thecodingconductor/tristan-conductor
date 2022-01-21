@@ -1,12 +1,8 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React, { useState, useContext, useEffect } from "react";
-// import MenuContext from "../context/menu/menuContext";
 
 const Footer = () => {
-  // const menuContext = useContext(MenuContext);
-  // const { isOpen, openMenu, closeMenu } = menuContext;
-
   return (
     <div
       sx={{

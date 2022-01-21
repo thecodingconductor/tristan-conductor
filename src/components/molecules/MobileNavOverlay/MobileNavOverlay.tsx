@@ -5,12 +5,14 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
-import MenuContext from "../../../context/menu/menuContext";
 
-const MobileNavOverlay = (props) => {
-  const menuContext = useContext(MenuContext);
-  const { isOpen } = menuContext;
+const propTypesShape = {
+  isOpen: PropTypes.bool.isRequired,
+};
 
+type Props = PropTypes.InferProps<typeof propTypesShape>;
+
+const MobileNavOverlay = ({ isOpen }: Props) => {
   const [shouldLockScroll, setShouldLockScroll] = useState(isOpen);
   const wrapperRef = useRef(null);
 

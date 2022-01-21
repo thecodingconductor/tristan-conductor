@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
 
   return (
     <GlobalContext.Consumer>
-      {(context) => {
+      {({ gallery, menu }) => {
         return (
           <div
             sx={{
@@ -29,7 +29,12 @@ const Layout = ({ children }) => {
               height: "100%",
             }}
           >
-            <MobileNavIcon />
+            <MobileNavIcon
+              closeMenu={() => menu.closeMenu()}
+              openMenu={() => menu.openMenu()}
+              isOpen={menu.isOpen}
+              isSideNavVisible={menu.isSideNavVisible}
+            />
             <div
               sx={{
                 height: "inherit",
@@ -50,7 +55,7 @@ const Layout = ({ children }) => {
 
             <Background />
 
-            <MobileNavOverlay />
+            <MobileNavOverlay isOpen={menu.isOpen} />
           </div>
         );
       }}

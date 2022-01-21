@@ -11,22 +11,25 @@ import {
 } from "../../../lib/utils/mixins";
 const propTypesShape = {
   margin: PropTypes.number,
+  closeMenu: PropTypes.func.isRequired,
+  openMenu: PropTypes.func.isRequired,
+  isSideNavVisible: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  showSideNav: PropTypes.func.isRequired,
+  hideSideNav: PropTypes.func.isRequired,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const HeaderComponent = ({ margin }: Props) => {
-  const menuContext = useContext(MenuContext);
-
-  const {
-    isSideNavVisible,
-    showSideNav,
-    hideSideNav,
-    isOpen,
-    openMenu,
-    closeMenu,
-  } = menuContext;
-
+const HeaderComponent = ({
+  margin,
+  closeMenu,
+  openMenu,
+  isSideNavVisible,
+  isOpen,
+  showSideNav,
+  hideSideNav,
+}: Props) => {
   const headerComponentStyles = {
     background: "white",
     fontFamily: "heading",

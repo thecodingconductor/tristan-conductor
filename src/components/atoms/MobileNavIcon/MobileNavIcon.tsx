@@ -3,13 +3,23 @@ import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { resetButton } from "../../../lib/utils/mixins";
-import MenuContext from "../../../context/menu/menuContext";
 
-const MobileNavIcon = (props) => {
-  const menuContext = useContext(MenuContext);
+const propTypesShape = {
+  closeMenu: PropTypes.func.isRequired,
+  openMenu: PropTypes.func.isRequired,
+  isSideNavVisible: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
-  const { isOpen, openMenu, closeMenu, isSideNavVisible } = menuContext;
+type Props = PropTypes.InferProps<typeof propTypesShape>;
 
+const MobileNavIcon = ({
+  closeMenu,
+  openMenu,
+  isSideNavVisible,
+  isOpen,
+}: Props) => {
+  console.log(closeMenu, openMenu, isSideNavVisible, isOpen);
   const menuToggle = () => {
     if (isOpen) {
       closeMenu();

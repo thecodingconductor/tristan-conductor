@@ -17,6 +17,7 @@ import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent
 import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
 
 import GalleryContext from "../context/gallery/galleryContext";
+import GlobalContext from "../context/global/globalContext";
 
 const dummySocialMedia = [
   {
@@ -91,34 +92,46 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
-      <HeroContainer
-        heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
-        headerElement={<HeaderComponent />}
-      />
-      <HomePageVideo
-        videoSrcURL={videoURL}
-        videoTitle={
-          "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
-        }
-      />
-      <HomePageVideoSubtitle videoURL={videoURL} />
-      <Divider />
-      <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
-      <Divider />
-      <HomePageBio
-        bioText={data.allContentfulHomepageBioExcerpt.edges[0].node.text.text}
-      />
-      <Divider />
-      <HomePageSocial socialIcons={dummySocialMedia} />
-      {isSmall ? (
-        <InstaCarousel
-          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-        />
-      ) : (
-        <DesktopInstaModule
-          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-        />
-      )}
+      <GlobalContext.Consumer>
+        {({ menu, gallery }) => {
+          return (
+            <>
+              <HeroContainer
+                heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
+                headerElement={<HeaderComponent />}
+              />
+              <HomePageVideo
+                videoSrcURL={videoURL}
+                videoTitle={
+                  "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
+                }
+              />
+              <HomePageVideoSubtitle videoURL={videoURL} />
+              <Divider />
+              <HomePageNewsContainer
+                newsItems={data.allContentfulNewsStory.edges}
+              />
+              <Divider />
+              <HomePageBio
+                bioText={
+                  data.allContentfulHomepageBioExcerpt.edges[0].node.text.text
+                }
+              />
+              <Divider />
+              <HomePageSocial socialIcons={dummySocialMedia} />
+              {isSmall ? (
+                <InstaCarousel
+                  instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+                />
+              ) : (
+                <DesktopInstaModule
+                  instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+                />
+              )}
+            </>
+          );
+        }}
+      </GlobalContext.Consumer>
     </Layout>
   );
 };
