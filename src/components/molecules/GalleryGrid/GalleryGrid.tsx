@@ -11,17 +11,16 @@ import HomePageVideo from "../../atoms/HomePageVideo/HomePageVideo";
 const propTypesShape = {
   photoItemsArray: PropTypes.array.isRequired,
   videoItemsArray: PropTypes.array.isRequired,
+  gridMediaType: PropTypes.string.isRequired,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const GalleryGrid = ({ photoItemsArray, videoItemsArray }: Props) => {
-  const galleryContext = useContext(GalleryContext);
-  const { gridMediaType } = galleryContext;
-
-  useEffect(() => {
-    console.log(galleryContext);
-  }, [galleryContext]);
+const GalleryGrid = ({
+  photoItemsArray,
+  videoItemsArray,
+  gridMediaType,
+}: Props) => {
   return (
     <div
       sx={{

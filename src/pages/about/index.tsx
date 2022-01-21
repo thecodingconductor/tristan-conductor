@@ -13,6 +13,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
 import GalleryMediaTile from "../../components/atoms/GalleryMediaTile/GalleryMediaTile";
+import GlobalContext from "../../context/global/globalContext";
 
 const dummyAboutText = {
   bio1: `Driven by the mission to create the future of classical music through unconventional and innovative means, Tristan has been building audiences on digital platforms such as Twitch, and exploring the possibilities of combining classical music with interactive mediums. His aim is nothing less than to blaze a new path for the future of classical music—one that is exciting, inclusive, and engaging. 
@@ -26,34 +27,58 @@ const About = () => {
 
   return (
     <Layout>
-      <HeaderComponent margin={50} />
-      {!isLarge && <MobileAboutSpacer />}
-      <StaticImage
-        src="../../images/tristan-portrait 1.jpg"
-        alt="Tristan sitting against brick wall."
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: -20,
+      <GlobalContext.Consumer>
+        {({ menu }) => {
+          const {
+            closeMenu,
+            openMenu,
+            isSideNavVisible,
+            isOpen,
+            showSideNav,
+            hideSideNav,
+          } = menu;
+          return (
+            <>
+              <HeaderComponent
+                margin={50}
+                closeMenu={closeMenu}
+                openMenu={openMenu}
+                isSideNavVisible={isSideNavVisible}
+                isOpen={isOpen}
+                showSideNav={showSideNav}
+                hideSideNav={hideSideNav}
+              />
+              {!isLarge && <MobileAboutSpacer />}
+              <StaticImage
+                src="../../images/tristan-portrait 1.jpg"
+                alt="Tristan sitting against brick wall."
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  zIndex: -20,
+                }}
+              />
+              <HomePageBio bioText={dummyAboutText.bio1} />
+              <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
+              <HomePageBio bioText={dummyAboutText.bio1} />
+              <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
+              <Link
+                to="/events"
+                sx={{
+                  ...resetLink,
+                  gridColumn: ["1 / span 5", null, "1 / span 12"],
+                }}
+              >
+                <Button
+                  onClick={() => console.log("This is the button")}
+                  label={"View Season"}
+                />
+              </Link>
+            </>
+          );
         }}
-      />
-      <HomePageBio bioText={dummyAboutText.bio1} />
-      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
-      <HomePageBio bioText={dummyAboutText.bio1} />
-      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
-      <Link
-        to="/events"
-        sx={{
-          ...resetLink,
-          gridColumn: ["1 / span 5", null, "1 / span 12"],
-        }}
-      >
-        <Button
-          onClick={() => console.log("This is the button")}
-          label={"View Season"}
-        />
-      </Link>
+      </GlobalContext.Consumer>
     </Layout>
   );
 };

@@ -83,11 +83,29 @@ const Gallery = (props) => {
   return (
     <Layout>
       <GlobalContext.Consumer>
-        {(context) => {
-          console.log(context);
+        {({ menu, gallery }) => {
+          const {
+            closeMenu,
+            openMenu,
+            isSideNavVisible,
+            isOpen,
+            showSideNav,
+            hideSideNav,
+          } = menu;
+
+          const { changeMediaType, gridMediaType } = gallery;
+
           return (
             <>
-              <HeaderComponent margin={50} />
+              <HeaderComponent
+                margin={50}
+                closeMenu={closeMenu}
+                openMenu={openMenu}
+                isSideNavVisible={isSideNavVisible}
+                isOpen={isOpen}
+                showSideNav={showSideNav}
+                hideSideNav={hideSideNav}
+              />
               <div
                 sx={{
                   position: "absolute",
@@ -100,8 +118,16 @@ const Gallery = (props) => {
                   borderBottom: "1px solid rgba(255,255,255, 0.13)",
                 }}
               >
-                <GalleryButton label={"Photo"} />
-                <GalleryButton label={"Video"} />
+                <GalleryButton
+                  label={"Photo"}
+                  changeMediaType={changeMediaType}
+                  gridMediaType={gridMediaType}
+                />
+                <GalleryButton
+                  label={"Video"}
+                  changeMediaType={changeMediaType}
+                  gridMediaType={gridMediaType}
+                />
               </div>
 
               <GalleryGrid

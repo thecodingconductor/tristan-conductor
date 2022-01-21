@@ -4,22 +4,13 @@ import * as PropTypes from "prop-types";
 import React, { useContext, useEffect } from "react";
 import { resetButton } from "../../../lib/utils/mixins";
 
-import GalleryContext from "../../../context/gallery/galleryContext";
-const propTypesShape = {
-  label: PropTypes.string.isRequired,
+type Props = {
+  label: string;
+  changeMediaType: Function;
+  gridMediaType: string;
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
-
-const GalleryButton = ({ label }: Props) => {
-  const galleryContext = useContext(GalleryContext);
-
-  const { changeMediaType, gridMediaType } = galleryContext;
-
-  // useEffect(() => {
-  //   console.log(gridMediaType);
-  // }, [gridMediaType]);
-
+const GalleryButton = ({ label, changeMediaType, gridMediaType }: Props) => {
   return (
     <button
       onClick={() => changeMediaType(label)}
