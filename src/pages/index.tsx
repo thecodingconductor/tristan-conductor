@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Layout from "../components/Layout";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
@@ -16,7 +16,6 @@ import useBreakpoints from "../lib/hooks/useBreakpoints";
 import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
 import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
 
-import GalleryContext from "../context/gallery/galleryContext";
 import GlobalContext from "../context/global/globalContext";
 
 const dummySocialMedia = [

@@ -20,14 +20,16 @@ interface GlobalContextInterface {
   gallery: GalleryContextInterface;
 }
 
-const globalContext = createContext<GlobalContextInterface>({
-  menu: {
-    isOpen: false,
-    isSideNavVisible: false,
-  },
-  gallery: {
-    gridMediaType: "photo",
-  },
-});
+// const globalContext = createContext<GlobalContextInterface | null>({
+//   menu: {
+//     isOpen: false,
+//     isSideNavVisible: false,
+//   },
+//   gallery: {
+//     gridMediaType: "photo",
+//   },
+// });
+
+const globalContext = createContext<GlobalContextInterface | null>(null);
 
 export default globalContext;

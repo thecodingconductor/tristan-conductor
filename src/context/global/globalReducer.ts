@@ -13,6 +13,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         gallery: {
+          ...state.gallery,
           gridMediaType: "photo",
         },
       };
@@ -20,6 +21,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         gallery: {
+          ...state.gallery,
           gridMediaType: "video",
         },
       };
@@ -27,6 +29,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         menu: {
+          ...state.menu,
           isOpen: true,
         },
       };
@@ -34,6 +37,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         menu: {
+          ...state.menu,
           isOpen: false,
         },
       };
@@ -41,6 +45,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         menu: {
+          ...state.menu,
           isSideNavVisible: true,
         },
       };
@@ -48,6 +53,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         menu: {
+          ...state.menu,
           isSideNavVisible: false,
         },
       };
