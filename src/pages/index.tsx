@@ -37,6 +37,17 @@ const dummySocialMedia = [
 const IndexPage = (props) => {
   const { isSmall } = useBreakpoints();
 
+  const globalContext = useContext(GlobalContext);
+
+  const {
+    closeMenu,
+    openMenu,
+    isSideNavVisible,
+    isOpen,
+    showSideNav,
+    hideSideNav,
+  } = globalContext.menu;
+
   const data = useStaticQuery(graphql`
     query {
       allContentfulHeaderBio {
@@ -90,65 +101,45 @@ const IndexPage = (props) => {
   const videoURL = "https://www.youtube.com/embed/wct93OnrrYA";
 
   return (
-    <Layout>
-      <GlobalContext.Consumer>
-        {({ menu, gallery }) => {
-          const {
-            closeMenu,
-            openMenu,
-            isSideNavVisible,
-            isOpen,
-            showSideNav,
-            hideSideNav,
-          } = menu;
-          return (
-            <>
-              <HeroContainer
-                heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
-                headerElement={
-                  <HeaderComponent
-                    closeMenu={closeMenu}
-                    openMenu={openMenu}
-                    isSideNavVisible={isSideNavVisible}
-                    isOpen={isOpen}
-                    showSideNav={showSideNav}
-                    hideSideNav={hideSideNav}
-                  />
-                }
-              />
-              <HomePageVideo
-                videoSrcURL={videoURL}
-                videoTitle={
-                  "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
-                }
-              />
-              <HomePageVideoSubtitle videoURL={videoURL} />
-              <Divider />
-              <HomePageNewsContainer
-                newsItems={data.allContentfulNewsStory.edges}
-              />
-              <Divider />
-              <HomePageBio
-                bioText={
-                  data.allContentfulHomepageBioExcerpt.edges[0].node.text.text
-                }
-              />
-              <Divider />
-              <HomePageSocial socialIcons={dummySocialMedia} />
-              {isSmall ? (
-                <InstaCarousel
-                  instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-                />
-              ) : (
-                <DesktopInstaModule
-                  instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-                />
-              )}
-            </>
-          );
-        }}
-      </GlobalContext.Consumer>
-    </Layout>
+    <>
+      <HeroContainer
+        heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
+        headerElement={
+          <HeaderComponent
+            closeMenu={closeMenu}
+            openMenu={openMenu}
+            isSideNavVisible={isSideNavVisible}
+            isOpen={isOpen}
+            showSideNav={showSideNav}
+            hideSideNav={hideSideNav}
+          />
+        }
+      />
+      <HomePageVideo
+        videoSrcURL={videoURL}
+        videoTitle={
+          "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
+        }
+      />
+      <HomePageVideoSubtitle videoURL={videoURL} />
+      <Divider />
+      <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
+      <Divider />
+      <HomePageBio
+        bioText={data.allContentfulHomepageBioExcerpt.edges[0].node.text.text}
+      />
+      <Divider />
+      <HomePageSocial socialIcons={dummySocialMedia} />
+      {isSmall ? (
+        <InstaCarousel
+          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+        />
+      ) : (
+        <DesktopInstaModule
+          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
+        />
+      )}
+    </>
   );
 };
 

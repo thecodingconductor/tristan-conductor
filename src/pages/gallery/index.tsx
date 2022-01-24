@@ -10,46 +10,20 @@ import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderCompon
 import { resetButton } from "../../lib/utils/mixins";
 import GalleryButton from "../../components/atoms/GalleryButton/GalleryButton";
 import GlobalContext from "../../context/global/globalContext";
-const dummyGridImages = [
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-  {
-    src: "../../images/tristan-portrait 1.jpg",
-    alt: "Tristan Portrait",
-    height: 368,
-    width: 368,
-  },
-];
 
 const Gallery = (props) => {
+  const globalContext = useContext(GlobalContext);
+  const {
+    closeMenu,
+    openMenu,
+    isSideNavVisible,
+    isOpen,
+    showSideNav,
+    hideSideNav,
+  } = globalContext.menu;
+
+  const { changeMediaType, gridMediaType } = globalContext.gallery;
+
   const data = useStaticQuery(graphql`
     query {
       allContentfulImageGallery {
@@ -78,73 +52,52 @@ const Gallery = (props) => {
     }
   `);
 
-  console.log(props);
-
   return (
-    <Layout>
-      <GlobalContext.Consumer>
-        {({ menu, gallery }) => {
-          const {
-            closeMenu,
-            openMenu,
-            isSideNavVisible,
-            isOpen,
-            showSideNav,
-            hideSideNav,
-          } = menu;
-
-          const { changeMediaType, gridMediaType } = gallery;
-
-          return (
-            <>
-              <HeaderComponent
-                margin={50}
-                closeMenu={closeMenu}
-                openMenu={openMenu}
-                isSideNavVisible={isSideNavVisible}
-                isOpen={isOpen}
-                showSideNav={showSideNav}
-                hideSideNav={hideSideNav}
-              />
-              <div
-                sx={{
-                  position: "absolute",
-                  top: "200px",
-                  left: 0,
-                  right: 0,
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                  borderBottom: "1px solid rgba(255,255,255, 0.13)",
-                }}
-              >
-                <GalleryButton
-                  label={"Photo"}
-                  changeMediaType={changeMediaType}
-                  gridMediaType={gridMediaType}
-                />
-                <GalleryButton
-                  label={"Video"}
-                  changeMediaType={changeMediaType}
-                  gridMediaType={gridMediaType}
-                />
-              </div>
-
-              <GalleryGrid
-                photoItemsArray={data.allContentfulImageGallery.edges}
-                videoItemsArray={data.allContentfulVideos.edges}
-              />
-
-              <Button
-                label={"Download Press Kit"}
-                onClick={() => console.log("download press kit")}
-                isParent
-              />
-            </>
-          );
+    <>
+      <HeaderComponent
+        margin={50}
+        closeMenu={closeMenu}
+        openMenu={openMenu}
+        isSideNavVisible={isSideNavVisible}
+        isOpen={isOpen}
+        showSideNav={showSideNav}
+        hideSideNav={hideSideNav}
+      />
+      <div
+        sx={{
+          position: "absolute",
+          top: "200px",
+          left: 0,
+          right: 0,
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          borderBottom: "1px solid rgba(255,255,255, 0.13)",
         }}
-      </GlobalContext.Consumer>
-    </Layout>
+      >
+        <GalleryButton
+          label={"Photo"}
+          changeMediaType={changeMediaType}
+          gridMediaType={gridMediaType}
+        />
+        <GalleryButton
+          label={"Video"}
+          changeMediaType={changeMediaType}
+          gridMediaType={gridMediaType}
+        />
+      </div>
+
+      <GalleryGrid
+        photoItemsArray={data.allContentfulImageGallery.edges}
+        videoItemsArray={data.allContentfulVideos.edges}
+      />
+
+      <Button
+        label={"Download Press Kit"}
+        onClick={() => console.log("download press kit")}
+        isParent
+      />
+    </>
   );
 };
 
