@@ -8,7 +8,9 @@ import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderCompon
 import MobileAboutSpacer from "../../components/atoms/MobileAboutSpacer/MobileAboutSpacer";
 import useBreakpoints from "../../lib/hooks/useBreakpoints";
 import HomePageBio from "../../components/atoms/HomePageBio/HomePageBio";
-import { StaticImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { convertToBgImage } from "gbimage-bridge";
+import BackgroundImage from "gatsby-background-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
 
@@ -35,6 +37,27 @@ const About = () => {
     hideSideNav,
   } = globalContext.menu;
 
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulAboutPageBackground {
+        edges {
+          node {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const image = getImage(
+    data.allContentfulAboutPageBackground.edges[0].node.image.gatsbyImageData
+  );
+
+  const bgImage = convertToBgImage(image);
+
   useEffect(() => {
     isOpen && closeMenu();
 
@@ -53,16 +76,6 @@ const About = () => {
         hideSideNav={hideSideNav}
       />
       {!isLarge && <MobileAboutSpacer />}
-      <StaticImage
-        src="../../images/tristan-portrait 1.jpg"
-        alt="Tristan sitting against brick wall."
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: -20,
-        }}
-      />
       <HomePageBio bioText={dummyAboutText.bio1} />
       <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
       <HomePageBio bioText={dummyAboutText.bio1} />
@@ -79,6 +92,18 @@ const About = () => {
           label={"View Season"}
         />
       </Link>
+      <div
+        sx={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: -3,
+        }}
+      >
+        <GatsbyImage image={image} alt="testImage" />
+      </div>
     </>
   );
 };

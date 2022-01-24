@@ -29,14 +29,6 @@ const HeaderComponent = ({
   showSideNav,
   hideSideNav,
 }: Props) => {
-  const headerComponentStyles = {
-    background: "white",
-    fontFamily: "heading",
-    color: "#000",
-  };
-
-  const [hasBeenScrolledTo, setHasBeenScrolledTo] = useState(false);
-
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const { isLarge } = useBreakpoints();
@@ -44,8 +36,6 @@ const HeaderComponent = ({
   const entry = useIntersectionObserver(containerRef, {});
 
   const isVisible = !!entry?.isIntersecting;
-
-  console.log(`Render Section ${isSideNavVisible}`, { isVisible });
 
   const handleHeaderClick = () => {
     if (isOpen) {
@@ -56,7 +46,6 @@ const HeaderComponent = ({
   };
 
   useEffect(() => {
-    console.log("is on screen use effect");
     if (isVisible) {
       hideSideNav();
     } else {
