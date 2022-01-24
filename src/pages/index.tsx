@@ -39,6 +39,8 @@ const IndexPage = (props) => {
 
   const globalContext = useContext(GlobalContext);
 
+  console.log(props);
+
   const {
     closeMenu,
     openMenu,
@@ -99,6 +101,10 @@ const IndexPage = (props) => {
   `);
 
   const videoURL = "https://www.youtube.com/embed/wct93OnrrYA";
+
+  useEffect(() => {
+    isOpen && closeMenu();
+  }, []);
 
   return (
     <>

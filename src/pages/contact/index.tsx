@@ -1,11 +1,17 @@
-import React from "react";
-import Layout from "../../components/Layout";
+/** @jsx jsx */
+import { jsx, Themed } from "theme-ui";
+import React, { useEffect, useContext } from "react";
+import GlobalContext from "../../context/global/globalContext";
 
-const Contact = () => {
+const Contact = (props) => {
+  const globalContext = useContext(GlobalContext);
+
+  const { isSubmitted, onSubmit } = globalContext.form;
+
   return (
-    <Layout>
-      <div>This is the contact page</div>;
-    </Layout>
+    <>
+      <div>This is the contact page</div>
+    </>
   );
 };
 

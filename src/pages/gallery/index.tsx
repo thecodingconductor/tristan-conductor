@@ -52,6 +52,10 @@ const Gallery = (props) => {
     }
   `);
 
+  useEffect(() => {
+    isOpen && closeMenu();
+  }, []);
+
   return (
     <>
       <HeaderComponent

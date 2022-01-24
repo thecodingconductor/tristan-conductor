@@ -5,6 +5,7 @@ import {
   HIDE_SIDE_NAV,
   SET_VIDEO,
   SET_PHOTO,
+  SUBMIT_FORM,
 } from "../types";
 
 const globalReducer = (state, action) => {
@@ -55,6 +56,14 @@ const globalReducer = (state, action) => {
         menu: {
           ...state.menu,
           isSideNavVisible: false,
+        },
+      };
+    case SUBMIT_FORM:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          isSubmitted: true,
         },
       };
     default:

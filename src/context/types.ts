@@ -7,3 +7,4 @@ export const SHOW_PHOTO_VIEW = "SHOW_PHOTO_VIEW";
 export const SHOW_VIDEO_VIEW = "SHOW_VIDEO_VIEW";
 export const SET_VIDEO = "SET_VIDEO";
 export const SET_PHOTO = "SET_PHOTO";
+export const SUBMIT_FORM = "SUBMIT_FORM";

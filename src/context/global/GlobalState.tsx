@@ -9,6 +9,7 @@ import {
   HIDE_SIDE_NAV,
   SET_PHOTO,
   SET_VIDEO,
+  SUBMIT_FORM,
 } from "../types";
 
 const GlobalState = (props) => {
@@ -19,6 +20,9 @@ const GlobalState = (props) => {
     menu: {
       isOpen: false,
       isSideNavVisible: false,
+    },
+    form: {
+      isSubmitted: false,
     },
   };
 
@@ -47,20 +51,6 @@ const GlobalState = (props) => {
     });
   };
 
-  // const changeMediaType = (label: string) => {
-  //   if (state.gridMediaType === "photo") {
-  //     console.log("set video");
-  //     dispatch({
-  //       type: SET_VIDEO,
-  //     });
-  //   } else if (state.gridMediaType === "video") {
-  //     console.log("set photo");
-  //     dispatch({
-  //       type: SET_PHOTO,
-  //     });
-  //   }
-  // };
-
   const setPhoto = () => {
     dispatch({
       type: SET_PHOTO,
@@ -71,6 +61,10 @@ const GlobalState = (props) => {
     dispatch({
       type: SET_VIDEO,
     });
+  };
+
+  const onSubmit = () => {
+    console.log("form submitted");
   };
 
   return (
@@ -88,6 +82,10 @@ const GlobalState = (props) => {
           closeMenu,
           showSideNav,
           hideSideNav,
+        },
+        form: {
+          isSubmitted: state.form.isSubmitted,
+          onSubmit,
         },
       }}
     >

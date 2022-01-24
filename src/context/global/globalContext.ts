@@ -16,20 +16,16 @@ interface GalleryContextInterface {
   setVideo?: Function;
 }
 
+interface FormContextInterface {
+  isSubmitted: boolean;
+  onSubmit?: Function;
+}
+
 interface GlobalContextInterface {
   menu: MenuContextInterface;
   gallery: GalleryContextInterface;
+  form: FormContextInterface;
 }
-
-// const globalContext = createContext<GlobalContextInterface | null>({
-//   menu: {
-//     isOpen: false,
-//     isSideNavVisible: false,
-//   },
-//   gallery: {
-//     gridMediaType: "photo",
-//   },
-// });
 
 const globalContext = createContext<GlobalContextInterface | null>(null);
 

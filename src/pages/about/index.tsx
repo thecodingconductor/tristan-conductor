@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Layout from "../../components/Layout";
 import Button from "../../components/atoms/Button/Button";
 import AboutQuoteBlock from "../../components/atoms/AboutQuoteBlock/AboutQuoteBlock";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
@@ -12,7 +11,7 @@ import HomePageBio from "../../components/atoms/HomePageBio/HomePageBio";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
-import GalleryMediaTile from "../../components/atoms/GalleryMediaTile/GalleryMediaTile";
+
 import GlobalContext from "../../context/global/globalContext";
 
 const dummyAboutText = {
@@ -25,61 +24,60 @@ const dummyAboutText = {
 const About = () => {
   const { isLarge } = useBreakpoints();
 
+  const globalContext = useContext(GlobalContext);
+
+  const {
+    closeMenu,
+    openMenu,
+    isSideNavVisible,
+    isOpen,
+    showSideNav,
+    hideSideNav,
+  } = globalContext.menu;
+
+  useEffect(() => {
+    isOpen && closeMenu();
+  }, []);
+
   return (
-    <Layout>
-      <GlobalContext.Consumer>
-        {({ menu }) => {
-          const {
-            closeMenu,
-            openMenu,
-            isSideNavVisible,
-            isOpen,
-            showSideNav,
-            hideSideNav,
-          } = menu;
-          return (
-            <>
-              <HeaderComponent
-                margin={50}
-                closeMenu={closeMenu}
-                openMenu={openMenu}
-                isSideNavVisible={isSideNavVisible}
-                isOpen={isOpen}
-                showSideNav={showSideNav}
-                hideSideNav={hideSideNav}
-              />
-              {!isLarge && <MobileAboutSpacer />}
-              <StaticImage
-                src="../../images/tristan-portrait 1.jpg"
-                alt="Tristan sitting against brick wall."
-                sx={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  zIndex: -20,
-                }}
-              />
-              <HomePageBio bioText={dummyAboutText.bio1} />
-              <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
-              <HomePageBio bioText={dummyAboutText.bio1} />
-              <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
-              <Link
-                to="/events"
-                sx={{
-                  ...resetLink,
-                  gridColumn: ["1 / span 5", null, "1 / span 12"],
-                }}
-              >
-                <Button
-                  onClick={() => console.log("This is the button")}
-                  label={"View Season"}
-                />
-              </Link>
-            </>
-          );
+    <>
+      <HeaderComponent
+        margin={50}
+        closeMenu={closeMenu}
+        openMenu={openMenu}
+        isSideNavVisible={isSideNavVisible}
+        isOpen={isOpen}
+        showSideNav={showSideNav}
+        hideSideNav={hideSideNav}
+      />
+      {!isLarge && <MobileAboutSpacer />}
+      <StaticImage
+        src="../../images/tristan-portrait 1.jpg"
+        alt="Tristan sitting against brick wall."
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: -20,
         }}
-      </GlobalContext.Consumer>
-    </Layout>
+      />
+      <HomePageBio bioText={dummyAboutText.bio1} />
+      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
+      <HomePageBio bioText={dummyAboutText.bio1} />
+      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
+      <Link
+        to="/events"
+        sx={{
+          ...resetLink,
+          gridColumn: ["1 / span 5", null, "1 / span 12"],
+        }}
+      >
+        <Button
+          onClick={() => console.log("This is the button")}
+          label={"View Season"}
+        />
+      </Link>
+    </>
   );
 };
 
