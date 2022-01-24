@@ -22,7 +22,7 @@ const Gallery = (props) => {
     hideSideNav,
   } = globalContext.menu;
 
-  const { changeMediaType, gridMediaType } = globalContext.gallery;
+  const { setPhoto, setVideo, gridMediaType } = globalContext.gallery;
 
   const data = useStaticQuery(graphql`
     query {
@@ -77,12 +77,14 @@ const Gallery = (props) => {
       >
         <GalleryButton
           label={"Photo"}
-          changeMediaType={changeMediaType}
+          setPhoto={setPhoto}
+          setVideo={setVideo}
           gridMediaType={gridMediaType}
         />
         <GalleryButton
           label={"Video"}
-          changeMediaType={changeMediaType}
+          setPhoto={setPhoto}
+          setVideo={setVideo}
           gridMediaType={gridMediaType}
         />
       </div>
@@ -90,6 +92,7 @@ const Gallery = (props) => {
       <GalleryGrid
         photoItemsArray={data.allContentfulImageGallery.edges}
         videoItemsArray={data.allContentfulVideos.edges}
+        gridMediaType={gridMediaType}
       />
 
       <Button

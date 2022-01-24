@@ -2,23 +2,14 @@
 import { jsx } from "theme-ui";
 import React from "react";
 
-const VideoContainer = ({ children }) => (
-  <div
-    sx={{
-      gridColumn: ["1 / span 5", null, "1 / span 12"],
-      paddingBottom: "56.25%",
-      height: 0,
-      position: "relative",
-      marginBottom: "50px",
-    }}
-  >
-    {children}
-  </div>
-);
+type Props = {
+  videoSrcURL: string;
+  videoTitle: string;
+};
 
-const HomePageVideo = ({ videoSrcURL, videoTitle, ...props }) => {
+const GalleryVideo = ({ videoSrcURL, videoTitle }: Props) => {
   return (
-    <VideoContainer>
+    <>
       <iframe
         src={videoSrcURL}
         title={videoTitle}
@@ -33,8 +24,8 @@ const HomePageVideo = ({ videoSrcURL, videoTitle, ...props }) => {
           position: "absolute",
         }}
       ></iframe>
-    </VideoContainer>
+    </>
   );
 };
 
-export default HomePageVideo;
+export default GalleryVideo;

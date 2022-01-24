@@ -7,6 +7,8 @@ import { getImage } from "gatsby-plugin-image";
 
 import GalleryContext from "../../../context/gallery/GalleryContext";
 import HomePageVideo from "../../atoms/HomePageVideo/HomePageVideo";
+import GalleryVideo from "../../atoms/GalleryVideo/GalleryVideo";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const propTypesShape = {
   photoItemsArray: PropTypes.array.isRequired,
@@ -51,13 +53,17 @@ const GalleryGrid = ({
             return (
               <div
                 sx={{
-                  gridColumn: ["auto / span 5", null, "auto / span 12"],
+                  gridColumn: ["1 / span 5", null, "1 / span 12"],
+                  paddingBottom: "56.25%",
+                  height: 0,
+                  position: "relative",
+                  marginBottom: "50px",
                 }}
                 key={i}
               >
-                <HomePageVideo
-                  videoSrcURL={video.videoUrl}
-                  videoTitle={video.videoTitle}
+                <GalleryVideo
+                  videoSrcURL={video.node.videoUrl}
+                  videoTitle={video.node.videoTitle}
                 />
               </div>
             );

@@ -47,20 +47,30 @@ const GlobalState = (props) => {
     });
   };
 
-  const changeMediaType = (label: string) => {
-    if (label.toLocaleLowerCase().trim() === state.gridMediaType) {
-      return;
-    }
+  // const changeMediaType = (label: string) => {
+  //   if (state.gridMediaType === "photo") {
+  //     console.log("set video");
+  //     dispatch({
+  //       type: SET_VIDEO,
+  //     });
+  //   } else if (state.gridMediaType === "video") {
+  //     console.log("set photo");
+  //     dispatch({
+  //       type: SET_PHOTO,
+  //     });
+  //   }
+  // };
 
-    if (state.gridMediaType === "photo") {
-      dispatch({
-        type: SET_VIDEO,
-      });
-    } else if (state.gridMediaType === "video") {
-      dispatch({
-        type: SET_PHOTO,
-      });
-    }
+  const setPhoto = () => {
+    dispatch({
+      type: SET_PHOTO,
+    });
+  };
+
+  const setVideo = () => {
+    dispatch({
+      type: SET_VIDEO,
+    });
   };
 
   return (
@@ -68,7 +78,8 @@ const GlobalState = (props) => {
       value={{
         gallery: {
           gridMediaType: state.gallery.gridMediaType,
-          changeMediaType,
+          setPhoto,
+          setVideo,
         },
         menu: {
           isOpen: state.menu.isOpen,

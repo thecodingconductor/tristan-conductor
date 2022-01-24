@@ -6,14 +6,29 @@ import { resetButton } from "../../../lib/utils/mixins";
 
 type Props = {
   label: string;
-  changeMediaType: Function;
+  setPhoto: Function;
+  setVideo: Function;
   gridMediaType: string;
 };
 
-const GalleryButton = ({ label, changeMediaType, gridMediaType }: Props) => {
+const GalleryButton = ({ label, setPhoto, setVideo, gridMediaType }: Props) => {
+  const handleGallerySwitch = (label: string) => {
+    if (label.toLowerCase().trim() === gridMediaType) {
+      return;
+    }
+
+    if (gridMediaType === "photo") {
+      console.log("set video");
+      setVideo();
+    } else if (gridMediaType === "video") {
+      console.log("set photo");
+      setPhoto();
+    }
+  };
+
   return (
     <button
-      onClick={() => changeMediaType(label)}
+      onClick={() => handleGallerySwitch(label)}
       sx={{
         ...resetButton,
       }}
