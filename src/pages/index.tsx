@@ -39,8 +39,6 @@ const IndexPage = (props) => {
 
   const globalContext = useContext(GlobalContext);
 
-  console.log(props);
-
   const {
     closeMenu,
     openMenu,
