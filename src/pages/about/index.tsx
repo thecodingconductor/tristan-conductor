@@ -37,6 +37,8 @@ const About = () => {
 
   useEffect(() => {
     isOpen && closeMenu();
+
+    hideSideNav();
   }, []);
 
   return (

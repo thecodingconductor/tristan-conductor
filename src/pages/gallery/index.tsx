@@ -54,6 +54,7 @@ const Gallery = (props) => {
 
   useEffect(() => {
     isOpen && closeMenu();
+    hideSideNav();
   }, []);
 
   return (

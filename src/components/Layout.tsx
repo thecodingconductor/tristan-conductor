@@ -21,7 +21,8 @@ const Layout = (props) => {
   const { isLarge, isMediumAndBelow } = useBreakpoints();
 
   const globalContext = useContext(GlobalContext);
-  const { closeMenu, openMenu, isOpen, isSideNavVisible } = globalContext.menu;
+  const { closeMenu, openMenu, isOpen, isSideNavVisible, hideSideNav } =
+    globalContext.menu;
 
   return (
     <div

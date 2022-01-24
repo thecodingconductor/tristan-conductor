@@ -2,7 +2,8 @@
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import RelativeTime from "@yaireo/relative-time";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { any } from "core-js/library/es6/promise";
 
 const propTypesShape = {
   node: PropTypes.shape({
@@ -13,7 +14,24 @@ const propTypesShape = {
     permalink: PropTypes.string.isRequired,
     thumbnail_url: PropTypes.string.isRequired,
     localImage: PropTypes.shape({
-      absolutePath: PropTypes.string.isRequired,
+      childImageSharp: PropTypes.shape({
+        backgroundColor: PropTypes.string.isRequired,
+        height: PropTypes.number.isRequired,
+        images: PropTypes.shape({
+          fallback: PropTypes.shape({
+            sizes: PropTypes.string.isRequired,
+            src: PropTypes.string.isRequired,
+            srcSet: PropTypes.string.isRequired,
+          }),
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              sizes: PropTypes.string.isRequired,
+              src: PropTypes.string.isRequired,
+              srcSet: PropTypes.string.isRequired,
+            })
+          ),
+        }),
+      }),
     }),
     media_url: PropTypes.string.isRequired,
   }),
@@ -25,7 +43,7 @@ const TileContainer = (props) => (
   <div
     {...props}
     sx={{
-      height: "650px",
+      height: "650spx",
       gridColumn: ["1 / span 5", null, "1 / span 12"],
     }}
   />
@@ -50,17 +68,15 @@ const HomePageInstaTile = ({ node }: Props) => {
   const relativeTime = new RelativeTime();
   const dateSince = relativeTime.from(new Date(timestamp));
 
+  // eslint-disable-next-line
+  const image = getImage(localImage.childImageSharp);
+  // console.log(image);
+
   return (
     <TileContainer>
       {/* ToDO fix img dimensions. Maybe create an atom Component */}
 
-      <img
-        src={thumbnail_url || media_url}
-        sx={{
-          height: "205px",
-          width: "100%",
-        }}
-      />
+      <GatsbyImage image={image} alt={"Instagram post"} />
       <div
         sx={{
           background: "rgba(255, 255, 255, 0.04)",

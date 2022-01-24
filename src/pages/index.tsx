@@ -18,21 +18,6 @@ import DesktopInstaModule from "../components/molecules/DesktopInstaModule/Deskt
 
 import GlobalContext from "../context/global/globalContext";
 
-const dummySocialMedia = [
-  {
-    url: "https://www.twitter.com/tristanconducts",
-    type: "twitter",
-  },
-  {
-    url: "https://www.instagram.com/tristanrais",
-    type: "instagram",
-  },
-  {
-    url: "https://www.twitch.tv/orchestraobsessed",
-    type: "twitch",
-  },
-];
-
 // markup
 const IndexPage = (props) => {
   const { isSmall } = useBreakpoints();
@@ -57,6 +42,7 @@ const IndexPage = (props) => {
           }
         }
       }
+
       allContentfulHomepageBioExcerpt {
         edges {
           node {
@@ -76,13 +62,16 @@ const IndexPage = (props) => {
             permalink
             thumbnail_url
             localImage {
-              absolutePath
+              childImageSharp {
+                gatsbyImageData(aspectRatio: 1, layout: CONSTRAINED)
+              }
             }
             media_url
             caption
           }
         }
       }
+
       allContentfulNewsStory(
         limit: 2
         sort: { fields: newsDate, order: DESC }
@@ -95,13 +84,30 @@ const IndexPage = (props) => {
           }
         }
       }
+
+      allContentfulVideos {
+        edges {
+          node {
+            videoTitle
+            videoUrl
+          }
+        }
+      }
+
+      allContentfulSocialMedia {
+        edges {
+          node {
+            type
+            url
+          }
+        }
+      }
     }
   `);
 
-  const videoURL = "https://www.youtube.com/embed/wct93OnrrYA";
-
   useEffect(() => {
     isOpen && closeMenu();
+    hideSideNav();
   }, []);
 
   return (
@@ -120,12 +126,12 @@ const IndexPage = (props) => {
         }
       />
       <HomePageVideo
-        videoSrcURL={videoURL}
-        videoTitle={
-          "Tristan Rais-Sherman, Mozart Symphony. 29, NEC Philharmonia"
-        }
+        videoSrcURL={data.allContentfulVideos.edges[2].node.videoUrl}
+        videoTitle={data.allContentfulVideos.edges[2].node.videoTitle}
       />
-      <HomePageVideoSubtitle videoURL={videoURL} />
+      <HomePageVideoSubtitle
+        videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
+      />
       <Divider />
       <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />
@@ -133,7 +139,7 @@ const IndexPage = (props) => {
         bioText={data.allContentfulHomepageBioExcerpt.edges[0].node.text.text}
       />
       <Divider />
-      <HomePageSocial socialIcons={dummySocialMedia} />
+      <HomePageSocial socialIcons={data.allContentfulSocialMedia.edges} />
       {isSmall ? (
         <InstaCarousel
           instaPosts={data.allInstagramContent.edges.slice(0, 3)}

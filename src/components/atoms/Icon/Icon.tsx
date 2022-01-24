@@ -4,6 +4,7 @@ import parse, {
   HTMLReactParserOptions,
 } from "html-react-parser";
 import * as PropTypes from "prop-types";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 import iconData, { iconKeys } from "../../../lib/constants/icons";
 

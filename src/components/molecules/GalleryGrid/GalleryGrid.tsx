@@ -5,10 +5,8 @@ import * as PropTypes from "prop-types";
 import GalleryMediaTile from "../../atoms/GalleryMediaTile/GalleryMediaTile";
 import { getImage } from "gatsby-plugin-image";
 
-import GalleryContext from "../../../context/gallery/GalleryContext";
 import HomePageVideo from "../../atoms/HomePageVideo/HomePageVideo";
 import GalleryVideo from "../../atoms/GalleryVideo/GalleryVideo";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const propTypesShape = {
   photoItemsArray: PropTypes.array.isRequired,

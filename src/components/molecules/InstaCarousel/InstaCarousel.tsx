@@ -9,6 +9,7 @@ import "swiper/css";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HomePageInstaTile from "../../atoms/HomePageInstaTile/HomePageInstaTile";
+import { getImage } from "gatsby-plugin-image";
 
 SwiperCore.use([Navigation]);
 
@@ -22,9 +23,7 @@ const propTypesShape = {
         username: PropTypes.string.isRequired,
         permalink: PropTypes.string.isRequired,
         thumbnail_url: PropTypes.string.isRequired,
-        localImage: PropTypes.shape({
-          absolutePath: PropTypes.string.isRequired,
-        }),
+        localImage: PropTypes.object,
         media_url: PropTypes.string.isRequired,
       }),
     })

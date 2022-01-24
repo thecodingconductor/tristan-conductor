@@ -11,13 +11,16 @@ const socialMediaTypes = [
   "tikTok",
   "twitter",
   "youTube",
+  "twitch",
 ];
 
 const propTypesShape = {
   socialIcons: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(socialMediaTypes).isRequired,
+      node: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        type: PropTypes.oneOf(socialMediaTypes).isRequired,
+      }),
     })
   ).isRequired,
 };
@@ -74,10 +77,11 @@ const HomePageSocial = ({ socialIcons }: Props) => {
           width: [null, null, "20%"],
         }}
       >
-        {socialIcons.map(({ url, type }) => {
-          const iconName = `${type}Icon`;
+        {socialIcons.map((node) => {
+          const iconName = `${node.node.type}Icon`;
+
           return (
-            <a key={type} href={url}>
+            <a key={node.node.type} href={node.node.url}>
               <Icon name={iconName} />
             </a>
           );
