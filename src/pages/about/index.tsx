@@ -102,7 +102,35 @@ const About = () => {
           zIndex: -3,
         }}
       >
-        <GatsbyImage image={image} alt="testImage" />
+        <div
+          sx={{
+            position: "relative",
+          }}
+        >
+          <GatsbyImage
+            image={image}
+            alt="testImage"
+            sx={{
+              position: "relative",
+            }}
+          />
+          <div
+            sx={{
+              position: "absolute",
+              bottom: 0,
+              width: "100%",
+              height: "450px",
+              zIndex: 2,
+              background: `rgba(11, 28, 44, 0)
+          linear-gradient(
+              to bottom,
+              rgba(11, 28, 44, 0) 0%,
+              rgb(11, 28, 44) 80%
+          )
+          repeat scroll 0 0;`,
+            }}
+          ></div>
+        </div>
       </div>
     </>
   );

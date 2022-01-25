@@ -23,9 +23,9 @@ const MobileNavOverlayLinks = () => {
       <li>
         <MobileNavLink slug={"/about"} text={"About"} />
       </li>
-      <li>
+      {/* <li>
         <MobileNavLink slug={"/season"} text={"Season"} />
-      </li>
+      </li> */}
       <li>
         <MobileNavLink slug={"/gallery"} text={"Gallery"} />
       </li>
@@ -34,12 +34,12 @@ const MobileNavOverlayLinks = () => {
           slug={"/twitch"}
           text={"Twitch"}
           isExternal={true}
-          externalUrl={"https://www.twitch.tv"}
+          externalUrl={"https://www.twitch.tv/orchestraobsessed"}
         />
       </li>
-      <li>
+      {/* <li>
         <MobileNavLink slug={"/contact"} text={"Contact"} />
-      </li>
+      </li> */}
     </ul>
   );
 };
