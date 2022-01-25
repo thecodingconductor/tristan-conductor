@@ -2,8 +2,8 @@
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import RelativeTime from "@yaireo/relative-time";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { any } from "core-js/library/es6/promise";
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
+import { Node } from "gatsby";
 
 const propTypesShape = {
   node: PropTypes.shape({
@@ -37,7 +37,7 @@ const propTypesShape = {
   }),
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+type Props = PropTypes.InferProps<typeof propTypesShape & ImageDataLike & Node>;
 
 const TileContainer = (props) => (
   <div

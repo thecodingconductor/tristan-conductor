@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Button from "../../components/atoms/Button/Button";
@@ -11,6 +11,11 @@ import { resetButton } from "../../lib/utils/mixins";
 import GalleryButton from "../../components/atoms/GalleryButton/GalleryButton";
 import GlobalContext from "../../context/global/globalContext";
 import FeaturedImageOverlay from "../../components/molecules/FeaturedImageOverlay/FeaturedImageOverlay";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
 const Gallery = (props) => {
   const globalContext = useContext(GlobalContext);
@@ -30,6 +35,7 @@ const Gallery = (props) => {
     showImageDetail,
     selectImage,
     closeImage,
+    currentImage,
   } = globalContext.gallery;
 
   const data = useStaticQuery(graphql`
@@ -60,10 +66,27 @@ const Gallery = (props) => {
     }
   `);
 
+  const ref = useRef(null);
+
   useEffect(() => {
     isOpen && closeMenu();
     hideSideNav();
-  }, []);
+
+    if (typeof window === "undefined") return;
+    const gatsbyDiv = document.getElementById("gatsby-focus-wrapper");
+
+    if (showImageDetail) {
+      gatsbyDiv.style.height = "100%";
+      document.documentElement.style.overflow = "hidden";
+      disableBodyScroll(ref.current);
+    } else {
+      gatsbyDiv.style.height = "auto";
+      document.documentElement.style.overflow = "auto";
+
+      enableBodyScroll(ref.current);
+    }
+    return clearAllBodyScrollLocks();
+  }, [showImageDetail]);
 
   return (
     <>
@@ -87,6 +110,7 @@ const Gallery = (props) => {
           alignItems: "center",
           borderBottom: "1px solid rgba(255,255,255, 0.13)",
         }}
+        ref={ref}
       >
         <GalleryButton
           label={"Photo"}
@@ -116,10 +140,11 @@ const Gallery = (props) => {
         onClick={() => console.log("download press kit")}
         isParent
       />
-      {showImageDetail && (
+      {currentImage && (
         <FeaturedImageOverlay
           showImageDetail={showImageDetail}
           closeImage={closeImage}
+          currentImage={currentImage}
         />
       )}
     </>

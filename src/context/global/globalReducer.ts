@@ -8,6 +8,7 @@ import {
   SUBMIT_FORM,
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
+  SET_CURRENT_IMAGE,
 } from "../types";
 
 const globalReducer = (state, action) => {
@@ -34,6 +35,7 @@ const globalReducer = (state, action) => {
         gallery: {
           ...state.gallery,
           showImageDetail: true,
+          currentImage: action.payload,
         },
       };
     case CLOSE_IMAGE_DETAIL:
@@ -42,6 +44,7 @@ const globalReducer = (state, action) => {
         gallery: {
           ...state.gallery,
           showImageDetail: false,
+          currentImage: null,
         },
       };
     case OPEN_MENU:
