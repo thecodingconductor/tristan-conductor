@@ -36,7 +36,7 @@ const GalleryGrid = ({
         display: "grid",
         gridGap: "20px",
         gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-        marginTop: "200px",
+        marginTop: "100px",
       }}
     >
       {gridMediaType === "photo"

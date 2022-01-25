@@ -16,6 +16,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Gallery = (props) => {
   const globalContext = useContext(GlobalContext);
@@ -140,13 +141,16 @@ const Gallery = (props) => {
         onClick={() => console.log("download press kit")}
         isParent
       />
-      {currentImage && (
-        <FeaturedImageOverlay
-          showImageDetail={showImageDetail}
-          closeImage={closeImage}
-          currentImage={currentImage}
-        />
-      )}
+      <AnimatePresence>
+        {currentImage && (
+          <FeaturedImageOverlay
+            showImageDetail={showImageDetail}
+            closeImage={closeImage}
+            currentImage={currentImage}
+            imageArray={data.allContentfulImageGallery.edges}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };

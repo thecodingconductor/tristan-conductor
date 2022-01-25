@@ -13,23 +13,21 @@ SwiperCore.use([Navigation]);
 
 type Props = {
   currentImage: IGatsbyImageData;
+  imageArray: Array<any>;
 };
 
-const GallerySwipe = ({ currentImage }: Props) => {
+const GallerySwipe = ({ currentImage, imageArray }: Props) => {
   const globalContext = useContext(GlobalContext);
   const { gallery } = globalContext;
 
-  console.log(currentImage);
   return (
-    <div
-      sx={{
-        gridColumn: ["1 / span 5", null, "1 / span 12"],
-      }}
-    >
-      <Swiper watchSlidesProgress slidesPerView={1}>
-        <GatsbyImage image={currentImage} alt="Gatsby Image Test" />
-      </Swiper>
-    </div>
+    <Swiper watchSlidesProgress slidesPerView={1}>
+      {imageArray.map((image, i) => (
+        <SwiperSlide key={i}>
+          <GatsbyImage image={currentImage} alt="Gatsby Image Test" />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
