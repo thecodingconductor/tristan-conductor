@@ -7,19 +7,27 @@ import { getImage } from "gatsby-plugin-image";
 
 import HomePageVideo from "../../atoms/HomePageVideo/HomePageVideo";
 import GalleryVideo from "../../atoms/GalleryVideo/GalleryVideo";
+import { resetButton } from "../../../lib/utils/mixins";
 
 const propTypesShape = {
   photoItemsArray: PropTypes.array.isRequired,
   videoItemsArray: PropTypes.array.isRequired,
   gridMediaType: PropTypes.string.isRequired,
+  showImageDetail: PropTypes.bool.isRequired,
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+type Props = PropTypes.InferProps<typeof propTypesShape> & {
+  selectImage: Function;
+  closeImage: Function;
+};
 
 const GalleryGrid = ({
   photoItemsArray,
   videoItemsArray,
   gridMediaType,
+  showImageDetail,
+  selectImage,
+  closeImage,
 }: Props) => {
   return (
     <div
@@ -36,15 +44,19 @@ const GalleryGrid = ({
             const image = getImage(imageItem.node.image.gatsbyImageData);
 
             return (
-              <div
+              <button
                 sx={{
+                  ...resetButton,
                   gridColumn: ["auto / span 5", null, "auto / span 4"],
                   height: `${image.height}px`,
                 }}
+                onClick={() => selectImage(image)}
                 key={i}
               >
-                <GalleryMediaTile image={image} alt={imageItem.node.alt} />
-              </div>
+                <div>
+                  <GalleryMediaTile image={image} alt={imageItem.node.alt} />
+                </div>
+              </button>
             );
           })
         : videoItemsArray.map((video, i) => {

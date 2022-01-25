@@ -12,6 +12,9 @@ interface MenuContextInterface {
 
 interface GalleryContextInterface {
   gridMediaType: string;
+  showImageDetail: boolean;
+  selectImage?: Function;
+  closeImage?: Function;
   setPhoto?: Function;
   setVideo?: Function;
 }

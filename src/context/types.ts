@@ -8,3 +8,5 @@ export const SHOW_VIDEO_VIEW = "SHOW_VIDEO_VIEW";
 export const SET_VIDEO = "SET_VIDEO";
 export const SET_PHOTO = "SET_PHOTO";
 export const SUBMIT_FORM = "SUBMIT_FORM";
+export const OPEN_IMAGE_DETAIL = "OPEN_IMAGE_DETAIL";
+export const CLOSE_IMAGE_DETAIL = "CLOSE_IMAGE_DETAIL";

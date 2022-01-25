@@ -10,12 +10,15 @@ import {
   SET_PHOTO,
   SET_VIDEO,
   SUBMIT_FORM,
+  OPEN_IMAGE_DETAIL,
+  CLOSE_IMAGE_DETAIL,
 } from "../types";
 
 const GlobalState = (props) => {
   const initialState = {
     gallery: {
       gridMediaType: "photo",
+      showImageDetail: false,
     },
     menu: {
       isOpen: false,
@@ -27,6 +30,7 @@ const GlobalState = (props) => {
   };
 
   const [state, dispatch] = useReducer(globalReducer, initialState);
+  // MENU
   const openMenu = () => {
     dispatch({
       type: OPEN_MENU,
@@ -51,6 +55,8 @@ const GlobalState = (props) => {
     });
   };
 
+  // GALLERY
+
   const setPhoto = () => {
     dispatch({
       type: SET_PHOTO,
@@ -63,6 +69,22 @@ const GlobalState = (props) => {
     });
   };
 
+  const selectImage = (image) => {
+    console.log("image selected");
+    console.log(image);
+    dispatch({
+      type: OPEN_IMAGE_DETAIL,
+    });
+  };
+
+  const closeImage = (image) => {
+    console.log("image closed");
+    dispatch({
+      type: CLOSE_IMAGE_DETAIL,
+    });
+  };
+
+  // FORM
   const onSubmit = () => {
     console.log("form submitted");
   };
@@ -74,6 +96,9 @@ const GlobalState = (props) => {
           gridMediaType: state.gallery.gridMediaType,
           setPhoto,
           setVideo,
+          showImageDetail: state.gallery.showImageDetail,
+          selectImage,
+          closeImage,
         },
         menu: {
           isOpen: state.menu.isOpen,

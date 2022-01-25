@@ -10,6 +10,7 @@ import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderCompon
 import { resetButton } from "../../lib/utils/mixins";
 import GalleryButton from "../../components/atoms/GalleryButton/GalleryButton";
 import GlobalContext from "../../context/global/globalContext";
+import FeaturedImageOverlay from "../../components/molecules/FeaturedImageOverlay/FeaturedImageOverlay";
 
 const Gallery = (props) => {
   const globalContext = useContext(GlobalContext);
@@ -22,7 +23,14 @@ const Gallery = (props) => {
     hideSideNav,
   } = globalContext.menu;
 
-  const { setPhoto, setVideo, gridMediaType } = globalContext.gallery;
+  const {
+    setPhoto,
+    setVideo,
+    gridMediaType,
+    showImageDetail,
+    selectImage,
+    closeImage,
+  } = globalContext.gallery;
 
   const data = useStaticQuery(graphql`
     query {
@@ -98,6 +106,9 @@ const Gallery = (props) => {
         photoItemsArray={data.allContentfulImageGallery.edges}
         videoItemsArray={data.allContentfulVideos.edges}
         gridMediaType={gridMediaType}
+        showImageDetail={showImageDetail}
+        selectImage={selectImage}
+        closeImage={closeImage}
       />
 
       <Button
@@ -105,6 +116,12 @@ const Gallery = (props) => {
         onClick={() => console.log("download press kit")}
         isParent
       />
+      {showImageDetail && (
+        <FeaturedImageOverlay
+          showImageDetail={showImageDetail}
+          closeImage={closeImage}
+        />
+      )}
     </>
   );
 };

@@ -6,6 +6,8 @@ import {
   SET_VIDEO,
   SET_PHOTO,
   SUBMIT_FORM,
+  OPEN_IMAGE_DETAIL,
+  CLOSE_IMAGE_DETAIL,
 } from "../types";
 
 const globalReducer = (state, action) => {
@@ -24,6 +26,22 @@ const globalReducer = (state, action) => {
         gallery: {
           ...state.gallery,
           gridMediaType: "video",
+        },
+      };
+    case OPEN_IMAGE_DETAIL:
+      return {
+        ...state,
+        gallery: {
+          ...state.gallery,
+          showImageDetail: true,
+        },
+      };
+    case CLOSE_IMAGE_DETAIL:
+      return {
+        ...state,
+        gallery: {
+          ...state.gallery,
+          showImageDetail: false,
         },
       };
     case OPEN_MENU:

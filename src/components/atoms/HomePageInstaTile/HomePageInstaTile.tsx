@@ -43,7 +43,7 @@ const TileContainer = (props) => (
   <div
     {...props}
     sx={{
-      height: "650spx",
+      height: "650px",
       gridColumn: ["1 / span 5", null, "1 / span 12"],
     }}
   />
@@ -70,12 +70,9 @@ const HomePageInstaTile = ({ node }: Props) => {
 
   // eslint-disable-next-line
   const image = getImage(localImage.childImageSharp);
-  // console.log(image);
 
   return (
     <TileContainer>
-      {/* ToDO fix img dimensions. Maybe create an atom Component */}
-
       <GatsbyImage image={image} alt={"Instagram post"} />
       <div
         sx={{
