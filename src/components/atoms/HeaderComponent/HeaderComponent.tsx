@@ -121,55 +121,64 @@ const HeaderComponent = ({
         </button>
       ) : (
         <>
-          <div
+          <button
             sx={{
-              gridColumn: "1 / span 5",
-              height: "43px",
-              width: "264px",
-              marginBottom: "2px",
-              marginTop: `${margin}px`,
-              background: "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              ...resetButton,
+              ...defaultFullWidthGridChild,
+              gridRow: "1",
             }}
-            ref={containerRef}
+            onClick={handleHeaderClick}
           >
-            <Themed.h1
+            <div
               sx={{
-                fontFamily: "heading",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "21px",
-              }}
-            >
-              Tristan Rais-Sherman,
-            </Themed.h1>
-          </div>
-          <div
-            sx={{
-              gridColumn: "1 / span 5",
-              height: "43px",
-              width: "146px",
-              marginBottom: "40px",
-              background: "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Themed.h1
-              sx={{
+                gridColumn: "1 / span 5",
+                height: "43px",
+                width: "264px",
+                marginBottom: "2px",
+                marginTop: `${margin}px`,
                 background: "white",
-                fontFamily: "heading",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "21px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              ref={containerRef}
+            >
+              <Themed.h1
+                sx={{
+                  fontFamily: "heading",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "21px",
+                }}
+              >
+                Tristan Rais-Sherman,
+              </Themed.h1>
+            </div>
+            <div
+              sx={{
+                gridColumn: "1 / span 5",
+                height: "43px",
+                width: "146px",
+                marginBottom: "40px",
+                background: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              Conductor
-            </Themed.h1>
-          </div>
+              <Themed.h1
+                sx={{
+                  background: "white",
+                  fontFamily: "heading",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "21px",
+                }}
+              >
+                Conductor
+              </Themed.h1>
+            </div>
+          </button>
         </>
       )}
     </>

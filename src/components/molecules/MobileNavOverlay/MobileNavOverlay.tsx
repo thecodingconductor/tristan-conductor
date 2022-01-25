@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Props = {
   isOpen: boolean;
@@ -29,27 +30,32 @@ const MobileNavOverlay = ({ isOpen, closeMenu }: Props) => {
 
   return (
     <>
-      {isOpen && (
-        <div
-          sx={{
-            position: "fixed",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            right: "40px",
-            background: "rgba(49, 72, 94, 0.62)",
-            backdropFilter: "blur(74px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            zIndex: 99,
-          }}
-          ref={wrapperRef}
-        >
-          <MobileNavOverlayHeader closeMenu={closeMenu} />
-          <MobileNavOverlayLinks />
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            sx={{
+              position: "fixed",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              right: "40px",
+              background: "rgba(49, 72, 94, 0.62)",
+              backdropFilter: "blur(74px)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              zIndex: 99,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            ref={wrapperRef}
+          >
+            <MobileNavOverlayHeader closeMenu={closeMenu} />
+            <MobileNavOverlayLinks />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
