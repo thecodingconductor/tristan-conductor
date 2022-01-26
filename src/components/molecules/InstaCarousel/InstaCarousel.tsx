@@ -13,30 +13,30 @@ import { getImage } from "gatsby-plugin-image";
 
 SwiperCore.use([Navigation]);
 
-const propTypesShape = {
-  instaPosts: PropTypes.arrayOf(
-    PropTypes.shape({
-      node: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        timestamp: PropTypes.number.isRequired,
-        caption: PropTypes.string.isRequired,
-        username: PropTypes.string.isRequired,
-        permalink: PropTypes.string.isRequired,
-        thumbnail_url: PropTypes.string.isRequired,
-        localImage: PropTypes.object,
-        media_url: PropTypes.string.isRequired,
-      }),
-    })
-  ),
-};
+// const propTypesShape = {
+//   instaPosts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       node: PropTypes.shape({
+//         id: PropTypes.string.isRequired,
+//         timestamp: PropTypes.number.isRequired,
+//         caption: PropTypes.string.isRequired,
+//         username: PropTypes.string.isRequired,
+//         permalink: PropTypes.string.isRequired,
+//         thumbnail_url: PropTypes.string.isRequired,
+//         localImage: PropTypes.object,
+//         media_url: PropTypes.string.isRequired,
+//       }),
+//     })
+//   ),
+// };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+// type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const swiperWrapperStyles = {
   gridColumn: ["1 / span 5", null, "1 / span 12"],
 };
 
-const InstaCarousel = ({ instaPosts }: Props) => {
+const InstaCarousel = ({ instaPosts }) => {
   return (
     <div
       sx={{
