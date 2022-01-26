@@ -69,7 +69,6 @@ const HomePageInstaTile = ({ node }: Props) => {
   const dateSince = relativeTime.from(new Date(timestamp));
 
   const date = new Date(timestamp);
-  console.log(date);
 
   // eslint-disable-next-line
   const image = getImage(localFile.childImageSharp.gatsbyImageData);
