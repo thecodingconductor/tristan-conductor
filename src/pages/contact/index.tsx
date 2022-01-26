@@ -59,7 +59,11 @@ const Contact = (props) => {
           flexDirection: "column",
         }}
       >
-        <Themed.h1>
+        <Themed.h1
+          sx={{
+            mb: "87px",
+          }}
+        >
           {data.allContentfulContactPage.edges[0].node.heading}
         </Themed.h1>
         <ContactForm />

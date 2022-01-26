@@ -16,7 +16,7 @@ const AboutBodyBlock = ({ bioText, rowStart }: Props) => {
   return (
     <div
       sx={{
-        gridColumn: ["1 / span 5", null, "8 / span 4"],
+        gridColumn: ["1 / span 5", null, "8 / span 5"],
         gridRow: rowStart,
       }}
     >
