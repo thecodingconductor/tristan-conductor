@@ -7,7 +7,7 @@ import AboutQuoteBlock from "../../components/atoms/AboutQuoteBlock/AboutQuoteBl
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 import MobileAboutSpacer from "../../components/atoms/MobileAboutSpacer/MobileAboutSpacer";
 import useBreakpoints from "../../lib/hooks/useBreakpoints";
-import HomePageBio from "../../components/atoms/HomePageBio/HomePageBio";
+
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
@@ -48,8 +48,32 @@ const About = () => {
           }
         }
       }
+      allContentfulAboutPage {
+        edges {
+          node {
+            id
+            paragraph1 {
+              paragraph1
+            }
+            paragraph2 {
+              paragraph2
+            }
+            paragraph3 {
+              paragraph3
+            }
+            quote1 {
+              quote1
+            }
+            quote2 {
+              quote2
+            }
+          }
+        }
+      }
     }
   `);
+
+  console.log(data.allContentfulAboutPage.edges[0].node);
 
   const image = getImage(
     data.allContentfulAboutPageBackground.edges[0].node.image.gatsbyImageData
@@ -74,20 +98,30 @@ const About = () => {
       />
       {!isLarge && <MobileAboutSpacer />}
       <AboutBodyBlock
-        bioText={dummyAboutText.bio1}
+        bioText={
+          data.allContentfulAboutPage.edges[0].node.paragraph1.paragraph1
+        }
         rowStart={!isLarge ? 3 : 2}
       />
       <AboutQuoteBlock
-        quoteText={dummyAboutText.quote1}
+        quoteText={data.allContentfulAboutPage.edges[0].node.quote1.quote1}
         rowStart={!isLarge ? 4 : 3}
       />
       <AboutBodyBlock
-        bioText={dummyAboutText.bio1}
+        bioText={
+          data.allContentfulAboutPage.edges[0].node.paragraph2.paragraph2
+        }
         rowStart={!isLarge ? 5 : 4}
       />
       <AboutQuoteBlock
-        quoteText={dummyAboutText.quote1}
+        quoteText={data.allContentfulAboutPage.edges[0].node.quote2.quote2}
         rowStart={!isLarge ? 6 : 5}
+      />
+      <AboutBodyBlock
+        bioText={
+          data.allContentfulAboutPage.edges[0].node.paragraph3.paragraph3
+        }
+        rowStart={!isLarge ? 7 : 6}
       />
 
       {/* Button */}
