@@ -53,24 +53,24 @@ const IndexPage = (props) => {
         }
       }
 
-      # allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
-      #   edges {
-      #     node {
-      #       username
-      #       timestamp
-      #       id
-      #       permalink
-      #       thumbnail_url
-      #       localImage {
-      #         childImageSharp {
-      #           gatsbyImageData(aspectRatio: 1, layout: CONSTRAINED)
-      #         }
-      #       }
-      #       media_url
-      #       caption
-      #     }
-      #   }
-      # }
+      allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
+        edges {
+          node {
+            username
+            timestamp
+            id
+            permalink
+            thumbnail_url
+            localImage {
+              childImageSharp {
+                gatsbyImageData(aspectRatio: 1, layout: CONSTRAINED)
+              }
+            }
+            media_url
+            caption
+          }
+        }
+      }
 
       allContentfulNewsStory(
         limit: 2
@@ -140,7 +140,7 @@ const IndexPage = (props) => {
       />
       <Divider />
       <HomePageSocial socialIcons={data.allContentfulSocialMedia.edges} />
-      {/* {isSmall ? (
+      {isSmall ? (
         <InstaCarousel
           instaPosts={data.allInstagramContent.edges.slice(0, 3)}
         />
@@ -148,7 +148,7 @@ const IndexPage = (props) => {
         <DesktopInstaModule
           instaPosts={data.allInstagramContent.edges.slice(0, 3)}
         />
-      )} */}
+      )}
     </>
   );
 };
