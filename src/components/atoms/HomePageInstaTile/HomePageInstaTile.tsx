@@ -59,7 +59,7 @@ const HomePageInstaTile = ({ node }: Props) => {
     username,
     caption,
     timestamp,
-    localImage,
+    localFile,
     permalink,
     thumbnail_url,
     media_url,
@@ -68,8 +68,10 @@ const HomePageInstaTile = ({ node }: Props) => {
   const relativeTime = new RelativeTime();
   const dateSince = relativeTime.from(new Date(timestamp));
 
+  const date = new Date(timestamp);
+
   // eslint-disable-next-line
-  const image = getImage(localImage.childImageSharp);
+  const image = getImage(localFile.childImageSharp.gatsbyImageData);
 
   return (
     <TileContainer>

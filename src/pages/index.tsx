@@ -53,21 +53,37 @@ const IndexPage = (props) => {
         }
       }
 
-      allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
+      # allInstagramContent(limit: 5, sort: { fields: timestamp, order: DESC }) {
+      #   edges {
+      #     node {
+      #       username
+      #       timestamp
+      #       id
+      #       permalink
+      #       thumbnail_url
+      #       localImage {
+      #         childImageSharp {
+      #           gatsbyImageData(aspectRatio: 1, layout: CONSTRAINED)
+      #         }
+      #       }
+      #       media_url
+      #       caption
+      #     }
+      #   }
+      # }
+
+      allInstaNode(limit: 3, sort: { fields: timestamp, order: DESC }) {
         edges {
           node {
-            username
-            timestamp
-            id
-            permalink
-            thumbnail_url
-            localImage {
+            localFile {
               childImageSharp {
-                gatsbyImageData(aspectRatio: 1, layout: CONSTRAINED)
+                gatsbyImageData(aspectRatio: 1, height: 368)
               }
             }
-            media_url
+            timestamp
             caption
+            username
+            id
           }
         }
       }
@@ -141,13 +157,9 @@ const IndexPage = (props) => {
       <Divider />
       <HomePageSocial socialIcons={data.allContentfulSocialMedia.edges} />
       {isSmall ? (
-        <InstaCarousel
-          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-        />
+        <InstaCarousel instaPosts={data.allInstaNode.edges} />
       ) : (
-        <DesktopInstaModule
-          instaPosts={data.allInstagramContent.edges.slice(0, 3)}
-        />
+        <DesktopInstaModule instaPosts={data.allInstaNode.edges} />
       )}
     </>
   );
