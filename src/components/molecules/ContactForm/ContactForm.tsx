@@ -7,7 +7,7 @@ import Button from "../../atoms/Button/Button";
 const ContactForm = () => {
   return (
     <form
-      method="post"
+      method="POST"
       netlify-honeypot="bot-field"
       data-netlify="true"
       name="contact"
@@ -25,6 +25,7 @@ const ContactForm = () => {
       <FormField type={"text"} label="Subject Line" />
       <FormField type={"textarea"} label="Message Body" />
       <Button
+        isSubmit={true}
         onClick={() => console.log("form submitted")}
         label={"Submit"}
         isParent={false}

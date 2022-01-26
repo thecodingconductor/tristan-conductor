@@ -20,11 +20,12 @@ const propTypesShape = {
    * Boolean for if it is not wrapped
    */
   isParent: PropTypes.bool,
+  isSubmit: PropTypes.bool,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const Button = ({ onClick, label, isParent }: Props) => {
+const Button = ({ onClick, label, isParent, isSubmit }: Props) => {
   return (
     <div
       sx={{
@@ -34,24 +35,46 @@ const Button = ({ onClick, label, isParent }: Props) => {
         mb: "100px",
       }}
     >
-      <button
-        onClick={onClick}
-        sx={{
-          ...resetButton,
-
-          height: "60px",
-          width: "274px",
-          border: "1px solid #FFFFFF",
-        }}
-      >
-        <span
+      {isSubmit ? (
+        <button
+          onClick={onClick}
           sx={{
-            color: "white",
+            ...resetButton,
+
+            height: "60px",
+            width: "274px",
+            border: "1px solid #FFFFFF",
+          }}
+          type="submit"
+        >
+          <span
+            sx={{
+              color: "white",
+            }}
+          >
+            {label}
+          </span>
+        </button>
+      ) : (
+        <button
+          onClick={onClick}
+          sx={{
+            ...resetButton,
+
+            height: "60px",
+            width: "274px",
+            border: "1px solid #FFFFFF",
           }}
         >
-          {label}
-        </span>
-      </button>
+          <span
+            sx={{
+              color: "white",
+            }}
+          >
+            {label}
+          </span>
+        </button>
+      )}
     </div>
   );
 };
