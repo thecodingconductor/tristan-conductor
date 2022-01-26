@@ -46,9 +46,10 @@ const MobileNavOverlay = ({ isOpen, closeMenu }: Props) => {
               alignItems: "center",
               zIndex: 99,
             }}
-            initial={{ x: -3000 }}
+            initial={{ x: -1500 }}
             animate={{ x: 0 }}
-            exit={{ x: -3000 }}
+            exit={{ x: -1500 }}
+            transition={{ duration: 1 }}
             ref={wrapperRef}
           >
             <MobileNavOverlayHeader closeMenu={closeMenu} />

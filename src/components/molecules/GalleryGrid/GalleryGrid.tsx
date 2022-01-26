@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import * as PropTypes from "prop-types";
 import GalleryMediaTile from "../../atoms/GalleryMediaTile/GalleryMediaTile";
-import { getImage } from "gatsby-plugin-image";
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
-import HomePageVideo from "../../atoms/HomePageVideo/HomePageVideo";
 import GalleryVideo from "../../atoms/GalleryVideo/GalleryVideo";
 import { resetButton } from "../../../lib/utils/mixins";
 import { AnimatePresence, motion } from "framer-motion";
@@ -26,9 +25,7 @@ const GalleryGrid = ({
   photoItemsArray,
   videoItemsArray,
   gridMediaType,
-  showImageDetail,
   selectImage,
-  closeImage,
 }: Props) => {
   return (
     <div
@@ -41,93 +38,105 @@ const GalleryGrid = ({
         marginBottom: "150px",
       }}
     >
-      {gridMediaType === "photo"
-        ? photoItemsArray.map((imageItem, i) => {
-            const image = getImage(imageItem.node.image.gatsbyImageData);
-            return (
-              <button
-                key={i}
-                sx={{
-                  ...resetButton,
-                  gridColumn: ["auto / span 5", null, "auto / span 4"],
-                  height: `368 px`,
-                }}
-                onClick={() => selectImage(image)}
-              >
-                <div>
-                  <GalleryMediaTile image={image} alt={imageItem.node.alt} />
-                </div>
-              </button>
-            );
-          })
-        : videoItemsArray.map((video, i) => {
-            return (
-              <React.Fragment key={i}>
-                <div
+      <AnimatePresence>
+        {gridMediaType === "photo"
+          ? photoItemsArray.map((imageItem, i) => {
+              const image: IGatsbyImageData = getImage(
+                imageItem.node.image.gatsbyImageData
+              );
+              return (
+                <motion.button
+                  key={i}
                   sx={{
-                    gridColumn: ["1 / span 5", null, "1 / span 12"],
-                    paddingBottom: "56.25%",
-                    height: 0,
-                    position: "relative",
-                    marginBottom: "50px",
+                    ...resetButton,
+                    gridColumn: ["auto / span 5", null, "auto / span 4"],
+                    height: `368 px`,
                   }}
+                  onClick={() => selectImage(image)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 2 }}
                 >
-                  <GalleryVideo
-                    videoSrcURL={video.node.videoUrl}
-                    videoTitle={video.node.videoTitle}
-                  />
-                </div>
-                <div
-                  sx={{
-                    gridColumn: ["1 / span 5", null, "1 / span 12"],
-                    display: "flex",
-                    width: "100%",
-                    alignItems: "flex-start",
-                    justifyContent: "space-between",
-                    marginBottom: "50px",
-                  }}
-                >
+                  <div>
+                    <GalleryMediaTile image={image} alt={imageItem.node.alt} />
+                  </div>
+                </motion.button>
+              );
+            })
+          : videoItemsArray.map((video, i) => {
+              return (
+                <React.Fragment key={i}>
+                  <motion.div
+                    sx={{
+                      gridColumn: ["1 / span 5", null, "1 / span 12"],
+                      paddingBottom: "56.25%",
+                      height: 0,
+                      position: "relative",
+                      marginBottom: "50px",
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 2 }}
+                  >
+                    <GalleryVideo
+                      videoSrcURL={video.node.videoUrl}
+                      videoTitle={video.node.videoTitle}
+                    />
+                  </motion.div>
                   <div
                     sx={{
+                      gridColumn: ["1 / span 5", null, "1 / span 12"],
                       display: "flex",
+                      width: "100%",
                       alignItems: "flex-start",
+                      justifyContent: "space-between",
+                      marginBottom: "50px",
                     }}
                   >
-                    <Themed.p
+                    <div
                       sx={{
-                        textAlign: "left",
+                        display: "flex",
+                        alignItems: "flex-start",
                       }}
                     >
-                      {video.node.videoDate}
-                    </Themed.p>
+                      <Themed.p
+                        sx={{
+                          textAlign: "left",
+                        }}
+                      >
+                        {video.node.videoDate}
+                      </Themed.p>
+                    </div>
+                    <div
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "50%",
+                      }}
+                    >
+                      <Themed.p
+                        sx={{
+                          textAlign: "left",
+                          marginBottom: "50px",
+                        }}
+                      >
+                        {video.node.videoTitle}
+                      </Themed.p>
+                      <Themed.p
+                        sx={{
+                          textAlign: "left",
+                        }}
+                      >
+                        {video.node.videoLocation}
+                      </Themed.p>
+                    </div>
                   </div>
-                  <div
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "50%",
-                    }}
-                  >
-                    <Themed.p
-                      sx={{
-                        textAlign: "left",
-                        marginBottom: "50px",
-                      }}
-                    >
-                      {video.node.videoTitle}
-                    </Themed.p>
-                    <Themed.p
-                      sx={{
-                        textAlign: "left",
-                      }}
-                    >
-                      {video.node.videoLocation}
-                    </Themed.p>
-                  </div>
-                </div>
-              </React.Fragment>
-            );
-          })}
+                </React.Fragment>
+              );
+            })}
+      </AnimatePresence>
     </div>
   );
 };

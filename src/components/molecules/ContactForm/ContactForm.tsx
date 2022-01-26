@@ -14,6 +14,7 @@ const ContactForm = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
+        alignItems: "flex-start",
       }}
     >
       <input type="hidden" name="bot-field" />

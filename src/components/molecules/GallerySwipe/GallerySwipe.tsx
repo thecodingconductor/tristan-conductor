@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
-import React, { useEffect, useContext } from "react";
+import { jsx } from "theme-ui";
+import { useContext } from "react";
 import GlobalContext from "../../../context/global/globalContext";
-import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import "swiper/css";
 

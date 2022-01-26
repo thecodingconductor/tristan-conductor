@@ -14,6 +14,7 @@ const FormField = ({ type, label }: Props) => {
     <label
       sx={{
         mb: "87px",
+        width: ["100%", null, "50%"],
       }}
     >
       <Themed.p
@@ -29,7 +30,7 @@ const FormField = ({ type, label }: Props) => {
         sx={{
           height: "60px",
           background: "rgba(255, 255, 255, 0.04)",
-          width: ["100%", null, "50%"],
+          width: "100%",
           border: "1px solid rgba(255, 255, 255, 0.28)",
           color: "white",
           fontFamily: "body",
