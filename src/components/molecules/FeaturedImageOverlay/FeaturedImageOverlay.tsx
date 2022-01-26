@@ -2,7 +2,7 @@
 import { jsx, Themed } from "theme-ui";
 import React, { useEffect, useRef, useState } from "react";
 import GallerySwipe from "../GallerySwipe/GallerySwipe";
-
+import { resetButton } from "../../../lib/utils/mixins";
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -10,6 +10,7 @@ import {
 } from "body-scroll-lock";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
+import CloseIcon from "../../../assets/icon-close.svg";
 
 type Props = {
   showImageDetail: boolean;
@@ -60,14 +61,43 @@ const FeaturedImageOverlay = ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        "& .swiper": {
+          marginTop: "20px",
+          width: "75%",
+          height: "75%",
+          maxWidth: "100%",
+          maxHeight: "100vh",
+          // CSS Grid/Flexbox bug size workaround
+          // @see https://github.com/kenwheeler/slick/issues/982
+          minHeight: 0,
+          minWidth: 0,
+        },
       }}
       ref={overlayRef}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <button
+        onClick={() => closeImage()}
+        sx={{
+          ...resetButton,
+          display: "flex",
+          alignItems: "center",
+          background: "transparent",
+        }}
+      >
+        <CloseIcon />
+        <Themed.p
+          sx={{
+            marginLeft: "10px",
+            fontSize: "21px",
+          }}
+        >
+          Close
+        </Themed.p>
+      </button>
       <GallerySwipe currentImage={currentImage} imageArray={imageArray} />
-      <button onClick={() => closeImage()}>Close</button>
     </motion.div>
   );
 };

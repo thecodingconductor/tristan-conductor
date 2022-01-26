@@ -48,5 +48,13 @@ module.exports = {
         access_token: process.env.GATSBY_INSTAGRAM,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/, // See below to configure properly
+        },
+      },
+    },
   ],
 };

@@ -49,8 +49,7 @@ const Gallery = (props) => {
               gatsbyImageData(
                 aspectRatio: 1
                 layout: CONSTRAINED
-                width: 368
-                height: 368
+                placeholder: BLURRED
               )
             }
           }
@@ -61,6 +60,8 @@ const Gallery = (props) => {
           node {
             videoTitle
             videoUrl
+            videoDate(formatString: "YYYY.MM.DD")
+            videoLocation
           }
         }
       }
@@ -109,7 +110,7 @@ const Gallery = (props) => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
-          borderBottom: "1px solid rgba(255,255,255, 0.13)",
+          // borderBottom: "1px solid rgba(255,255,255, 0.13)",
         }}
         ref={ref}
       >

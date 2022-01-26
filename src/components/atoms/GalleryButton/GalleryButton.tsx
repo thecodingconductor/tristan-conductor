@@ -18,10 +18,8 @@ const GalleryButton = ({ label, setPhoto, setVideo, gridMediaType }: Props) => {
     }
 
     if (gridMediaType === "photo") {
-      console.log("set video");
       setVideo();
     } else if (gridMediaType === "video") {
-      console.log("set photo");
       setPhoto();
     }
   };

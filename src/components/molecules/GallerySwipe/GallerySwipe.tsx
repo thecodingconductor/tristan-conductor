@@ -3,6 +3,7 @@ import { jsx, Themed } from "theme-ui";
 import React, { useEffect, useContext } from "react";
 import GlobalContext from "../../../context/global/globalContext";
 import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 
 import "swiper/css";
 
