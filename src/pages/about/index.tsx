@@ -9,10 +9,9 @@ import MobileAboutSpacer from "../../components/atoms/MobileAboutSpacer/MobileAb
 import useBreakpoints from "../../lib/hooks/useBreakpoints";
 import HomePageBio from "../../components/atoms/HomePageBio/HomePageBio";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
-import { convertToBgImage } from "gbimage-bridge";
-import BackgroundImage from "gatsby-background-image";
 import { Link } from "gatsby";
 import { resetLink } from "../../lib/utils/mixins";
+import AboutBodyBlock from "../../components/atoms/AboutBodyBlock/AboutBodyBlock";
 
 import GlobalContext from "../../context/global/globalContext";
 
@@ -56,8 +55,6 @@ const About = () => {
     data.allContentfulAboutPageBackground.edges[0].node.image.gatsbyImageData
   );
 
-  const bgImage = convertToBgImage(image);
-
   useEffect(() => {
     isOpen && closeMenu();
 
@@ -76,10 +73,24 @@ const About = () => {
         hideSideNav={hideSideNav}
       />
       {!isLarge && <MobileAboutSpacer />}
-      <HomePageBio bioText={dummyAboutText.bio1} />
-      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
-      <HomePageBio bioText={dummyAboutText.bio1} />
-      <AboutQuoteBlock quoteText={dummyAboutText.quote1} />
+      <AboutBodyBlock
+        bioText={dummyAboutText.bio1}
+        rowStart={!isLarge ? 3 : 2}
+      />
+      <AboutQuoteBlock
+        quoteText={dummyAboutText.quote1}
+        rowStart={!isLarge ? 4 : 3}
+      />
+      <AboutBodyBlock
+        bioText={dummyAboutText.bio1}
+        rowStart={!isLarge ? 5 : 4}
+      />
+      <AboutQuoteBlock
+        quoteText={dummyAboutText.quote1}
+        rowStart={!isLarge ? 6 : 5}
+      />
+
+      {/* Button */}
       <Link
         to="/events"
         sx={{
@@ -92,6 +103,7 @@ const About = () => {
           label={"View Season"}
         />
       </Link>
+      {/* Background Image */}
       <div
         sx={{
           position: "absolute",

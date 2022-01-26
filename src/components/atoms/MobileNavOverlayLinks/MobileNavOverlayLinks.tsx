@@ -1,8 +1,6 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
-import React from "react";
-import { Link } from "gatsby";
-import { resetList, resetLink } from "../../../lib/utils/mixins";
+import { jsx } from "theme-ui";
+import { resetList } from "../../../lib/utils/mixins";
 import MobileNavLink from "../MobileNavLink/MobileNavLink";
 
 const MobileNavOverlayLinks = () => {
@@ -37,9 +35,9 @@ const MobileNavOverlayLinks = () => {
           externalUrl={"https://www.twitch.tv/orchestraobsessed"}
         />
       </li>
-      {/* <li>
+      <li>
         <MobileNavLink slug={"/contact"} text={"Contact"} />
-      </li> */}
+      </li>
     </ul>
   );
 };

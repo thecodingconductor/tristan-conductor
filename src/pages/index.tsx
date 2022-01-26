@@ -72,21 +72,21 @@ const IndexPage = (props) => {
       #   }
       # }
 
-      allInstaNode(limit: 3, sort: { fields: timestamp, order: DESC }) {
-        edges {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(aspectRatio: 1, height: 368)
-              }
-            }
-            timestamp
-            caption
-            username
-            id
-          }
-        }
-      }
+      # allInstaNode(limit: 3, sort: { fields: timestamp, order: DESC }) {
+      #   edges {
+      #     node {
+      #       localFile {
+      #         childImageSharp {
+      #           gatsbyImageData(aspectRatio: 1, height: 368)
+      #         }
+      #       }
+      #       timestamp
+      #       caption
+      #       username
+      #       id
+      #     }
+      #   }
+      # }
 
       allContentfulNewsStory(
         limit: 2
@@ -156,11 +156,11 @@ const IndexPage = (props) => {
       />
       <Divider />
       <HomePageSocial socialIcons={data.allContentfulSocialMedia.edges} />
-      {isSmall ? (
+      {/* {isSmall ? (
         <InstaCarousel instaPosts={data.allInstaNode.edges} />
       ) : (
         <DesktopInstaModule instaPosts={data.allInstaNode.edges} />
-      )}
+      )} */}
     </>
   );
 };

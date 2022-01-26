@@ -42,12 +42,12 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-source-instagram-all",
-      options: {
-        access_token: process.env.GATSBY_INSTAGRAM,
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-instagram-all",
+    //   options: {
+    //     access_token: process.env.GATSBY_INSTAGRAM,
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -56,11 +56,11 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-instagram",
-      options: {
-        username: "200694142",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-instagram",
+    //   options: {
+    //     username: "200694142",
+    //   },
+    // },
   ],
 };

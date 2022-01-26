@@ -2,17 +2,22 @@
 import { jsx, Themed } from "theme-ui";
 import React from "react";
 import { Link } from "gatsby";
-import * as PropTypes from "prop-types";
+
 import { resetLink } from "../../../lib/utils/mixins";
 
-const propTypesShape = {
-  slug: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  isExternal: PropTypes.bool,
-  externalUrl: PropTypes.string,
-};
+// const propTypesShape = {
+//   slug: PropTypes.string.isRequired,
+//   text: PropTypes.string.isRequired,
+//   isExternal: PropTypes.bool,
+//   externalUrl: PropTypes.string,
+// };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+type Props = {
+  slug: string;
+  text: string;
+  isExternal?: boolean;
+  externalUrl?: string;
+};
 
 const MobileNavLink = ({ slug, text, isExternal, externalUrl }: Props) => {
   return (

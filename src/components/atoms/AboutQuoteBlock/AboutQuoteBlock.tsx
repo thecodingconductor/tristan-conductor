@@ -1,23 +1,18 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React from "react";
-import * as PropTypes from "prop-types";
-import { defaultFullWidthGridChild } from "../../../lib/utils/mixins";
 
-const propTypesShape = {
-  /**
-   * Quote Text to be displayed
-   */
-  quoteText: PropTypes.string.isRequired,
+type Props = {
+  quoteText: string;
+  rowStart: number;
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
-
-const AboutQuoteBlock = ({ quoteText }: Props) => {
+const AboutQuoteBlock = ({ quoteText, rowStart }: Props) => {
   return (
     <div
       sx={{
-        ...defaultFullWidthGridChild,
+        gridColumn: ["1 / span 5", null, "1 / span 6"],
+        gridRow: rowStart,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
