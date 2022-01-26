@@ -11,8 +11,6 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-// This needs help.
-
 const HeadlineHero = ({ heroHeadline }: Props) => {
   return (
     <div

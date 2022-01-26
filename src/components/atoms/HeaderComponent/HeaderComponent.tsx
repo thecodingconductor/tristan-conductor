@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useRef, useState, useEffect, useContext } from "react";
-import * as PropTypes from "prop-types";
+import React, { useRef, useEffect } from "react";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
 import useIntersectionObserver from "../../../lib/hooks/useIntersectionObserver";
 
@@ -24,7 +23,6 @@ const HeaderComponent = ({
   margin,
   closeMenu,
   openMenu,
-  isSideNavVisible,
   isOpen,
   showSideNav,
   hideSideNav,

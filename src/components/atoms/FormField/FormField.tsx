@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type Props = {
   type: string;

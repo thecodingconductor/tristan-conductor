@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
 
 const defaultCircleStyles = {
   width: "506px",
   height: "506px",
   filter: "blur(524px)",
-  // zIndex: "-1",
 };
 
 const Background = () => {
@@ -72,16 +70,6 @@ const Background = () => {
           background: "rgba(173, 0, 125, 0.7)",
         }}
       ></div>
-      {/* <div
-        className="darkBlue"
-        sx={{
-          ...defaultCircleStyles,
-          position: "absolute",
-          left: "149px",
-          top: "3027px",
-          background: "rgba(1, 7, 150, 0.6)",
-        }}
-      ></div> */}
     </div>
   );
 };

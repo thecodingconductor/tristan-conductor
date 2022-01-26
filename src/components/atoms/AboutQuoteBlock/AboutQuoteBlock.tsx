@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
 
 type Props = {
   quoteText: string;

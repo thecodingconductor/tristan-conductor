@@ -1,11 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
+
 import * as PropTypes from "prop-types";
-import {
-  resetButton,
-  defaultFullWidthGridChild,
-} from "../../../lib/utils/mixins";
+import { resetButton } from "../../../lib/utils/mixins";
 
 const propTypesShape = {
   /**
