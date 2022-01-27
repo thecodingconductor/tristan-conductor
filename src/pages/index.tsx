@@ -141,13 +141,13 @@ const IndexPage = (props) => {
           />
         }
       />
-      <HomePageVideo
+      {/* <HomePageVideo
         videoSrcURL={data.allContentfulVideos.edges[2].node.videoUrl}
         videoTitle={data.allContentfulVideos.edges[2].node.videoTitle}
-      />
-      <HomePageVideoSubtitle
+      /> */}
+      {/* <HomePageVideoSubtitle
         videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
-      />
+      /> */}
       <Divider />
       <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
       <Divider />
