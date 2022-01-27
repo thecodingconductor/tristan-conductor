@@ -52,7 +52,7 @@ const Layout = (props) => {
       </div>
       <Footer />
 
-      <Background />
+      {/* <Background /> */}
 
       <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu} />
     </div>
