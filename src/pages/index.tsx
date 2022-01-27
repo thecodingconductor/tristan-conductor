@@ -142,7 +142,7 @@ const IndexPage = () => {
         videoSrcURL={data.allContentfulVideos.edges[2].node.videoUrl}
         videoTitle={data.allContentfulVideos.edges[2].node.videoTitle}
       />
-      `
+
       <HomePageVideoSubtitle
         videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
       />
