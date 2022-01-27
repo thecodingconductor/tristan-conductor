@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { match } from "assert";
 import { jsx, Themed } from "theme-ui";
 
 type Props = {
@@ -18,7 +19,7 @@ const AboutBodyBlock = ({ bioText, rowStart }: Props) => {
     >
       {split.map((paragraph) => (
         <Themed.p
-          key={paragraph}
+          key={Math.random()}
           sx={{
             mb: "20px",
           }}
