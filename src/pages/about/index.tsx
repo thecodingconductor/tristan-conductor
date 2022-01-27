@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
+import { jsx } from "theme-ui";
 import React, { useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Button from "../../components/atoms/Button/Button";

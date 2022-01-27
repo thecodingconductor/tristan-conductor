@@ -1,14 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import * as PropTypes from "prop-types";
 import HeadlineHero from "../../atoms/HeadlineHero/HeadlineHero";
-import useBreakpoints from "../../../lib/hooks/useBreakpoints";
-import { FC, ReactElement } from "react";
 
-const propTypesShape = {
-  heroHeadline: PropTypes.string.isRequired,
-  headerElement: PropTypes.element.isRequired,
-};
+import { FC, ReactElement } from "react";
 
 type Props = {
   heroHeadline: string;
