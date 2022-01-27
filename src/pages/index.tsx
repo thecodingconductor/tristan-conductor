@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
+import { jsx } from "theme-ui";
 import React, { useContext, useEffect } from "react";
-import Layout from "../components/Layout";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
 import HomePageVideo from "../components/atoms/HomePageVideo/HomePageVideo";
@@ -10,18 +9,16 @@ import Divider from "../components/atoms/Divider/Divider";
 
 import HomePageBio from "../components/atoms/HomePageBio/HomePageBio";
 import HomePageSocial from "../components/molecules/HomePageSocial/HomePageSocial";
-import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
+// import InstaCarousel from "../components/molecules/InstaCarousel/InstaCarousel";
 import HomePageNewsContainer from "../components/molecules/HomePageNewsContainer/HomePageNewsContainer";
-import useBreakpoints from "../lib/hooks/useBreakpoints";
+
 import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent";
-import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
+// import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
 
 import GlobalContext from "../context/global/globalContext";
 
 // markup
-const IndexPage = (props) => {
-  const { isSmall } = useBreakpoints();
-
+const IndexPage = () => {
   const globalContext = useContext(GlobalContext);
 
   const {
@@ -31,7 +28,7 @@ const IndexPage = (props) => {
     isOpen,
     showSideNav,
     hideSideNav,
-  } = globalContext.menu;
+  } = globalContext!.menu;
 
   const data = useStaticQuery(graphql`
     query {
@@ -122,8 +119,8 @@ const IndexPage = (props) => {
   `);
 
   useEffect(() => {
-    isOpen && closeMenu();
-    hideSideNav();
+    isOpen && closeMenu!();
+    hideSideNav!();
   }, []);
 
   return (
@@ -132,12 +129,12 @@ const IndexPage = (props) => {
         heroHeadline={data.allContentfulHeaderBio.edges[0].node.text}
         headerElement={
           <HeaderComponent
-            closeMenu={closeMenu}
-            openMenu={openMenu}
+            closeMenu={closeMenu!}
+            openMenu={openMenu!}
             isSideNavVisible={isSideNavVisible}
             isOpen={isOpen}
-            showSideNav={showSideNav}
-            hideSideNav={hideSideNav}
+            showSideNav={showSideNav!}
+            hideSideNav={hideSideNav!}
           />
         }
       />

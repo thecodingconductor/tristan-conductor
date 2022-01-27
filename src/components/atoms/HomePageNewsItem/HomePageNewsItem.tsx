@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
+import { FC } from "react";
 import * as PropTypes from "prop-types";
 
 const propTypesShape = {
@@ -11,7 +11,7 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const DescriptionContainer = ({ children }) => (
+const DescriptionContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: ["3 / span 3", null, "6 / span 7"],
@@ -21,7 +21,7 @@ const DescriptionContainer = ({ children }) => (
   </div>
 );
 
-const DateContainer = ({ children }) => (
+const DateContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: "1 / span 2",

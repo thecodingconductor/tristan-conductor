@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 import RelativeTime from "@yaireo/relative-time";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 import { Node } from "gatsby";
+import { FC } from "react";
 
 const propTypesShape = {
   node: PropTypes.shape({
@@ -39,7 +40,7 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape & ImageDataLike & Node>;
 
-const TileContainer = (props) => (
+const TileContainer: FC = (props) => (
   <div
     {...props}
     sx={{
@@ -49,33 +50,17 @@ const TileContainer = (props) => (
   />
 );
 
-const PreviewImage = (props) => (
-  <img src={props.src} sx={{ height: "290px", width: "inherit" }} />
-);
-
 const HomePageInstaTile = ({ node }: Props) => {
-  const {
-    id,
-    username,
-    caption,
-    timestamp,
-    localFile,
-    permalink,
-    thumbnail_url,
-    media_url,
-  } = node;
+  const { username, caption, timestamp, localFile } = node;
 
   const relativeTime = new RelativeTime();
   const dateSince = relativeTime.from(new Date(timestamp));
 
-  const date = new Date(timestamp);
-
-  // eslint-disable-next-line
   const image = getImage(localFile.childImageSharp.gatsbyImageData);
 
   return (
     <TileContainer>
-      <GatsbyImage image={image} alt={"Instagram post"} />
+      <GatsbyImage image={image!} alt={"Instagram post"} />
       <div
         sx={{
           background: "rgba(255, 255, 255, 0.04)",

@@ -2,6 +2,7 @@
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { FC } from "react";
 
 const propTypesShape = {
   bioText: PropTypes.string.isRequired,
@@ -9,13 +10,14 @@ const propTypesShape = {
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const BioContainer = (props) => (
+const BioContainer: FC = ({ children }) => (
   <div
-    {...props}
     sx={{
       gridColumn: ["1 / span 5", null, "1 / span 12"],
     }}
-  />
+  >
+    {children}
+  </div>
 );
 
 const HomePageBio = ({ bioText }: Props) => {

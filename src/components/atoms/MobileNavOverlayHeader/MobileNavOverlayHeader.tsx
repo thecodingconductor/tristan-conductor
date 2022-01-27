@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useContext } from "react";
-import * as PropTypes from "prop-types";
 import { resetButton } from "../../../lib/utils/mixins";
 
 type Props = {

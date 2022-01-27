@@ -1,15 +1,12 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React from "react";
-import * as PropTypes from "prop-types";
+import React, { FC } from "react";
 
-const propTypesShape = {
-  videoURL: PropTypes.string.isRequired,
+type Props = {
+  videoURL: string;
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
-
-const TitleContainer = ({ children }) => (
+const TitleContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: "1 / span 2",
@@ -19,7 +16,7 @@ const TitleContainer = ({ children }) => (
   </div>
 );
 
-const DescriptionContainer = ({ children }) => (
+const DescriptionContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: ["3 / span 3", null, "6 / span 7"],

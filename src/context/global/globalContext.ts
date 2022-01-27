@@ -1,4 +1,4 @@
-import { IGatsbyImageData, ImageDataLike } from "gatsby-plugin-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { createContext } from "react";
 
 interface MenuContextInterface {

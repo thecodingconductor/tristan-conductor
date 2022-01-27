@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
+import { FC } from "react";
 
-const VideoContainer = ({ children }) => (
+const VideoContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: ["1 / span 5", null, "1 / span 12"],
@@ -16,7 +16,12 @@ const VideoContainer = ({ children }) => (
   </div>
 );
 
-const HomePageVideo = ({ videoSrcURL, videoTitle, ...props }) => {
+type Props = {
+  videoSrcURL: string;
+  videoTitle: string;
+};
+
+const HomePageVideo = ({ videoSrcURL, videoTitle }: Props) => {
   return (
     <VideoContainer>
       <iframe

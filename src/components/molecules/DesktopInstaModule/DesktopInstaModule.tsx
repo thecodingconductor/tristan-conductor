@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
 import * as PropTypes from "prop-types";
 
 import HomePageInstaTile from "../../atoms/HomePageInstaTile/HomePageInstaTile";
@@ -36,15 +35,15 @@ const DesktopInstaModule = ({ instaPosts }: Props) => {
         gridTemplateColumns: "repeat(12, 1fr)",
       }}
     >
-      {instaPosts.map((post) => {
+      {instaPosts!.map((post) => {
         return (
           <div
             sx={{
               gridColumn: "auto / span 4",
             }}
-            key={post.node.id}
+            key={post!.node!.id}
           >
-            <HomePageInstaTile node={post.node} />
+            <HomePageInstaTile node={post!.node} />
           </div>
         );
       })}

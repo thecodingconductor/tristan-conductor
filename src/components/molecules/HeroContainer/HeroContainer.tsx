@@ -3,16 +3,19 @@ import { jsx } from "theme-ui";
 import * as PropTypes from "prop-types";
 import HeadlineHero from "../../atoms/HeadlineHero/HeadlineHero";
 import useBreakpoints from "../../../lib/hooks/useBreakpoints";
-import mediaQueries from "../../../theme/media-queries";
+import { FC, ReactElement } from "react";
 
 const propTypesShape = {
   heroHeadline: PropTypes.string.isRequired,
   headerElement: PropTypes.element.isRequired,
 };
 
-type Props = PropTypes.InferProps<typeof propTypesShape>;
+type Props = {
+  heroHeadline: string;
+  headerElement: ReactElement;
+};
 
-const StyledHeroContainer = ({ children }) => (
+const StyledHeroContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: ["1 / span 5", null, "1 / span 12"],
@@ -29,7 +32,6 @@ const StyledHeroContainer = ({ children }) => (
 );
 
 const HeroContainer = ({ heroHeadline, headerElement }: Props) => {
-  const { isLarge } = useBreakpoints();
   return (
     <StyledHeroContainer>
       {headerElement}

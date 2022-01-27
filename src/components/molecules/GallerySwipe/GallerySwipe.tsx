@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useContext } from "react";
-import GlobalContext from "../../../context/global/globalContext";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import "swiper/css";
@@ -17,9 +15,6 @@ type Props = {
 };
 
 const GallerySwipe = ({ currentImage, imageArray }: Props) => {
-  const globalContext = useContext(GlobalContext);
-  const { gallery } = globalContext;
-
   return (
     <Swiper watchSlidesProgress slidesPerView={1}>
       {imageArray.map((image, i) => (

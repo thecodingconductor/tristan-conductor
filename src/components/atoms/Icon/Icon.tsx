@@ -4,7 +4,6 @@ import parse, {
   HTMLReactParserOptions,
 } from "html-react-parser";
 import * as PropTypes from "prop-types";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 import iconData, { iconKeys } from "../../../lib/constants/icons";
 
@@ -14,12 +13,6 @@ const propTypesShape = {
 };
 
 type IconType = PropTypes.InferProps<typeof propTypesShape>;
-
-const iconStyles = {
-  alignItems: "center",
-  display: "flex",
-  color: "white",
-};
 
 const parseOptions: HTMLReactParserOptions = {
   replace: (domNode) => {
@@ -39,15 +32,19 @@ const parseOptions: HTMLReactParserOptions = {
 const Icon = ({ className, name }: IconType) => {
   const icon = iconData[name];
 
-  return <span className={className}>{parse(icon, parseOptions)}</span>;
+  return <span className={className!}>{parse(icon, parseOptions)}</span>;
 };
 
 Icon.propTypes = propTypesShape;
 
 export default Icon;
 
-export const TwitterIcon = (props) => <Icon {...props} name="twitterIcon" />;
-export const TwitchIcon = (props) => <Icon {...props} name="twitchIcon" />;
-export const InstagramIcon = (props) => (
+export const TwitterIcon = (props: IconType) => (
+  <Icon {...props} name="twitterIcon" />
+);
+export const TwitchIcon = (props: IconType) => (
+  <Icon {...props} name="twitchIcon" />
+);
+export const InstagramIcon = (props: IconType) => (
   <Icon {...props} name="instagramIcon" />
 );

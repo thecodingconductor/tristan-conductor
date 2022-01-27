@@ -1,16 +1,9 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
 import { Link } from "gatsby";
 
 import { resetLink } from "../../../lib/utils/mixins";
-
-// const propTypesShape = {
-//   slug: PropTypes.string.isRequired,
-//   text: PropTypes.string.isRequired,
-//   isExternal: PropTypes.bool,
-//   externalUrl: PropTypes.string,
-// };
 
 type Props = {
   slug: string;

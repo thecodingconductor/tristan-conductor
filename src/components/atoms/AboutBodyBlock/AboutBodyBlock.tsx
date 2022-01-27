@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { match } from "assert";
 import { jsx, Themed } from "theme-ui";
 
 type Props = {

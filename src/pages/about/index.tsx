@@ -29,7 +29,7 @@ const About = () => {
     isOpen,
     showSideNav,
     hideSideNav,
-  } = globalContext.menu;
+  } = globalContext!.menu;
 
   const data = useStaticQuery(graphql`
     query {
@@ -73,21 +73,21 @@ const About = () => {
   );
 
   useEffect(() => {
-    isOpen && closeMenu();
+    isOpen && closeMenu!();
 
-    hideSideNav();
+    hideSideNav!();
   }, []);
 
   return (
     <>
       <HeaderComponent
         margin={50}
-        closeMenu={closeMenu}
-        openMenu={openMenu}
+        closeMenu={closeMenu!}
+        openMenu={openMenu!}
         isSideNavVisible={isSideNavVisible}
         isOpen={isOpen}
-        showSideNav={showSideNav}
-        hideSideNav={hideSideNav}
+        showSideNav={showSideNav!}
+        hideSideNav={hideSideNav!}
       />
       {!isLarge && <MobileAboutSpacer />}
       <AboutBodyBlock
@@ -152,7 +152,7 @@ const About = () => {
             }}
           >
             <GatsbyImage
-              image={image}
+              image={image!}
               alt="testImage"
               sx={{
                 position: "relative",

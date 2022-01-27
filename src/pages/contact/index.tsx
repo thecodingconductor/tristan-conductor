@@ -6,10 +6,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 import ContactForm from "../../components/molecules/ContactForm/ContactForm";
 
-const Contact = (props) => {
+const Contact = () => {
   const globalContext = useContext(GlobalContext);
 
-  const { isSubmitted, onSubmit } = globalContext.form;
+  // Add later
+
+  // const { isSubmitted, onSubmit } = globalContext!.form;
   const {
     isOpen,
     closeMenu,
@@ -17,7 +19,7 @@ const Contact = (props) => {
     openMenu,
     isSideNavVisible,
     showSideNav,
-  } = globalContext.menu;
+  } = globalContext!.menu;
 
   const data = useStaticQuery(graphql`
     query {
@@ -32,20 +34,20 @@ const Contact = (props) => {
   `);
 
   useEffect(() => {
-    isOpen && closeMenu();
+    isOpen && closeMenu!();
 
-    hideSideNav();
+    hideSideNav!();
   }, []);
 
   return (
     <>
       <HeaderComponent
-        closeMenu={closeMenu}
-        openMenu={openMenu}
+        closeMenu={closeMenu!}
+        openMenu={openMenu!}
         isSideNavVisible={isSideNavVisible}
         isOpen={isOpen}
-        showSideNav={showSideNav}
-        hideSideNav={hideSideNav}
+        showSideNav={showSideNav!}
+        hideSideNav={hideSideNav!}
         margin={50}
       />
       <div

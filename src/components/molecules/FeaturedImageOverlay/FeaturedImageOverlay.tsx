@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import GallerySwipe from "../GallerySwipe/GallerySwipe";
 import { resetButton } from "../../../lib/utils/mixins";
 import {
@@ -35,11 +35,11 @@ const FeaturedImageOverlay = ({
     const gatsbyDiv = document.getElementById("gatsby-focus-wrapper");
 
     if (showImageDetail) {
-      gatsbyDiv.style.height = "100%";
+      gatsbyDiv!.style.height = "100%";
       document.documentElement.style.overflow = "hidden";
       disableBodyScroll(overlayRef.current);
     } else {
-      gatsbyDiv.style.height = "auto";
+      gatsbyDiv!.style.height = "auto";
       document.documentElement.style.overflow = "auto";
 
       enableBodyScroll(overlayRef.current);

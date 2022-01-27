@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
-import React from "react";
+import { jsx } from "theme-ui";
 import * as PropTypes from "prop-types";
 import HomePageNewsItem from "../../atoms/HomePageNewsItem/HomePageNewsItem";
 import { resetLink } from "../../../lib/utils/mixins";
@@ -22,7 +21,6 @@ const propTypesShape = {
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
 const HomePageNewsContainer = ({ newsItems }: Props) => {
-  const arrLength = newsItems.length - 1;
   return (
     <div
       sx={{
@@ -32,13 +30,13 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
         gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
       }}
     >
-      {newsItems.map((newsItem, index) => {
+      {newsItems!.map((newsItem, index) => {
         return (
           <HomePageNewsItem
-            newsDate={newsItem.node.newsDate}
-            newsTitle={newsItem.node.newsTitle}
+            newsDate={newsItem!.node!.newsDate}
+            newsTitle={newsItem!.node!.newsTitle}
             isFirst={index === 0}
-            key={newsItem.node.newsDate}
+            key={newsItem!.node!.newsDate}
           />
         );
       })}

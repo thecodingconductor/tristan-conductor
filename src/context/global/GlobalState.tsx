@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, ReactNode } from "react";
 import GlobalContext from "./globalContext";
 import globalReducer from "./globalReducer";
 
@@ -15,7 +15,11 @@ import {
 } from "../types";
 import { ImageDataLike } from "gatsby-plugin-image";
 
-const GlobalState = (props) => {
+type Props = {
+  children: ReactNode;
+};
+
+const GlobalState = ({ children }: Props) => {
   const initialState = {
     gallery: {
       gridMediaType: "photo",
@@ -125,7 +129,7 @@ const GlobalState = (props) => {
         },
       }}
     >
-      {props.children}
+      {children}
     </GlobalContext.Provider>
   );
 };

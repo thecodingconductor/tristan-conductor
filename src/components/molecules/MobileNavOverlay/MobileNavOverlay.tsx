@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
-import * as PropTypes from "prop-types";
-import React, { useState, useEffect, useRef, useContext } from "react";
+import { jsx } from "theme-ui";
+
+import React, { useState, useEffect, useRef } from "react";
 import MobileNavOverlayHeader from "../../atoms/MobileNavOverlayHeader/MobileNavOverlayHeader";
 import MobileNavOverlayLinks from "../../atoms/MobileNavOverlayLinks/MobileNavOverlayLinks";
 import useLockBodyScroll from "../../../lib/hooks/useLockBodyScroll";

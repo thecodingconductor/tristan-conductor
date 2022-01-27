@@ -1,28 +1,24 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { useState, useContext, useEffect } from "react";
-import { globalHistory } from "@reach/router";
-import * as PropTypes from "prop-types";
+import { useContext, ReactNode } from "react";
+
 import Footer from "./Footer";
-import Background from "./atoms/Background/Background";
+// import Background from "./atoms/Background/Background";
 import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
-import useBreakpoints from "../lib/hooks/useBreakpoints";
+
 import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
 import "@fontsource/inter";
 import "@fontsource/lora";
 
 import GlobalContext from "../context/global/globalContext";
 
-const propTypesShape = {
-  onClick: PropTypes.func.isRequired,
+type Props = {
+  children: ReactNode;
 };
 
-const Layout = (props) => {
-  const { isLarge, isMediumAndBelow } = useBreakpoints();
-
+const Layout = ({ children }: Props) => {
   const globalContext = useContext(GlobalContext);
-  const { closeMenu, openMenu, isOpen, isSideNavVisible, hideSideNav } =
-    globalContext.menu;
+  const { closeMenu, openMenu, isOpen, isSideNavVisible } = globalContext!.menu;
 
   return (
     <div
@@ -33,8 +29,8 @@ const Layout = (props) => {
       className="layout-wrap"
     >
       <MobileNavIcon
-        closeMenu={closeMenu}
-        openMenu={openMenu}
+        closeMenu={closeMenu!}
+        openMenu={openMenu!}
         isOpen={isOpen}
         isSideNavVisible={isSideNavVisible}
       />
@@ -48,13 +44,13 @@ const Layout = (props) => {
           padding: ["0 30px", null, "0 140px"],
         }}
       >
-        {props.children}
+        {children}
       </div>
       <Footer />
 
       {/* <Background /> */}
 
-      <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu} />
+      <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu!} />
     </div>
   );
 };

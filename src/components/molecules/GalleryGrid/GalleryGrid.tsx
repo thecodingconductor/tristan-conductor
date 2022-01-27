@@ -41,7 +41,7 @@ const GalleryGrid = ({
       <AnimatePresence>
         {gridMediaType === "photo"
           ? photoItemsArray.map((imageItem, i) => {
-              const image: IGatsbyImageData = getImage(
+              const image: IGatsbyImageData | undefined = getImage(
                 imageItem.node.image.gatsbyImageData
               );
               return (
@@ -59,7 +59,7 @@ const GalleryGrid = ({
                   transition={{ duration: 2 }}
                 >
                   <div>
-                    <GalleryMediaTile image={image} alt={imageItem.node.alt} />
+                    <GalleryMediaTile image={image!} alt={imageItem.node.alt} />
                   </div>
                 </motion.button>
               );

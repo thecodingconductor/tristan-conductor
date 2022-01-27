@@ -4,7 +4,6 @@ import { jsx } from "theme-ui";
 const defaultCircleStyles = {
   width: "506px",
   height: "506px",
-  filter: "blur(524px)",
 };
 
 const Background = () => {
@@ -18,6 +17,7 @@ const Background = () => {
         left: 0,
         right: 0,
         zIndex: -1,
+        filter: "blur(524px)",
       }}
     >
       <div

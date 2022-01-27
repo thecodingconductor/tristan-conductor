@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import React, { useState, useContext, useEffect } from "react";
 
 const Footer = () => {
   return (

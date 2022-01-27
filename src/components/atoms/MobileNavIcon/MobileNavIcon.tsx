@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
-import * as PropTypes from "prop-types";
-import React, { useContext } from "react";
+import React from "react";
 import { resetButton } from "../../../lib/utils/mixins";
 import { motion, AnimatePresence } from "framer-motion";
 

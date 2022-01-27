@@ -2,7 +2,6 @@
 import { jsx, Themed } from "theme-ui";
 import * as PropTypes from "prop-types";
 import Icon from "../../atoms/Icon/Icon";
-import React from "react";
 
 const socialMediaTypes = [
   "facebook",
@@ -24,21 +23,6 @@ const propTypesShape = {
     })
   ).isRequired,
 };
-
-const SocialGridContainer = ({ children }) => (
-  <div
-    sx={{
-      gridColumn: ["1 / span 5", null, "1 / span 12"],
-      display: "grid",
-      gridGap: "20px",
-      gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-    }}
-  >
-    {children}
-  </div>
-);
-
-const SocialFlexContainer = ({ children }) => <div>{children}</div>;
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
@@ -78,10 +62,10 @@ const HomePageSocial = ({ socialIcons }: Props) => {
         }}
       >
         {socialIcons.map((node) => {
-          const iconName = `${node.node.type}Icon`;
+          const iconName = `${node!.node!.type}Icon`;
 
           return (
-            <a key={node.node.type} href={node.node.url}>
+            <a key={node!.node!.type} href={node!.node!.url}>
               <Icon name={iconName} />
             </a>
           );

@@ -8,7 +8,6 @@ import {
   SUBMIT_FORM,
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
-  SET_CURRENT_IMAGE,
 } from "../types";
 
 const globalReducer = (state, action) => {

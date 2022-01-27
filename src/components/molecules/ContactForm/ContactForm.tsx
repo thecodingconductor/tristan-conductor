@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui";
-import React from "react";
+import { jsx } from "theme-ui";
+
 import FormField from "../../atoms/FormField/FormField";
 import Button from "../../atoms/Button/Button";
 
