@@ -80,10 +80,10 @@ const GalleryGrid = ({
                     exit={{ opacity: 0 }}
                     transition={{ duration: 2 }}
                   >
-                    {/* <GalleryVideo
+                    <GalleryVideo
                       videoSrcURL={video.node.videoUrl}
                       videoTitle={video.node.videoTitle}
-                    /> */}
+                    />
                   </motion.div>
                   <div
                     sx={{
