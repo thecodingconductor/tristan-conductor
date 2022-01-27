@@ -31,8 +31,6 @@ const Contact = (props) => {
     }
   `);
 
-  console.log(data);
-
   useEffect(() => {
     isOpen && closeMenu();
 
