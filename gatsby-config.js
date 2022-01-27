@@ -4,8 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "second-attempt",
+    title: "Tristan Rais-Sherman, Conductor",
   },
   plugins: [
     {
@@ -42,6 +41,7 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-netlify",
     // {
     //   resolve: "gatsby-source-instagram-all",
     //   options: {
