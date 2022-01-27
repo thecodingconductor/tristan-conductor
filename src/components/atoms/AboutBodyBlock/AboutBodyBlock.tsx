@@ -8,7 +8,7 @@ type Props = {
 
 const AboutBodyBlock = ({ bioText, rowStart }: Props) => {
   const split = JSON.stringify(bioText).slice(1, -1).split("\\n");
-  console.log(split);
+
   return (
     <div
       sx={{
