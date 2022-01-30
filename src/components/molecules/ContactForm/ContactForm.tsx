@@ -30,6 +30,7 @@ const ContactForm = () => {
         onClick={() => console.log("form submitted")}
         label={"Submit"}
         isParent={false}
+        isFullWidth={true}
       />
     </form>
   );

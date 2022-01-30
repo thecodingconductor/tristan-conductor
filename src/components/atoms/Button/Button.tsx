@@ -18,11 +18,12 @@ const propTypesShape = {
    */
   isParent: PropTypes.bool,
   isSubmit: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
 
-const Button = ({ onClick, label, isParent, isSubmit }: Props) => {
+const Button = ({ onClick, label, isParent, isSubmit, isFullWidth }: Props) => {
   return (
     <div
       sx={{
@@ -30,6 +31,7 @@ const Button = ({ onClick, label, isParent, isSubmit }: Props) => {
         display: "flex",
         justifyContent: "center",
         mb: "100px",
+        width: isFullWidth && ["100%", null, null],
       }}
     >
       {isSubmit ? (
