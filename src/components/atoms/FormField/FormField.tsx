@@ -24,19 +24,37 @@ const FormField = ({ type, label }: Props) => {
       >
         {label}
       </Themed.p>
-      <input
-        type={type}
-        name={type}
-        sx={{
-          height: "60px",
-          background: "rgba(255, 255, 255, 0.04)",
-          width: "100%",
-          border: "1px solid rgba(255, 255, 255, 0.28)",
-          color: "white",
-          fontFamily: "body",
-        }}
-        onChange={(e) => setField(e.target.value)}
-      />
+      {type === "textarea" ? (
+        <textarea
+          name={type}
+          sx={{
+            height: "60px",
+            background: "rgba(255, 255, 255, 0.04)",
+            width: "100%",
+            border: "1px solid rgba(255, 255, 255, 0.28)",
+            color: "white",
+            fontFamily: "body",
+            resize: "none",
+          }}
+          onChange={(e) => setField(e.target.value)}
+          placeholder="Please enter a message..."
+          rows={10}
+        />
+      ) : (
+        <input
+          type={type}
+          name={type}
+          sx={{
+            height: "60px",
+            background: "rgba(255, 255, 255, 0.04)",
+            width: "100%",
+            border: "1px solid rgba(255, 255, 255, 0.28)",
+            color: "white",
+            fontFamily: "body",
+          }}
+          onChange={(e) => setField(e.target.value)}
+        />
+      )}
     </label>
   );
 };
