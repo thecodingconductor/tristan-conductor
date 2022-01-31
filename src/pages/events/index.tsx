@@ -99,6 +99,7 @@ const Events = () => {
               performers={node.eventInformation.performers}
               pieces={node.eventInformation.pieces}
               image={image}
+              isAssistant={node.isAssistant}
               key={node.eventId}
             />
           );

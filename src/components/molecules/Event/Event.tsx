@@ -28,21 +28,18 @@ type PerformerType = {
   instrument: string;
 };
 
-type EventPerformersType = {
-  performers: Array<PerformerType>;
-};
-
 type EventPiecesType = {
   pieces: Array<{ title: string } & { composer: string }>;
 };
 
 export type Props = {
   eventDates: EventDatesType;
-  eventTitle: EventTitleType;
+  eventTitle: string;
   eventLocation: EventLocationType;
-  performers: EventPerformersType;
+  performers: Array<PerformerType>;
   pieces?: EventPiecesType;
   image: IGatsbyImageData;
+  isAssistant: boolean;
 };
 
 const Event = ({
@@ -51,6 +48,7 @@ const Event = ({
   eventLocation,
   performers,
   image,
+  isAssistant,
 }: Props) => {
   return (
     <>
@@ -60,7 +58,7 @@ const Event = ({
           my: "63px",
           display: "flex",
           flexDirection: ["column", null, "row"],
-          justifyContent: [null, null, "space-between"],
+          //   justifyContent: [null, null, "space-between"],
         }}
         className="event-container"
       >
@@ -92,6 +90,7 @@ const Event = ({
           sx={{
             display: "flex",
             flexDirection: "column",
+            marginLeft: "160px",
           }}
         >
           <EventTitle title={eventTitle} />
@@ -99,7 +98,7 @@ const Event = ({
             location={eventLocation.location}
             ensemble={eventLocation.ensemble}
           />
-          <EventPerformers performers={performers} />
+          <EventPerformers performers={performers} isAssistant={isAssistant} />
         </div>
       </div>
       <Divider />

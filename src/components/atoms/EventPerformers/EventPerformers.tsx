@@ -9,9 +9,10 @@ type PerformerType = {
 
 type Props = {
   performers: Array<PerformerType>;
+  isAssistant: boolean;
 };
 
-const EventPerformers = ({ performers }: Props) => {
+const EventPerformers = ({ performers, isAssistant }: Props) => {
   return (
     <div>
       {performers.map(({ name, instrument }) => (
@@ -39,6 +40,30 @@ const EventPerformers = ({ performers }: Props) => {
           </Themed.h1>
         </div>
       ))}
+      {isAssistant && (
+        <div
+          sx={{
+            mb: "28px",
+          }}
+        >
+          <Themed.h1
+            sx={{
+              fontSize: "15px",
+              fontWeight: 700,
+            }}
+          >
+            Assistant Conductor
+          </Themed.h1>
+          <Themed.h1
+            sx={{
+              fontSize: "15px",
+              fontWeight: 300,
+            }}
+          >
+            Tristan Rais-Sherman
+          </Themed.h1>
+        </div>
+      )}
     </div>
   );
 };
