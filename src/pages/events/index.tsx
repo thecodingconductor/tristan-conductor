@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 
 import Event from "../../components/molecules/Event/Event";
-
+import Divider from "../../components/atoms/Divider/Divider";
 import GlobalContext from "../../context/global/globalContext";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 
@@ -30,7 +30,7 @@ const Events = () => {
             endDate(formatString: "MM.DD.YYYY")
             eventId
             eventImage {
-              gatsbyImageData(placeholder: BLURRED, aspectRatio: 1)
+              gatsbyImageData(placeholder: BLURRED, aspectRatio: 1, height: 368)
             }
             eventInformation {
               performers {
@@ -103,6 +103,7 @@ const Events = () => {
             />
           );
         })}
+        <Divider />
       </div>
     </>
   );

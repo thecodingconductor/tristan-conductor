@@ -53,51 +53,57 @@ const Event = ({
   image,
 }: Props) => {
   return (
-    <div
-      sx={{
-        width: "100%",
-        mb: "63px",
-      }}
-      className="event-container"
-    >
+    <>
       <div
-        className="image-dates"
         sx={{
+          width: "100%",
+          my: "63px",
           display: "flex",
           flexDirection: ["column", null, "row"],
+          justifyContent: [null, null, "space-between"],
         }}
+        className="event-container"
       >
-        {image && (
-          <GatsbyImage
-            image={image}
-            alt="Event Image"
-            sx={{
-              mb: ["54px"],
-            }}
-          />
-        )}
+        <div
+          className="image-dates"
+          sx={{
+            display: "flex",
+            flexDirection: ["column", null, "row"],
+          }}
+        >
+          {image && (
+            <GatsbyImage
+              image={image}
+              alt="Event Image"
+              sx={{
+                mb: ["54px"],
+                mr: [null, null, "58px"],
+              }}
+            />
+          )}
 
-        <EventDates
-          startDate={eventDates.startDate}
-          endDate={eventDates.endDate}
-        />
-      </div>
-      <div
-        className="event-information-container"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <EventTitle title={eventTitle} />
-        <EventLocation
-          location={eventLocation.location}
-          ensemble={eventLocation.ensemble}
-        />
-        <EventPerformers performers={performers} />
+          <EventDates
+            startDate={eventDates.startDate}
+            endDate={eventDates.endDate}
+          />
+        </div>
+        <div
+          className="event-information-container"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <EventTitle title={eventTitle} />
+          <EventLocation
+            location={eventLocation.location}
+            ensemble={eventLocation.ensemble}
+          />
+          <EventPerformers performers={performers} />
+        </div>
       </div>
       <Divider />
-    </div>
+    </>
   );
 };
 

@@ -21,9 +21,9 @@ const MobileNavOverlayLinks = () => {
       <li>
         <MobileNavLink slug={"/about"} text={"About"} />
       </li>
-      {/* <li>
-        <MobileNavLink slug={"/season"} text={"Season"} />
-      </li> */}
+      <li>
+        <MobileNavLink slug={"/events"} text={"Events"} />
+      </li>
       <li>
         <MobileNavLink slug={"/gallery"} text={"Gallery"} />
       </li>
