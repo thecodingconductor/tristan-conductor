@@ -2,11 +2,14 @@
 import { jsx, Themed } from "theme-ui";
 import { FC } from "react";
 import * as PropTypes from "prop-types";
+import { Link } from "gatsby";
+import { resetLink } from "../../../lib/utils/mixins";
 
 const propTypesShape = {
   newsDate: PropTypes.string.isRequired,
   newsTitle: PropTypes.string.isRequired,
   isFirst: PropTypes.bool.isRequired,
+  newsLink: PropTypes.string.isRequired,
 };
 
 type Props = PropTypes.InferProps<typeof propTypesShape>;
@@ -31,7 +34,12 @@ const DateContainer: FC = ({ children }) => (
   </div>
 );
 
-const HomePageNewsItem = ({ newsDate, newsTitle, isFirst }: Props) => {
+const HomePageNewsItem = ({
+  newsDate,
+  newsTitle,
+  isFirst,
+  newsLink,
+}: Props) => {
   return (
     <div
       sx={{
@@ -46,7 +54,15 @@ const HomePageNewsItem = ({ newsDate, newsTitle, isFirst }: Props) => {
         <Themed.p>{newsDate}</Themed.p>
       </DateContainer>
       <DescriptionContainer>
-        <Themed.p>{newsTitle}</Themed.p>
+        <a
+          href={newsLink}
+          sx={{
+            ...resetLink,
+            textDecoration: "underline",
+          }}
+        >
+          <Themed.p>{newsTitle}</Themed.p>
+        </a>
       </DescriptionContainer>
     </div>
   );

@@ -94,6 +94,7 @@ const IndexPage = () => {
             contentful_id
             newsTitle
             newsDate(formatString: "MM.DD.YYYY")
+            newsLink
           }
         }
       }

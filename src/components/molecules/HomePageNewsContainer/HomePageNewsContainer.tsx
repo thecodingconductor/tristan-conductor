@@ -13,6 +13,7 @@ const propTypesShape = {
         contentful_id: PropTypes.string.isRequired,
         newsDate: PropTypes.string.isRequired,
         newsTitle: PropTypes.string.isRequired,
+        newsLink: PropTypes.string.isRequired,
       }),
     })
   ),
@@ -37,12 +38,13 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
             newsTitle={newsItem!.node!.newsTitle}
             isFirst={index === 0}
             key={newsItem!.node!.newsDate}
+            newsLink={newsItem!.node!.newsLink}
           />
         );
       })}
 
       <Link
-        to="/news"
+        to="/events"
         sx={{
           ...resetLink,
           fontFamily: "Inter, sans-serif",
@@ -51,7 +53,7 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
           textDecoration: "underline",
         }}
       >
-        All News
+        Explore Season
       </Link>
     </div>
   );
