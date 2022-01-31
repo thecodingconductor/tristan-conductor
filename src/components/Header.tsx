@@ -28,7 +28,6 @@ const HeaderContainer = ({ children }) => (
 const Header = () => {
   const layoutContext = useContext(LayoutContext);
 
-  console.log(layoutContext);
   return (
     <div
       sx={{

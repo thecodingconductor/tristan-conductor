@@ -14,7 +14,6 @@ export interface ThemeColors {
   greyLightest: ResponsiveValue<CSS.Property.Color>;
   greyMedium: ResponsiveValue<CSS.Property.Color>;
   success: ResponsiveValue<CSS.Property.Color>;
-  vuoriBlue: ResponsiveValue<CSS.Property.Color>;
   white: ResponsiveValue<CSS.Property.Color>;
   yellow: ResponsiveValue<CSS.Property.Color>;
   yellowDark: ResponsiveValue<CSS.Property.Color>;
@@ -35,7 +34,6 @@ const colors: ThemeColors = {
   greyLightest: "#F8F8F8",
   greyMedium: "#727272",
   success: "#23873F",
-  vuoriBlue: "#006DFF",
   white: "#FFFFFF",
   yellow: "#FAE27F",
   yellowDark: "#FFB455",

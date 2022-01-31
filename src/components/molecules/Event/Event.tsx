@@ -90,7 +90,7 @@ const Event = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            marginLeft: "160px",
+            marginLeft: [null, null, "160px"],
           }}
         >
           <EventTitle title={eventTitle} />

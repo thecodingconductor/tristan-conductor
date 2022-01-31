@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import React, { useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
 import Event from "../../components/molecules/Event/Event";
 import Divider from "../../components/atoms/Divider/Divider";
@@ -49,6 +49,15 @@ const Events = () => {
           }
         }
       }
+      allContentfulEventBackgroundImage {
+        edges {
+          node {
+            backgroundImage {
+              gatsbyImageData(height: 1000, placeholder: BLURRED)
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -58,6 +67,15 @@ const Events = () => {
   }, []);
 
   console.log(data.allContentfulEvents.edges);
+  console.log(
+    data.allContentfulEventBackgroundImage.edges[0].node.backgroundImage
+      .gatsbyImageData
+  );
+
+  const backgroundImage = getImage(
+    data.allContentfulEventBackgroundImage.edges[0].node.backgroundImage
+      .gatsbyImageData
+  );
 
   return (
     <>
@@ -104,8 +122,41 @@ const Events = () => {
             />
           );
         })}
-        <Divider />
+        {/* <Divider /> */}
+        {/* <div
+          sx={{
+            position: "relative",
+          }}
+        > */}
+        <GatsbyImage
+          image={backgroundImage!}
+          alt={"Tristan Conducting"}
+          sx={{
+            position: "fixed",
+            top: 0,
+            right: [0, null, "-200px"],
+            zIndex: -2,
+            opacity: "0.25",
+          }}
+        />
+        <div
+          sx={{
+            position: "fixed",
+            top: 0,
+            height: "1000px",
+            width: "100%",
+            zIndex: -1,
+            background: `rgba(11, 28, 44, 0)
+          linear-gradient(
+              to bottom,
+              rgba(11, 28, 44, 0) 0%,
+              rgb(11, 28, 44) 80%
+          )
+          repeat scroll 0 0;`,
+          }}
+        ></div>
       </div>
+      {/* </div> */}
     </>
   );
 };
