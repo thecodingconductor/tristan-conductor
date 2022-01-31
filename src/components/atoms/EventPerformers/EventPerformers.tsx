@@ -15,10 +15,29 @@ const EventPerformers = ({ performers }: Props) => {
   return (
     <div>
       {performers.map(({ name, instrument }) => (
-        <React.Fragment key={name}>
-          <Themed.h1>{name}</Themed.h1>
-          <Themed.h1>{instrument}</Themed.h1>
-        </React.Fragment>
+        <div
+          key={name}
+          sx={{
+            mb: "28px",
+          }}
+        >
+          <Themed.h1
+            sx={{
+              fontSize: "15px",
+              fontWeight: 700,
+            }}
+          >
+            {instrument}
+          </Themed.h1>
+          <Themed.h1
+            sx={{
+              fontSize: "15px",
+              fontWeight: 300,
+            }}
+          >
+            {name}
+          </Themed.h1>
+        </div>
       ))}
     </div>
   );

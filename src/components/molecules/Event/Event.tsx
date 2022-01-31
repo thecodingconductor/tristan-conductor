@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
 import React from "react";
-import { getImage, GatsbyImage } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import EventDates from "../../atoms/EventDates/EventDates";
 import EventLocation from "../../atoms/EventLocation/EventLocation";
 import EventPerformers from "../../atoms/EventPerformers/EventPerformers";
 import EventTitle from "../../atoms/EventTitle/EventTitle";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import Divider from "../../atoms/Divider/Divider";
 
 type EventDatesType = {
   startDate: string;
@@ -22,20 +23,25 @@ type EventLocationType = {
   ensemble: string;
 };
 
+type PerformerType = {
+  name: string;
+  instrument: string;
+};
+
 type EventPerformersType = {
-  performers: Array<{ name: string } & { instrument: string }>;
+  performers: Array<PerformerType>;
 };
 
 type EventPiecesType = {
   pieces: Array<{ title: string } & { composer: string }>;
 };
 
-type Props = {
+export type Props = {
   eventDates: EventDatesType;
   eventTitle: EventTitleType;
   eventLocation: EventLocationType;
   performers: EventPerformersType;
-  pieces: EventPiecesType;
+  pieces?: EventPiecesType;
   image: IGatsbyImageData;
 };
 
@@ -44,13 +50,13 @@ const Event = ({
   eventTitle,
   eventLocation,
   performers,
-  pieces,
   image,
 }: Props) => {
   return (
     <div
       sx={{
         width: "100%",
+        mb: "63px",
       }}
       className="event-container"
     >
@@ -61,13 +67,36 @@ const Event = ({
           flexDirection: ["column", null, "row"],
         }}
       >
-        <GatsbyImage image={image} />
+        {image && (
+          <GatsbyImage
+            image={image}
+            alt="Event Image"
+            sx={{
+              mb: ["54px"],
+            }}
+          />
+        )}
+
         <EventDates
           startDate={eventDates.startDate}
           endDate={eventDates.endDate}
         />
       </div>
-      <div className=""></div>
+      <div
+        className="event-information-container"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <EventTitle title={eventTitle} />
+        <EventLocation
+          location={eventLocation.location}
+          ensemble={eventLocation.ensemble}
+        />
+        <EventPerformers performers={performers} />
+      </div>
+      <Divider />
     </div>
   );
 };

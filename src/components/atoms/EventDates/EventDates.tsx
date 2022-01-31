@@ -9,9 +9,28 @@ type Props = {
 // TODO Date Formatting.
 const EventDates = ({ startDate, endDate }: Props) => {
   return (
-    <div>
-      <Themed.p>{startDate}</Themed.p>
-      {endDate && <Themed.p> - endDate</Themed.p>}
+    <div
+      sx={{
+        mb: "40px",
+      }}
+    >
+      <Themed.p
+        sx={{
+          fontSize: "21px",
+        }}
+      >
+        {startDate}
+      </Themed.p>
+      {endDate && (
+        <Themed.p
+          sx={{
+            fontSize: "21px",
+          }}
+        >
+          {" "}
+          - {endDate}
+        </Themed.p>
+      )}
     </div>
   );
 };

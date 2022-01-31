@@ -12,7 +12,8 @@ const EventLocation = ({ location, ensemble }: Props) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "flex-start",
+        mb: "28px",
       }}
     >
       <Themed.h2>{ensemble}</Themed.h2>

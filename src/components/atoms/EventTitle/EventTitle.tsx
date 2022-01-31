@@ -6,7 +6,11 @@ type Props = {
 };
 
 const EventTitle = ({ title }: Props) => {
-  return <Themed.h1 sx={{}}>{title}</Themed.h1>;
+  return (
+    <Themed.h1 sx={{ fontWeight: "body", fontSize: "38px", mb: "60px" }}>
+      {title}
+    </Themed.h1>
+  );
 };
 
 export default EventTitle;
