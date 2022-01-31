@@ -95,7 +95,7 @@ const Events = () => {
       >
         <Themed.h1>See Tristan live this season</Themed.h1>
         <Divider />
-        {data.allContentfulEvents.edges.map(({ node }) => {
+        {data.allContentfulEvents.edges.map(({ node }: any) => {
           const eventDates = {
             startDate: node.startDate,
             ...(node.endDate && { endDate: node.endDate }),
@@ -124,12 +124,7 @@ const Events = () => {
             />
           );
         })}
-        {/* <Divider /> */}
-        {/* <div
-          sx={{
-            position: "relative",
-          }}
-        > */}
+
         <GatsbyImage
           image={backgroundImage!}
           alt={"Tristan Conducting"}
@@ -158,7 +153,6 @@ const Events = () => {
           }}
         ></div>
       </div>
-      {/* </div> */}
     </>
   );
 };

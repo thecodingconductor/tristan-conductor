@@ -5,6 +5,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Tristan Rais-Sherman, Conductor",
+    description: "Official Website of American conductor, Tristan Rais-Sherman",
+    url: "https://www.trsconductor.com",
+    twitterUsername: "@tristanconducts",
   },
   plugins: [
     {
@@ -42,6 +45,7 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-react-helmet",
     // {
     //   resolve: "gatsby-source-instagram-all",
     //   options: {
