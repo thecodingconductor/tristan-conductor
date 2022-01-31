@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
 import React, { useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
@@ -93,6 +93,8 @@ const Events = () => {
           gridColumn: ["1 / span 5", null, "1 / span 12"],
         }}
       >
+        <Themed.h1>See Tristan live this season</Themed.h1>
+        <Divider />
         {data.allContentfulEvents.edges.map(({ node }) => {
           const eventDates = {
             startDate: node.startDate,
