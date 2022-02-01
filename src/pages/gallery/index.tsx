@@ -27,7 +27,7 @@ const Gallery = (props) => {
     isOpen,
     showSideNav,
     hideSideNav,
-  } = globalContext.menu;
+  } = globalContext!.menu;
 
   const {
     setPhoto,
@@ -37,7 +37,7 @@ const Gallery = (props) => {
     selectImage,
     closeImage,
     currentImage,
-  } = globalContext.gallery;
+  } = globalContext!.gallery;
 
   const data = useStaticQuery(graphql`
     query {
@@ -71,18 +71,18 @@ const Gallery = (props) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    isOpen && closeMenu();
-    hideSideNav();
+    isOpen && closeMenu!();
+    hideSideNav!();
 
     if (typeof window === "undefined") return;
     const gatsbyDiv = document.getElementById("gatsby-focus-wrapper");
 
     if (showImageDetail) {
-      gatsbyDiv.style.height = "100%";
+      gatsbyDiv!.style.height = "100%";
       document.documentElement.style.overflow = "hidden";
       disableBodyScroll(ref.current);
     } else {
-      gatsbyDiv.style.height = "auto";
+      gatsbyDiv!.style.height = "auto";
       document.documentElement.style.overflow = "auto";
 
       enableBodyScroll(ref.current);
@@ -94,12 +94,12 @@ const Gallery = (props) => {
     <>
       <HeaderComponent
         margin={50}
-        closeMenu={closeMenu}
-        openMenu={openMenu}
+        closeMenu={closeMenu!}
+        openMenu={openMenu!}
         isSideNavVisible={isSideNavVisible}
         isOpen={isOpen}
-        showSideNav={showSideNav}
-        hideSideNav={hideSideNav}
+        showSideNav={showSideNav!}
+        hideSideNav={hideSideNav!}
       />
       <div
         sx={{
@@ -116,14 +116,14 @@ const Gallery = (props) => {
       >
         <GalleryButton
           label={"Photo"}
-          setPhoto={setPhoto}
-          setVideo={setVideo}
+          setPhoto={setPhoto!}
+          setVideo={setVideo!}
           gridMediaType={gridMediaType}
         />
         <GalleryButton
           label={"Video"}
-          setPhoto={setPhoto}
-          setVideo={setVideo}
+          setPhoto={setPhoto!}
+          setVideo={setVideo!}
           gridMediaType={gridMediaType}
         />
       </div>
@@ -133,20 +133,20 @@ const Gallery = (props) => {
         videoItemsArray={data.allContentfulVideos.edges}
         gridMediaType={gridMediaType}
         showImageDetail={showImageDetail}
-        selectImage={selectImage}
-        closeImage={closeImage}
+        selectImage={selectImage!}
+        closeImage={closeImage!}
       />
 
-      <Button
+      {/* <Button
         label={"Download Press Kit"}
         onClick={() => console.log("download press kit")}
         isParent
-      />
+      /> */}
       <AnimatePresence>
         {currentImage && (
           <FeaturedImageOverlay
             showImageDetail={showImageDetail}
-            closeImage={closeImage}
+            closeImage={closeImage!}
             currentImage={currentImage}
             imageArray={data.allContentfulImageGallery.edges}
           />
