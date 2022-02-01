@@ -18,7 +18,7 @@ import {
 } from "body-scroll-lock";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Gallery = (props) => {
+const Gallery = () => {
   const globalContext = useContext(GlobalContext);
   const {
     closeMenu,

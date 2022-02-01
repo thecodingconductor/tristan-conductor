@@ -37,7 +37,7 @@ const About = () => {
         edges {
           node {
             image {
-              gatsbyImageData
+              gatsbyImageData(layout: CONSTRAINED, width: 1700)
               description
             }
           }
