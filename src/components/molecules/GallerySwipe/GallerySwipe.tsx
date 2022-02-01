@@ -5,9 +5,8 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import "swiper/css";
 
 import SwiperCore, { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import { CurrentImageType } from "../../../context/global//globalContext";
-import { relative } from "path/posix";
 
 SwiperCore.use([Navigation]);
 

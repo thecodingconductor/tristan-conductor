@@ -29,8 +29,6 @@ const FeaturedImageOverlay = ({
 }: Props) => {
   const overlayRef = useRef(null);
 
-  console.log(currentImage);
-
   //   this actaully works!
 
   // https://github.com/willmcpo/body-scroll-lock/issues/154/
@@ -101,7 +99,7 @@ const FeaturedImageOverlay = ({
           Close
         </Themed.p>
       </button>
-      <GallerySwipe currentImage={currentImage} imageArray={imageArray} />
+      <GallerySwipe currentImage={currentImage!} imageArray={imageArray} />
     </motion.div>
   );
 };
