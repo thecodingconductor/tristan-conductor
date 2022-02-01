@@ -76,10 +76,13 @@ const GlobalState = ({ children }: Props) => {
     });
   };
 
-  const selectImage = (image: ImageDataLike) => {
+  const selectImage = (image: ImageDataLike, photoCredit: string) => {
     dispatch({
       type: OPEN_IMAGE_DETAIL,
-      payload: image,
+      payload: {
+        image,
+        photoCredit,
+      },
     });
   };
 

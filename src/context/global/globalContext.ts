@@ -1,6 +1,11 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { createContext } from "react";
 
+export interface CurrentImageType {
+  image: IGatsbyImageData | null;
+  photoCredit: string | null;
+}
+
 interface MenuContextInterface {
   isOpen: boolean;
   isSideNavVisible: boolean;
@@ -14,7 +19,7 @@ interface MenuContextInterface {
 interface GalleryContextInterface {
   gridMediaType: string;
   showImageDetail: boolean;
-  currentImage: IGatsbyImageData | null;
+  currentImage: CurrentImageType;
   setCurrentImage?: Function;
   selectImage?: Function;
   closeImage?: Function;

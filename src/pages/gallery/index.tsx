@@ -41,7 +41,7 @@ const Gallery = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allContentfulImageGallery {
+      allContentfulImageGallery(sort: { order: DESC, fields: createdAt }) {
         edges {
           node {
             alt
@@ -52,6 +52,7 @@ const Gallery = () => {
                 placeholder: BLURRED
               )
             }
+            photoCredit
           }
         }
       }
@@ -110,7 +111,6 @@ const Gallery = () => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
-          // borderBottom: "1px solid rgba(255,255,255, 0.13)",
         }}
         ref={ref}
       >
@@ -149,6 +149,7 @@ const Gallery = () => {
             closeImage={closeImage!}
             currentImage={currentImage}
             imageArray={data.allContentfulImageGallery.edges}
+            photoCredit={currentImage.photoCredit!}
           />
         )}
       </AnimatePresence>

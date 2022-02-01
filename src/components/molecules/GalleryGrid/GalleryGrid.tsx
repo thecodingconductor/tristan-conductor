@@ -44,6 +44,9 @@ const GalleryGrid = ({
               const image: IGatsbyImageData | undefined = getImage(
                 imageItem.node.image.gatsbyImageData
               );
+
+              const photoCredit: string = imageItem.node.photoCredit;
+
               return (
                 <motion.button
                   key={i}
@@ -52,7 +55,7 @@ const GalleryGrid = ({
                     gridColumn: ["auto / span 5", null, "auto / span 4"],
                     height: `368 px`,
                   }}
-                  onClick={() => selectImage(image)}
+                  onClick={() => selectImage(image, photoCredit)}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

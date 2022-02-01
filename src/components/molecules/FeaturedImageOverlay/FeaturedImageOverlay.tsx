@@ -11,12 +11,14 @@ import {
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import CloseIcon from "../../../assets/icon-close.svg";
+import { CurrentImageType } from "../../../context/global/globalContext";
 
 type Props = {
   showImageDetail: boolean;
   closeImage: Function;
-  currentImage: IGatsbyImageData;
+  currentImage: CurrentImageType;
   imageArray: Array<any>;
+  photoCredit: string;
 };
 
 const FeaturedImageOverlay = ({
@@ -26,6 +28,8 @@ const FeaturedImageOverlay = ({
   imageArray,
 }: Props) => {
   const overlayRef = useRef(null);
+
+  console.log(currentImage);
 
   //   this actaully works!
 
