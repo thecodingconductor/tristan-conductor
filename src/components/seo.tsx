@@ -18,7 +18,6 @@ const SEO = ({ title, description }: Props) => {
     titleTemplate,
     defaultDescription,
     siteUrl,
-    defaultImage,
     twitterUsername,
   } = site.siteMetadata;
 
@@ -59,6 +58,7 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
+        titleTemplate
         defaultDescription: description
         siteUrl: url
         twitterUsername

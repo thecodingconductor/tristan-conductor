@@ -5,6 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Tristan Rais-Sherman, Conductor",
+    titleTemplate: "%s · A modern musician",
     description: "Official Website of American conductor, Tristan Rais-Sherman",
     url: "https://www.trsconductor.com",
     twitterUsername: "@tristanconducts",

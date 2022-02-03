@@ -11,6 +11,7 @@ import "@fontsource/inter";
 import "@fontsource/lora";
 
 import GlobalContext from "../context/global/globalContext";
+import SEO from "../components/seo";
 
 type Props = {
   children: ReactNode;
@@ -28,6 +29,7 @@ const Layout = ({ children }: Props) => {
       }}
       className="layout-wrap"
     >
+      <SEO />
       <MobileNavIcon
         closeMenu={closeMenu!}
         openMenu={openMenu!}
