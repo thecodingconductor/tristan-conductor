@@ -7,10 +7,17 @@ const defaultCircleStyles = {
 };
 
 type Props = {
-  isAboutPage?: boolean;
+  currentUrl?: string;
 };
 
-const Background = ({ isAboutPage }: Props) => {
+const Background = ({ currentUrl }: Props) => {
+  const parseLocation = (pathname: string) => {
+    if (pathname.slice(1) === "about") {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <div
       sx={{
@@ -21,7 +28,7 @@ const Background = ({ isAboutPage }: Props) => {
         left: 0,
         right: 0,
         zIndex: -1,
-        display: isAboutPage ? "none" : "block",
+        display: parseLocation(currentUrl!) ? "none" : "block",
         background: (theme) => theme!.colors!.siteBackgroundLight,
         // filter: "blur(524px)",
       }}

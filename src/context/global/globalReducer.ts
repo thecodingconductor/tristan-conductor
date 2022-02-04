@@ -88,7 +88,6 @@ const globalReducer = (state, action) => {
         },
       };
     case SET_CURRENT_PAGE:
-      console.log(action.payload);
       return {
         ...state,
         currentPage: {

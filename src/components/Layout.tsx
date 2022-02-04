@@ -22,14 +22,6 @@ const Layout = ({ children }: Props) => {
   const { closeMenu, openMenu, isOpen, isSideNavVisible } = globalContext!.menu;
   const { currentPage } = globalContext!.currentPage;
 
-  const parseLocation = (pathname: string) => {
-    if (pathname.slice(1) === "about") {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   return (
     <div
       sx={{
@@ -59,7 +51,7 @@ const Layout = ({ children }: Props) => {
       </div>
       <Footer />
 
-      <Background isAboutPage={parseLocation(currentPage)} />
+      <Background currentUrl={currentPage} />
 
       <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu!} />
     </div>
