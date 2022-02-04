@@ -15,12 +15,10 @@ import SEO from "../components/seo";
 
 type Props = {
   children: ReactNode;
-  location: {
-    pathname: string;
-  };
+  location: any;
 };
 
-const Layout = ({ children, location: { pathname } }: Props) => {
+const Layout = ({ children, location }: Props) => {
   const globalContext = useContext(GlobalContext);
   const { closeMenu, openMenu, isOpen, isSideNavVisible } = globalContext!.menu;
   const [currentPage, setCurrentPage] = useState("");
@@ -34,8 +32,8 @@ const Layout = ({ children, location: { pathname } }: Props) => {
   };
 
   useEffect(() => {
-    setCurrentPage(pathname);
-  }, [pathname]);
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
 
   return (
     <div
