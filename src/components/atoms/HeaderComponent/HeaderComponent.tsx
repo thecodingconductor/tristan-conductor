@@ -81,13 +81,13 @@ const HeaderComponent = ({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "white",
+                background: "black",
               }}
             >
               <Themed.h1
                 sx={{
                   fontFamily: "heading",
-                  color: "#000",
+                  color: "white",
                   fontWeight: 800,
                   fontSize: "21px",
                 }}
@@ -104,13 +104,13 @@ const HeaderComponent = ({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "white",
+                background: "black",
               }}
             >
               <Themed.h1
                 sx={{
                   fontFamily: "heading",
-                  color: "#000",
+                  color: "white",
                   fontWeight: 800,
                   fontSize: "21px",
                 }}

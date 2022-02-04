@@ -54,13 +54,13 @@ export default {
     },
     a: {
       fontFamily: "Inter, sans-serif",
-      color: "white",
+      color: "black",
       fontSize: "18px",
       lineHeight: "27px",
       textDecoration: "underline",
     },
     root: {
-      backgroundColor: "rgb(11, 28, 44)",
+      backgroundColor: "#FFFFFF",
       fonts: "body",
       overflowX: "hidden",
       position: "relative",

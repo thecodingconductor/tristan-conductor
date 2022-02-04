@@ -24,7 +24,7 @@ export interface ThemeColors {
 }
 
 const colors: ThemeColors = {
-  text: "#FFFFFF",
+  text: "#000000",
   alert: "#8C2C2F",
   black: "#333333",
   blackT10: "rgba(51, 51, 51, 0.1)",
