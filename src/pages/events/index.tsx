@@ -66,12 +66,6 @@ const Events = () => {
     hideSideNav!();
   }, []);
 
-  console.log(data.allContentfulEvents.edges);
-  console.log(
-    data.allContentfulEventBackgroundImage.edges[0].node.backgroundImage
-      .gatsbyImageData
-  );
-
   const backgroundImage = getImage(
     data.allContentfulEventBackgroundImage.edges[0].node.backgroundImage
       .gatsbyImageData
