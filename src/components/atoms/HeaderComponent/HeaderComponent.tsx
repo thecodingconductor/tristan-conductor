@@ -57,8 +57,11 @@ const HeaderComponent = ({
         <button
           sx={{
             ...resetButton,
-            ...defaultFullWidthGridChild,
+            // ...defaultFullWidthGridChild,
+            gridColumn: "1 / span 5",
             gridRow: "1",
+            display: "flex",
+            flexDirection: "column",
           }}
           onClick={handleHeaderClick}
         >

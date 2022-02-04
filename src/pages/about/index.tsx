@@ -81,7 +81,7 @@ const About = () => {
   return (
     <>
       <HeaderComponent
-        margin={50}
+        margin={70}
         closeMenu={closeMenu!}
         openMenu={openMenu!}
         isSideNavVisible={isSideNavVisible}

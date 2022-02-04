@@ -19,6 +19,8 @@ export interface ThemeColors {
   yellowDark: ResponsiveValue<CSS.Property.Color>;
   yellowLight: ResponsiveValue<CSS.Property.Color>;
   yellowMedium: ResponsiveValue<CSS.Property.Color>;
+  siteBackground: ResponsiveValue<CSS.Property.Color>;
+  siteBackgroundLight: ResponsiveValue<CSS.Property.Color>;
 }
 
 const colors: ThemeColors = {
@@ -39,6 +41,8 @@ const colors: ThemeColors = {
   yellowDark: "#FFB455",
   yellowLight: "#F5EAC6",
   yellowMedium: "#FFCD45",
+  siteBackground: "#0A1C2C",
+  siteBackgroundLight: "rgba(10, 28, 44, 0.5)",
 };
 
 export const colorKeys = Object.keys(colors);

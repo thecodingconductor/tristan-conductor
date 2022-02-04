@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useContext, ReactNode } from "react";
+import { useContext, ReactNode, useState, useEffect } from "react";
 
 import Footer from "./Footer";
-// import Background from "./atoms/Background/Background";
+import Background from "./atoms/Background/Background";
 import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
 
 import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
@@ -15,11 +15,27 @@ import SEO from "../components/seo";
 
 type Props = {
   children: ReactNode;
+  location: {
+    pathname: string;
+  };
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, location: { pathname } }: Props) => {
   const globalContext = useContext(GlobalContext);
   const { closeMenu, openMenu, isOpen, isSideNavVisible } = globalContext!.menu;
+  const [currentPage, setCurrentPage] = useState("");
+
+  const parseLocation = (pathname: string) => {
+    if (pathname.slice(1) === "about") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, [pathname]);
 
   return (
     <div
@@ -50,7 +66,7 @@ const Layout = ({ children }: Props) => {
       </div>
       <Footer />
 
-      {/* <Background /> */}
+      <Background isAboutPage={parseLocation(currentPage)} />
 
       <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu!} />
     </div>
