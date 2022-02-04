@@ -12,12 +12,11 @@ type Props = {
 
 const Background = ({ currentUrl }: Props) => {
   const parseLocation = (pathname: string) => {
-    if (pathname.slice(1) === "about") {
-      return true;
-    } else {
-      return false;
+    if (pathname) {
+      return pathname.slice(1) === "about";
     }
   };
+
   return (
     <div
       sx={{
