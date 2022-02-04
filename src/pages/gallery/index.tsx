@@ -41,7 +41,7 @@ const Gallery = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allContentfulImageGallery(sort: { order: DESC, fields: createdAt }) {
+      allContentfulImageGallery(sort: { order: ASC, fields: id }) {
         edges {
           node {
             alt

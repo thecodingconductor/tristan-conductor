@@ -29,7 +29,13 @@ const GallerySwipe = ({ currentImage, imageArray }: Props) => {
         position: "relative",
       }}
     >
-      <GatsbyImage image={currentImage.image!} alt="Gatsby Image Test" />
+      <GatsbyImage
+        image={currentImage.image!}
+        alt="Gatsby Image Test"
+        sx={{
+          height: ["35vh", null, "75vh"],
+        }}
+      />
       <div
         sx={{
           transform: "rotate(-90deg)",
