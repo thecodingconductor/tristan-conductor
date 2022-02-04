@@ -27,6 +27,11 @@ interface GalleryContextInterface {
   setVideo?: Function;
 }
 
+interface CurrentPageInterface {
+  currentPage: string;
+  setCurrentPage?: Function;
+}
+
 interface FormContextInterface {
   isSubmitted: boolean;
   onSubmit?: Function;
@@ -36,6 +41,7 @@ interface GlobalContextInterface {
   menu: MenuContextInterface;
   gallery: GalleryContextInterface;
   form: FormContextInterface;
+  currentPage: CurrentPageInterface;
 }
 
 const globalContext = createContext<GlobalContextInterface | null>(null);

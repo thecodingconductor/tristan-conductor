@@ -18,7 +18,7 @@ import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent
 import GlobalContext from "../context/global/globalContext";
 
 // markup
-const IndexPage = () => {
+const IndexPage = ({ location }: any) => {
   const globalContext = useContext(GlobalContext);
 
   const {
@@ -29,6 +29,8 @@ const IndexPage = () => {
     showSideNav,
     hideSideNav,
   } = globalContext!.menu;
+
+  const { currentPage, setCurrentPage } = globalContext!.currentPage;
 
   const data = useStaticQuery(graphql`
     query {
@@ -118,6 +120,10 @@ const IndexPage = () => {
       }
     }
   `);
+
+  useEffect(() => {
+    setCurrentPage!(location.pathname);
+  }, []);
 
   useEffect(() => {
     isOpen && closeMenu!();

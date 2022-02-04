@@ -9,7 +9,7 @@ import Divider from "../../components/atoms/Divider/Divider";
 import GlobalContext from "../../context/global/globalContext";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 
-const Events = () => {
+const Events = ({ location }: any) => {
   const globalContext = useContext(GlobalContext);
   const {
     closeMenu,
@@ -19,6 +19,8 @@ const Events = () => {
     showSideNav,
     hideSideNav,
   } = globalContext!.menu;
+
+  const { currentPage, setCurrentPage } = globalContext!.currentPage;
 
   const data = useStaticQuery(graphql`
     query {
@@ -62,6 +64,10 @@ const Events = () => {
   `);
 
   useEffect(() => {
+    setCurrentPage!(location.pathname);
+  }, []);
+
+  useEffect(() => {
     isOpen && closeMenu!();
     hideSideNav!();
   }, []);
@@ -102,8 +108,6 @@ const Events = () => {
 
           const image =
             node.eventImage && getImage(node.eventImage.gatsbyImageData);
-
-          console.log(eventDates);
 
           return (
             <Event

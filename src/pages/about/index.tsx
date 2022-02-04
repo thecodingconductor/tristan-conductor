@@ -17,7 +17,7 @@ import GlobalContext from "../../context/global/globalContext";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const About = () => {
+const About = ({ location }: any) => {
   const { isLarge } = useBreakpoints();
 
   const globalContext = useContext(GlobalContext);
@@ -30,6 +30,8 @@ const About = () => {
     showSideNav,
     hideSideNav,
   } = globalContext!.menu;
+
+  const { currentPage, setCurrentPage } = globalContext!.currentPage;
 
   const data = useStaticQuery(graphql`
     query {
@@ -71,6 +73,10 @@ const About = () => {
   const image = getImage(
     data.allContentfulAboutPageBackground.edges[0].node.image.gatsbyImageData
   );
+
+  useEffect(() => {
+    setCurrentPage!(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     isOpen && closeMenu!();

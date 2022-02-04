@@ -12,6 +12,7 @@ import {
   SET_CURRENT_IMAGE,
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
+  SET_CURRENT_PAGE,
 } from "../types";
 import { ImageDataLike } from "gatsby-plugin-image";
 
@@ -32,6 +33,9 @@ const GlobalState = ({ children }: Props) => {
     },
     form: {
       isSubmitted: false,
+    },
+    currentPage: {
+      currentPage: null,
     },
   };
 
@@ -105,6 +109,14 @@ const GlobalState = ({ children }: Props) => {
     console.log("form submitted");
   };
 
+  // Location handler
+  const setCurrentPage = (currentPage: string) => {
+    dispatch({
+      type: SET_CURRENT_PAGE,
+      payload: currentPage,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -129,6 +141,10 @@ const GlobalState = ({ children }: Props) => {
         form: {
           isSubmitted: state.form.isSubmitted,
           onSubmit,
+        },
+        currentPage: {
+          currentPage: state.currentPage.currentPage,
+          setCurrentPage,
         },
       }}
     >

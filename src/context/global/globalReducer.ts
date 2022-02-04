@@ -8,6 +8,7 @@ import {
   SUBMIT_FORM,
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
+  SET_CURRENT_PAGE,
 } from "../types";
 
 const globalReducer = (state, action) => {
@@ -84,6 +85,15 @@ const globalReducer = (state, action) => {
         form: {
           ...state.form,
           isSubmitted: true,
+        },
+      };
+    case SET_CURRENT_PAGE:
+      console.log(action.payload);
+      return {
+        ...state,
+        currentPage: {
+          ...state.currentPage,
+          currentPage: action.payload,
         },
       };
     default:

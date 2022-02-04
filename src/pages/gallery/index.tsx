@@ -18,7 +18,7 @@ import {
 } from "body-scroll-lock";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Gallery = () => {
+const Gallery = ({ location }: any) => {
   const globalContext = useContext(GlobalContext);
   const {
     closeMenu,
@@ -28,6 +28,8 @@ const Gallery = () => {
     showSideNav,
     hideSideNav,
   } = globalContext!.menu;
+
+  const { currentPage, setCurrentPage } = globalContext!.currentPage;
 
   const {
     setPhoto,
@@ -70,6 +72,10 @@ const Gallery = () => {
   `);
 
   const ref = useRef(null);
+
+  useEffect(() => {
+    setCurrentPage!(location.pathname);
+  }, []);
 
   useEffect(() => {
     isOpen && closeMenu!();

@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
 import ContactForm from "../../components/molecules/ContactForm/ContactForm";
 
-const Contact = () => {
+const Contact = ({ location }: any) => {
   const globalContext = useContext(GlobalContext);
 
   // Add later
@@ -21,6 +21,8 @@ const Contact = () => {
     showSideNav,
   } = globalContext!.menu;
 
+  const { currentPage, setCurrentPage } = globalContext!.currentPage;
+
   const data = useStaticQuery(graphql`
     query {
       allContentfulContactPage {
@@ -32,6 +34,10 @@ const Contact = () => {
       }
     }
   `);
+
+  useEffect(() => {
+    setCurrentPage!(location.pathname);
+  }, []);
 
   useEffect(() => {
     isOpen && closeMenu!();
