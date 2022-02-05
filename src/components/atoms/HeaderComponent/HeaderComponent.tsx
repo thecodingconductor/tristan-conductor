@@ -137,7 +137,7 @@ const HeaderComponent = ({
                 width: "264px",
                 marginBottom: "2px",
                 marginTop: `${margin}px`,
-                background: "white",
+                background: "black",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -147,7 +147,7 @@ const HeaderComponent = ({
               <Themed.h1
                 sx={{
                   fontFamily: "heading",
-                  color: "#000",
+                  color: "white",
                   fontWeight: 800,
                   fontSize: "21px",
                 }}
@@ -161,7 +161,7 @@ const HeaderComponent = ({
                 height: "43px",
                 width: "146px",
                 marginBottom: "40px",
-                background: "white",
+                background: "black",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -169,9 +169,9 @@ const HeaderComponent = ({
             >
               <Themed.h1
                 sx={{
-                  background: "white",
+                  background: "black",
                   fontFamily: "heading",
-                  color: "#000",
+                  color: "white",
                   fontWeight: 800,
                   fontSize: "21px",
                 }}
