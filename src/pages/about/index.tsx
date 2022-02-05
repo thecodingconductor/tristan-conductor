@@ -129,6 +129,7 @@ const About = ({ location }: any) => {
         sx={{
           ...resetLink,
           gridColumn: ["1 / span 5", null, "1 / span 12"],
+          marginTop: "100px",
         }}
       >
         <Button
