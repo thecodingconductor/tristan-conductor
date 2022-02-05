@@ -81,7 +81,7 @@ const HeaderComponent = ({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "black",
+                background: "#000",
               }}
             >
               <Themed.h1
@@ -104,7 +104,7 @@ const HeaderComponent = ({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "black",
+                background: "#000",
               }}
             >
               <Themed.h1

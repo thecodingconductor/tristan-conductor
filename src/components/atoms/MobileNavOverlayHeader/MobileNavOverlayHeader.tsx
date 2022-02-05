@@ -13,7 +13,7 @@ const MobileNavOverlayHeader = ({ closeMenu }: Props) => {
         ...resetButton,
         height: "47px",
         width: "227px",
-        background: "white",
+        background: "black",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -24,7 +24,7 @@ const MobileNavOverlayHeader = ({ closeMenu }: Props) => {
     >
       <Themed.h1
         sx={{
-          color: "black",
+          color: "white",
           fontSize: "21px",
           fontWeight: 800,
         }}
