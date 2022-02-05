@@ -82,10 +82,8 @@ const Events = ({ location }: any) => {
   }, []);
 
   useEffect(() => {
-    if (data) {
-      showUpcomingEvents!();
-      sortEvents!(data.allContentfulEvents.edges);
-    }
+    sortEvents!(data.allContentfulEvents.edges);
+    showUpcomingEvents!();
   }, []);
 
   const backgroundImage = getImage(
