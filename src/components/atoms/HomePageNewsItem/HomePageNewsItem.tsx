@@ -47,7 +47,7 @@ const HomePageNewsItem = ({
         display: "grid",
         gridGap: "20px",
         gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-        marginBottom: isFirst && "70px",
+        marginBottom: isFirst && "100px",
       }}
     >
       <DateContainer>

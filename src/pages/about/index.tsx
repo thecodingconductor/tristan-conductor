@@ -129,6 +129,7 @@ const About = ({ location }: any) => {
         sx={{
           ...resetLink,
           gridColumn: ["1 / span 5", null, "1 / span 12"],
+          marginTop: "100px",
         }}
       >
         <Button
@@ -174,8 +175,8 @@ const About = ({ location }: any) => {
                 background: `rgba(11, 28, 44, 0)
           linear-gradient(
               to bottom,
-              rgba(11, 28, 44, 0) 0%,
-              rgb(11, 28, 44) 80%
+              rgba(255, 255, 255, 0) 0%,
+              rgb(255, 255, 255) 80%
           )
           repeat scroll 0 0;`,
               }}

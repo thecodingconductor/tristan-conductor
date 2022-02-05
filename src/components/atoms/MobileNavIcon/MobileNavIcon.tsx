@@ -37,7 +37,7 @@ const MobileNavIcon = ({
             sx={{
               height: "43px",
               width: "88px",
-              background: "white",
+              background: "black",
               position: "fixed",
               zIndex: 100,
               top: "30px",
@@ -57,8 +57,8 @@ const MobileNavIcon = ({
             >
               <Themed.h1
                 sx={{
-                  color: "black",
                   fontSize: "21px",
+                  color: "white",
                 }}
               >
                 T R - S

@@ -42,13 +42,13 @@ const Button = ({ onClick, label, isParent, isSubmit, isFullWidth }: Props) => {
 
             height: "60px",
             width: "274px",
-            border: "1px solid #FFFFFF",
+            border: "1px solid black",
           }}
           type="submit"
         >
           <span
             sx={{
-              color: "white",
+              color: "black",
             }}
           >
             {label}
@@ -62,12 +62,12 @@ const Button = ({ onClick, label, isParent, isSubmit, isFullWidth }: Props) => {
 
             height: "60px",
             width: "274px",
-            border: "1px solid #FFFFFF",
+            border: "1px solid black",
           }}
         >
           <span
             sx={{
-              color: "white",
+              color: "black",
             }}
           >
             {label}

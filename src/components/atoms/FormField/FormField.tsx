@@ -31,8 +31,8 @@ const FormField = ({ type, label }: Props) => {
             height: "60px",
             background: "rgba(255, 255, 255, 0.04)",
             width: "100%",
-            border: "1px solid rgba(255, 255, 255, 0.28)",
-            color: "white",
+            border: "1px solid rgba(0, 0, 0, 0.28)",
+            color: "black",
             fontFamily: "body",
             resize: "none",
           }}
@@ -48,8 +48,8 @@ const FormField = ({ type, label }: Props) => {
             height: "60px",
             background: "rgba(255, 255, 255, 0.04)",
             width: "100%",
-            border: "1px solid rgba(255, 255, 255, 0.28)",
-            color: "white",
+            border: "1px solid rgba(0, 0, 0, 0.28)",
+            color: "black",
             fontFamily: "body",
           }}
           onChange={(e) => setField(e.target.value)}

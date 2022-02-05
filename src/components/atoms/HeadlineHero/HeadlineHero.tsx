@@ -27,7 +27,6 @@ const HeadlineHero = ({ heroHeadline }: Props) => {
           fontWeight: "heading",
           fontSize: ["28px", null, "53px"],
           lineHeight: ["heading", null, "71px"],
-          color: "white",
         }}
       >
         {heroHeadline}

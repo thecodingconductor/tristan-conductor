@@ -47,7 +47,7 @@ const HomePageBio = ({ bioText }: Props) => {
         to="/about"
         sx={{
           fontFamily: "Inter, sans-serif",
-          color: "white",
+          color: "black",
           fontSize: "18px",
           lineHeight: "27px",
           textDecoration: "underline",

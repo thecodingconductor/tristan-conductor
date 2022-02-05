@@ -9,10 +9,14 @@ import {
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
   SET_CURRENT_PAGE,
+  SHOW_PAST_EVENTS,
+  SHOW_UPCOMING_EVENTS,
+  SORT_EVENTS,
 } from "../types";
 
 const globalReducer = (state, action) => {
   switch (action.type) {
+    // GALLERY
     case SET_PHOTO:
       return {
         ...state,
@@ -47,6 +51,7 @@ const globalReducer = (state, action) => {
           currentImage: null,
         },
       };
+    // MENU
     case OPEN_MENU:
       return {
         ...state,
@@ -79,6 +84,7 @@ const globalReducer = (state, action) => {
           isSideNavVisible: false,
         },
       };
+    // FORM
     case SUBMIT_FORM:
       return {
         ...state,
@@ -87,12 +93,48 @@ const globalReducer = (state, action) => {
           isSubmitted: true,
         },
       };
+    // LOCATION
     case SET_CURRENT_PAGE:
       return {
         ...state,
         currentPage: {
           ...state.currentPage,
           currentPage: action.payload,
+        },
+      };
+    // EVENTS
+    case SHOW_PAST_EVENTS:
+      return {
+        ...state,
+        events: {
+          ...state.events,
+          eventType: "past",
+        },
+      };
+
+    case SHOW_UPCOMING_EVENTS:
+      return {
+        ...state,
+        events: {
+          ...state.events,
+          eventType: "upcoming",
+        },
+      };
+    case SORT_EVENTS:
+      return {
+        ...state,
+        events: {
+          ...state.events,
+          upcomingEvents: action.payload.upcomingEvents.filter(
+            (event: any) => event
+          ),
+          pastEvents: action.payload.pastEvents
+            .filter((event: any) => event)
+            .sort(
+              (a: any, b: any) =>
+                new Date(b.node.startDate).getTime() -
+                new Date(a.node.startDate).getTime()
+            ),
         },
       };
     default:

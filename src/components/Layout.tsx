@@ -51,7 +51,7 @@ const Layout = ({ children }: Props) => {
       </div>
       <Footer />
 
-      <Background currentUrl={currentPage} />
+      {/* <Background currentUrl={currentPage} /> */}
 
       <MobileNavOverlay isOpen={isOpen} closeMenu={closeMenu!} />
     </div>
