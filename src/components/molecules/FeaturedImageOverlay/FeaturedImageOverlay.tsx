@@ -94,6 +94,7 @@ const FeaturedImageOverlay = ({
           sx={{
             marginLeft: "10px",
             fontSize: "21px",
+            color: "black",
           }}
         >
           Close

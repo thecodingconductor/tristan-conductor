@@ -12,6 +12,7 @@ const EventDates = ({ startDate, endDate }: Props) => {
     <div
       sx={{
         mb: "40px",
+        gridColumn: ["1 / span 5", null, "6 / span 2"],
       }}
     >
       <Themed.p

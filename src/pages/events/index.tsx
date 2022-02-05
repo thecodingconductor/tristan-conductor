@@ -83,6 +83,7 @@ const Events = ({ location }: any) => {
 
   useEffect(() => {
     if (data) {
+      showUpcomingEvents!();
       sortEvents!(data.allContentfulEvents.edges);
     }
   }, []);
@@ -124,10 +125,10 @@ const Events = ({ location }: any) => {
           }}
         >
           <button sx={{ ...resetButton }} onClick={() => showUpcomingEvents!()}>
-            Upcoming
+            <Themed.h2>Upcoming</Themed.h2>
           </button>
           <button sx={{ ...resetButton }} onClick={() => showPastEvents!()}>
-            Past
+            <Themed.h2>Past</Themed.h2>
           </button>
         </div>
         <Divider />

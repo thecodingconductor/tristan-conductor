@@ -56,17 +56,20 @@ const Event = ({
         sx={{
           width: "100%",
           my: "63px",
-          display: "flex",
-          flexDirection: ["column", null, "row"],
-          //   justifyContent: [null, null, "space-between"],
+          display: "grid",
+          gridGap: "20px",
+          gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
         }}
         className="event-container"
       >
         <div
           className="image-dates"
           sx={{
-            display: "flex",
-            flexDirection: ["column", null, "row"],
+            // display: "flex",
+            // flexDirection: ["column", null, "row"],
+            gridColumn: ["1 / span 5", null, "1 / span 6"],
+            display: "grid",
+            gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(6, 1fr)"],
           }}
         >
           {image && (
@@ -75,7 +78,8 @@ const Event = ({
               alt="Event Image"
               sx={{
                 mb: ["54px"],
-                mr: [null, null, "58px"],
+                // mr: [null, null, "58px"],
+                gridColumn: ["1 / span 5", null, "1 / span 4"],
               }}
             />
           )}
@@ -90,7 +94,7 @@ const Event = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            marginLeft: [null, null, "160px"],
+            gridColumn: ["1 / span 5", null, "8 / span 4"],
           }}
         >
           <EventTitle title={eventTitle} />
