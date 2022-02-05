@@ -9,7 +9,7 @@ const VideoContainer: FC = ({ children }) => (
       paddingBottom: "56.25%",
       height: 0,
       position: "relative",
-      marginBottom: "100px",
+      // marginBottom: "100px",
     }}
   >
     {children}

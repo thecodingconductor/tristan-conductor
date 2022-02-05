@@ -37,11 +37,21 @@ interface FormContextInterface {
   onSubmit?: Function;
 }
 
+interface EventsContextInterface {
+  eventType: string;
+  showPastEvents?: Function;
+  showUpcomingEvents?: Function;
+  upcomingEvents: Array<any>;
+  pastEvents: Array<any>;
+  sortEvents?: Function;
+}
+
 interface GlobalContextInterface {
   menu: MenuContextInterface;
   gallery: GalleryContextInterface;
   form: FormContextInterface;
   currentPage: CurrentPageInterface;
+  events: EventsContextInterface;
 }
 
 const globalContext = createContext<GlobalContextInterface | null>(null);

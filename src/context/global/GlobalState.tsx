@@ -13,8 +13,12 @@ import {
   OPEN_IMAGE_DETAIL,
   CLOSE_IMAGE_DETAIL,
   SET_CURRENT_PAGE,
+  SHOW_PAST_EVENTS,
+  SHOW_UPCOMING_EVENTS,
+  SORT_EVENTS,
 } from "../types";
 import { ImageDataLike } from "gatsby-plugin-image";
+import { isDateInPast } from "../../lib/utils/helpers";
 
 type Props = {
   children: ReactNode;
@@ -36,6 +40,11 @@ const GlobalState = ({ children }: Props) => {
     },
     currentPage: {
       currentPage: null,
+    },
+    events: {
+      eventType: "upcoming",
+      upcomingEvents: [],
+      pastEvents: [],
     },
   };
 
@@ -97,7 +106,6 @@ const GlobalState = ({ children }: Props) => {
   };
 
   const setCurrentImage = (image: ImageDataLike) => {
-    console.log("set current image");
     dispatch({
       type: SET_CURRENT_IMAGE,
       payload: image,
@@ -114,6 +122,38 @@ const GlobalState = ({ children }: Props) => {
     dispatch({
       type: SET_CURRENT_PAGE,
       payload: currentPage,
+    });
+  };
+
+  // EVENTS
+
+  const showPastEvents = () => {
+    dispatch({
+      type: SHOW_PAST_EVENTS,
+    });
+  };
+
+  const showUpcomingEvents = () => {
+    dispatch({
+      type: SHOW_UPCOMING_EVENTS,
+    });
+  };
+
+  const sortEvents = (events: Array<any>) => {
+    const upcomingEvents = events.map((event) =>
+      !isDateInPast(new Date(event.node.startDate)) ? event : null
+    );
+
+    const pastEvents = events.map((event) =>
+      isDateInPast(new Date(event.node.startDate)) ? event : null
+    );
+
+    dispatch({
+      type: SORT_EVENTS,
+      payload: {
+        upcomingEvents,
+        pastEvents,
+      },
     });
   };
 
@@ -145,6 +185,14 @@ const GlobalState = ({ children }: Props) => {
         currentPage: {
           currentPage: state.currentPage.currentPage,
           setCurrentPage,
+        },
+        events: {
+          eventType: state.events.eventType,
+          showPastEvents,
+          showUpcomingEvents,
+          upcomingEvents: state.events.upcomingEvents,
+          pastEvents: state.events.pastEvents,
+          sortEvents,
         },
       }}
     >

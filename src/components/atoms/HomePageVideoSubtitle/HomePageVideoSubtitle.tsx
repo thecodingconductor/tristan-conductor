@@ -21,7 +21,7 @@ const DescriptionContainer: FC = ({ children }) => (
   <div
     sx={{
       gridColumn: ["3 / span 3", null, "6 / span 7"],
-      my: "100px",
+      mt: "100px",
     }}
   >
     {children}
