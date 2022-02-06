@@ -31,14 +31,16 @@ const HomePageBio = ({ bioText }: Props) => {
       <Themed.p
         sx={{
           marginBottom: "20px",
-          fontSize: "24px",
+          fontSize: ["24px", null, "34px"],
+          lineHeight: ["36px", null, "51px"],
         }}
       >
         {splitText[0].slice(1)}
       </Themed.p>
       <Themed.p
         sx={{
-          fontSize: "24px",
+          fontSize: ["24px", null, "34px"],
+          lineHeight: ["36px", null, "51px"],
         }}
       >
         {splitText[1].slice(0, -1)}
@@ -48,8 +50,8 @@ const HomePageBio = ({ bioText }: Props) => {
         sx={{
           fontFamily: "Inter, sans-serif",
           color: "black",
-          fontSize: "18px",
-          lineHeight: "27px",
+          fontSize: [2, null, 3],
+          lineHeight: "36px",
           textDecoration: "underline",
           marginTop: "20px",
           display: "block",

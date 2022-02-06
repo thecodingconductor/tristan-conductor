@@ -47,7 +47,7 @@ const HomePageNewsItem = ({
         display: "grid",
         gridGap: "20px",
         gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-        marginBottom: isFirst && "100px",
+        marginBottom: isFirst && ["size50", null, "size80"],
       }}
     >
       <DateContainer>
@@ -61,7 +61,7 @@ const HomePageNewsItem = ({
             textDecoration: "underline",
           }}
         >
-          <Themed.p>{newsTitle}</Themed.p>
+          <Themed.p sx={{}}>{newsTitle}</Themed.p>
         </a>
       </DescriptionContainer>
     </div>

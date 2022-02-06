@@ -131,7 +131,7 @@ const Events = ({ location }: any) => {
       >
         <Themed.h1
           sx={{
-            marginBottom: "100px",
+            marginBottom: ["size50", null, "size70"],
           }}
         >
           See Tristan live this season
