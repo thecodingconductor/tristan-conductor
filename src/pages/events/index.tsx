@@ -82,21 +82,17 @@ const Events = ({ location }: any) => {
     return false;
   };
 
-  useEffect(() => {
-    console.log(data.allContentfulEvents.edges);
+  // useEffect(() => {
+  //   data.allContentfulEvents.edges.forEach((node) => {
+  //     console.log(!isDateInPast(new Date(node.node.startDate)));
+  //   });
 
-    data.allContentfulEvents.edges.forEach((node) => {
-      console.log(!isDateInPast(new Date(node.node.startDate)));
-    });
-
-    const upcomingEvents = data.allContentfulEvents.edges
-      .map(({ node }: any) =>
-        !isDateInPast(new Date(node.startDate)) ? node : null
-      )
-      .filter((node: any) => node);
-
-    console.log(upcomingEvents);
-  }, []);
+  //   const upcomingEvents = data.allContentfulEvents.edges
+  //     .map(({ node }: any) =>
+  //       !isDateInPast(new Date(node.startDate)) ? node : null
+  //     )
+  //     .filter((node: any) => node);
+  // }, []);
 
   useEffect(() => {
     setCurrentPage!(location.pathname);
