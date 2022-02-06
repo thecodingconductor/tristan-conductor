@@ -14,6 +14,7 @@ export interface ThemeSpacing {
   size48: ResponsiveValue<CSS.Property.Margin>;
   size64: ResponsiveValue<CSS.Property.Margin>;
   size96: ResponsiveValue<CSS.Property.Margin>;
+  size100: ResponsiveValue<CSS.Property.Margin>;
   size128: ResponsiveValue<CSS.Property.Margin>;
   size160: ResponsiveValue<CSS.Property.Margin>;
 }
@@ -31,6 +32,7 @@ const spacing: ThemeSpacing = {
   size48: "48px",
   size64: "64px",
   size96: "96px",
+  size100: "100px",
   size128: "128px",
   size160: "160px",
 };

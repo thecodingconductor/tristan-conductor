@@ -18,7 +18,7 @@ const StyledHeroContainer: FC = ({ children }) => (
       gridTemplateColumns: [null, null, "repeat(12, 1fr)"],
       gridRowStart: "1",
       flexDirection: "column",
-      my: "160px",
+      my: ["size100", null, "size160"],
     }}
   >
     {children}
