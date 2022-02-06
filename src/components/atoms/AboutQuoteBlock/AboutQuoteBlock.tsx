@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui";
+import QuoteIcon from "../../../assets/quote.svg";
 
 type Props = {
   quoteText: string;
@@ -18,15 +19,21 @@ const AboutQuoteBlock = ({ quoteText, rowStart }: Props) => {
         my: "120px",
       }}
     >
-      <div>
-        <Themed.p
+      <div
+        sx={{
+          marginBottom: "size70",
+        }}
+      >
+        {/* <Themed.p
           sx={{
             fontFamily: "quote",
-            fontSize: "128px",
+            fontStyle: "italic",
+            fontSize: "128px !important",
           }}
         >
           "
-        </Themed.p>
+        </Themed.p> */}
+        <QuoteIcon />
       </div>
       <div>
         <Themed.p

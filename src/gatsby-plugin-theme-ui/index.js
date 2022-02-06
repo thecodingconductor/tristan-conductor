@@ -46,7 +46,7 @@ export default {
       fontSize: 3,
       padding: 0,
       margin: 0,
-      color: "white",
+      // color: "white",
     },
     p: {
       fontFamily: "Inter, sans-serif",

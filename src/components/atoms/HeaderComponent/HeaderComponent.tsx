@@ -85,14 +85,12 @@ const HeaderComponent = ({
               }}
             >
               <Themed.h2
-                sx={
-                  {
-                    // fontFamily: "heading",
-                    // color: "white",
-                    // fontWeight: 800,
-                    // fontSize: "21px",
-                  }
-                }
+                sx={{
+                  // fontFamily: "heading",
+                  color: "white",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
+                }}
               >
                 Tristan Rais-Sherman,
               </Themed.h2>
@@ -110,14 +108,12 @@ const HeaderComponent = ({
               }}
             >
               <Themed.h2
-                sx={
-                  {
-                    // fontFamily: "heading",
-                    // color: "white",
-                    // fontWeight: 800,
-                    // fontSize: "21px",
-                  }
-                }
+                sx={{
+                  // fontFamily: "heading",
+                  color: "white",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
+                }}
               >
                 Conductor
               </Themed.h2>
@@ -149,14 +145,12 @@ const HeaderComponent = ({
               ref={containerRef}
             >
               <Themed.h2
-                sx={
-                  {
-                    // fontFamily: "heading",
-                    // color: "white",
-                    // fontWeight: 800,
-                    // fontSize: "21px",
-                  }
-                }
+                sx={{
+                  // fontFamily: "heading",
+                  color: "white",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
+                }}
               >
                 Tristan Rais-Sherman,
               </Themed.h2>
@@ -177,7 +171,7 @@ const HeaderComponent = ({
                 sx={{
                   background: "black",
                   // fontFamily: "heading",
-                  // color: "white",
+                  color: "white",
                   // fontWeight: 800,
                   // fontSize: "21px",
                 }}
