@@ -29,7 +29,13 @@ const GalleryButton = ({ label, setPhoto, setVideo, gridMediaType }: Props) => {
         ...resetButton,
       }}
     >
-      <Themed.h2>{label}</Themed.h2>
+      <Themed.h2
+        sx={{
+          color: "black",
+        }}
+      >
+        {label}
+      </Themed.h2>
     </button>
   );
 };

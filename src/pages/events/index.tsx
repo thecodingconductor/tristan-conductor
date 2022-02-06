@@ -123,10 +123,22 @@ const Events = ({ location }: any) => {
           }}
         >
           <button sx={{ ...resetButton }} onClick={() => showUpcomingEvents!()}>
-            <Themed.h2>Upcoming</Themed.h2>
+            <Themed.h2
+              sx={{
+                color: "black",
+              }}
+            >
+              Upcoming
+            </Themed.h2>
           </button>
           <button sx={{ ...resetButton }} onClick={() => showPastEvents!()}>
-            <Themed.h2>Past</Themed.h2>
+            <Themed.h2
+              sx={{
+                color: "black",
+              }}
+            >
+              Past
+            </Themed.h2>
           </button>
         </div>
         <Divider />
