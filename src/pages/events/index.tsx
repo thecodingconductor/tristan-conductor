@@ -36,9 +36,9 @@ const Events = ({ location }: any) => {
       allContentfulEvents(sort: { fields: startDate, order: ASC }) {
         edges {
           node {
-            startDate(formatString: "MM.DD.YYYY")
+            startDate(formatString: "MM/DD/YYYY")
 
-            endDate(formatString: "MM.DD.YYYY")
+            endDate(formatString: "MM/DD/YYYY")
             eventId
             eventImage {
               gatsbyImageData(placeholder: BLURRED, aspectRatio: 1, height: 368)
@@ -71,6 +71,28 @@ const Events = ({ location }: any) => {
       }
     }
   `);
+
+  const isDateInPast = (eventDate: Date) => {
+    const today = new Date();
+
+    if (eventDate.setHours(0, 0, 0, 0) <= today.setHours(0, 0, 0, 0)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  // useEffect(() => {
+  //   data.allContentfulEvents.edges.forEach((node) => {
+  //     console.log(!isDateInPast(new Date(node.node.startDate)));
+  //   });
+
+  //   const upcomingEvents = data.allContentfulEvents.edges
+  //     .map(({ node }: any) =>
+  //       !isDateInPast(new Date(node.startDate)) ? node : null
+  //     )
+  //     .filter((node: any) => node);
+  // }, []);
 
   useEffect(() => {
     setCurrentPage!(location.pathname);
