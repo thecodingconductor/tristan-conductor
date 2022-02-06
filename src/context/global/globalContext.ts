@@ -44,6 +44,7 @@ interface EventsContextInterface {
   upcomingEvents: Array<any>;
   pastEvents: Array<any>;
   sortEvents?: Function;
+  eventsSorted?: Function;
 }
 
 interface GlobalContextInterface {

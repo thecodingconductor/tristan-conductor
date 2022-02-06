@@ -12,6 +12,7 @@ import {
   SHOW_PAST_EVENTS,
   SHOW_UPCOMING_EVENTS,
   SORT_EVENTS,
+  EVENTS_SORTED,
 } from "../types";
 
 const globalReducer = (state, action) => {
@@ -135,6 +136,16 @@ const globalReducer = (state, action) => {
                 new Date(b.node.startDate).getTime() -
                 new Date(a.node.startDate).getTime()
             ),
+        },
+      };
+
+    case EVENTS_SORTED:
+      return {
+        ...state,
+        events: {
+          ...state.events,
+          upcomingEvents: action.payload.upcomingEvents,
+          pastEvents: action.payload.pastEvents,
         },
       };
     default:

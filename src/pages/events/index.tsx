@@ -8,6 +8,7 @@ import Event from "../../components/molecules/Event/Event";
 import Divider from "../../components/atoms/Divider/Divider";
 import GlobalContext from "../../context/global/globalContext";
 import HeaderComponent from "../../components/atoms/HeaderComponent/HeaderComponent";
+import { isDateInPast, testingFunc } from "../../lib/utils/helpers";
 
 const Events = ({ location }: any) => {
   const globalContext = useContext(GlobalContext);
@@ -26,8 +27,8 @@ const Events = ({ location }: any) => {
     eventType,
     showPastEvents,
     showUpcomingEvents,
-    sortEvents,
     upcomingEvents,
+    eventsSorted,
     pastEvents,
   } = globalContext!.events;
 
@@ -82,9 +83,15 @@ const Events = ({ location }: any) => {
   }, []);
 
   useEffect(() => {
-    sortEvents!(data.allContentfulEvents.edges);
-    showUpcomingEvents!();
+    console.log(isDateInPast);
   }, []);
+
+  // useEffect(() => {
+  //   console.log(sortEvents);
+  //   const sortedEvents = sortEvents(data.allContentfulEvents.edges);
+  //   console.log(sortedEvents);
+  //   showUpcomingEvents!();
+  // }, []);
 
   const backgroundImage = getImage(
     data.allContentfulEventBackgroundImage.edges[0].node.backgroundImage

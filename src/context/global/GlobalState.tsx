@@ -16,9 +16,10 @@ import {
   SHOW_PAST_EVENTS,
   SHOW_UPCOMING_EVENTS,
   SORT_EVENTS,
+  EVENTS_SORTED,
 } from "../types";
 import { ImageDataLike } from "gatsby-plugin-image";
-import { isDateInPast } from "../../lib/utils/helpers";
+// import { isDateInPast } from "../../lib/utils/helpers";
 
 type Props = {
   children: ReactNode;
@@ -139,17 +140,26 @@ const GlobalState = ({ children }: Props) => {
     });
   };
 
-  const sortEvents = (events: Array<any>) => {
-    const upcomingEvents = events.map((event) =>
-      !isDateInPast(new Date(event.node.startDate)) ? event : null
-    );
+  // const sortEvents = (events: Array<any>) => {
+  //   const upcomingEvents = events.map((event) =>
+  //     !isDateInPast(new Date(event.node.startDate)) ? event : null
+  //   );
 
-    const pastEvents = events.map((event) =>
-      isDateInPast(new Date(event.node.startDate)) ? event : null
-    );
+  //   const pastEvents = events.map((event) =>
+  //     isDateInPast(new Date(event.node.startDate)) ? event : null
+  //   );
 
+  //   dispatch({
+  //     type: SORT_EVENTS,
+  //     payload: {
+  //       upcomingEvents,
+  //       pastEvents,
+  //     },
+  //   });
+
+  const eventsSorted = ({ upcomingEvents, pastEvents }: any) => {
     dispatch({
-      type: SORT_EVENTS,
+      type: EVENTS_SORTED,
       payload: {
         upcomingEvents,
         pastEvents,
@@ -192,7 +202,8 @@ const GlobalState = ({ children }: Props) => {
           showUpcomingEvents,
           upcomingEvents: state.events.upcomingEvents,
           pastEvents: state.events.pastEvents,
-          sortEvents,
+          // sortEvents,
+          eventsSorted,
         },
       }}
     >

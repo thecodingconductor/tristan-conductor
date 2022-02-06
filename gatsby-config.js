@@ -85,6 +85,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-polyfill-io`,
     // {
     //   resolve: "gatsby-source-instagram",
     //   options: {
