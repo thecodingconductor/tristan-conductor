@@ -24,15 +24,15 @@ const EventPerformers = ({ performers, isAssistant }: Props) => {
         >
           <Themed.h1
             sx={{
-              fontSize: "15px",
-              fontWeight: 700,
+              fontSize: "15px !important",
+              fontWeight: 600,
             }}
           >
             {instrument}
           </Themed.h1>
           <Themed.h1
             sx={{
-              fontSize: "15px",
+              fontSize: "15px !important",
               fontWeight: 300,
             }}
           >
@@ -48,15 +48,15 @@ const EventPerformers = ({ performers, isAssistant }: Props) => {
         >
           <Themed.h1
             sx={{
-              fontSize: "15px",
-              fontWeight: 700,
+              fontSize: "15px !important",
+              fontWeight: 600,
             }}
           >
             Assistant Conductor
           </Themed.h1>
           <Themed.h1
             sx={{
-              fontSize: "15px",
+              fontSize: "15px !important",
               fontWeight: 300,
             }}
           >

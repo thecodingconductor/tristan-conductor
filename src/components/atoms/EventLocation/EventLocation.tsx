@@ -16,8 +16,20 @@ const EventLocation = ({ location, ensemble }: Props) => {
         mb: "28px",
       }}
     >
-      <Themed.h2>{ensemble}</Themed.h2>
-      <Themed.h2>{location}</Themed.h2>
+      <Themed.h2
+        sx={{
+          fontWeight: 400,
+        }}
+      >
+        {ensemble}
+      </Themed.h2>
+      <Themed.h2
+        sx={{
+          fontWeight: 400,
+        }}
+      >
+        {location}
+      </Themed.h2>
     </div>
   );
 };

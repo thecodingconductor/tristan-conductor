@@ -84,16 +84,16 @@ const HeaderComponent = ({
                 background: "#000",
               }}
             >
-              <Themed.h1
+              <Themed.h2
                 sx={{
-                  fontFamily: "heading",
+                  // fontFamily: "heading",
                   color: "white",
-                  fontWeight: 800,
-                  fontSize: "21px",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
                 }}
               >
                 Tristan Rais-Sherman,
-              </Themed.h1>
+              </Themed.h2>
             </div>
             <div
               sx={{
@@ -107,16 +107,16 @@ const HeaderComponent = ({
                 background: "#000",
               }}
             >
-              <Themed.h1
+              <Themed.h2
                 sx={{
-                  fontFamily: "heading",
+                  // fontFamily: "heading",
                   color: "white",
-                  fontWeight: 800,
-                  fontSize: "21px",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
                 }}
               >
                 Conductor
-              </Themed.h1>
+              </Themed.h2>
             </div>
           </div>
         </button>
@@ -144,16 +144,16 @@ const HeaderComponent = ({
               }}
               ref={containerRef}
             >
-              <Themed.h1
+              <Themed.h2
                 sx={{
-                  fontFamily: "heading",
+                  // fontFamily: "heading",
                   color: "white",
-                  fontWeight: 800,
-                  fontSize: "21px",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
                 }}
               >
                 Tristan Rais-Sherman,
-              </Themed.h1>
+              </Themed.h2>
             </div>
             <div
               sx={{
@@ -167,17 +167,17 @@ const HeaderComponent = ({
                 alignItems: "center",
               }}
             >
-              <Themed.h1
+              <Themed.h2
                 sx={{
                   background: "black",
-                  fontFamily: "heading",
+                  // fontFamily: "heading",
                   color: "white",
-                  fontWeight: 800,
-                  fontSize: "21px",
+                  // fontWeight: 800,
+                  // fontSize: "21px",
                 }}
               >
                 Conductor
-              </Themed.h1>
+              </Themed.h2>
             </div>
           </button>
         </>

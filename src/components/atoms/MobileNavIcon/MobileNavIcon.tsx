@@ -57,7 +57,7 @@ const MobileNavIcon = ({
             >
               <Themed.h1
                 sx={{
-                  fontSize: "21px",
+                  fontSize: "21px !important",
                   color: "white",
                 }}
               >

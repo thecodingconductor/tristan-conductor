@@ -22,15 +22,13 @@ const MobileNavOverlayHeader = ({ closeMenu }: Props) => {
       }}
       onClick={() => closeMenu()}
     >
-      <Themed.h1
+      <Themed.h2
         sx={{
           color: "white",
-          fontSize: "21px",
-          fontWeight: 800,
         }}
       >
         Tristan Rais-Sherman
-      </Themed.h1>
+      </Themed.h2>
     </button>
   );
 };
