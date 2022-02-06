@@ -7,7 +7,7 @@ const DividerDiv: FC = (props) => (
     {...props}
     sx={{
       gridColumn: ["1 / span 5", null, "1  / span 12"],
-      my: ["size64", null, "size100"],
+      my: ["size50", null, "size80"],
     }}
   />
 );

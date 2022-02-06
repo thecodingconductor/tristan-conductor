@@ -51,6 +51,7 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
           marginTop: "70px",
           gridColumn: ["3 / span 2", null, "6 / span 7"],
           textDecoration: "underline",
+          fontSize: [2, null, 3],
         }}
       >
         Explore Season

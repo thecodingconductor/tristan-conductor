@@ -7,7 +7,9 @@ import Background from "./atoms/Background/Background";
 import MobileNavOverlay from "./molecules/MobileNavOverlay/MobileNavOverlay";
 
 import MobileNavIcon from "./atoms/MobileNavIcon/MobileNavIcon";
-import "@fontsource/inter";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/800.css";
 import "@fontsource/lora";
 
 import GlobalContext from "../context/global/globalContext";
