@@ -31,7 +31,7 @@ const GalleryButton = ({ label, setPhoto, setVideo, gridMediaType }: Props) => {
     >
       <Themed.h2
         sx={{
-          color: "black",
+          color: "black !important",
         }}
       >
         {label}
