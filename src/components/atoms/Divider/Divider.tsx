@@ -2,19 +2,27 @@
 import { jsx } from "theme-ui";
 import { FC } from "react";
 
-const DividerDiv: FC = (props) => (
+type Props = {
+  isSmaller: boolean;
+};
+
+const DividerDiv = (props: any) => (
   <div
     {...props}
     sx={{
-      gridColumn: ["1 / span 5", null, "1  / span 12"],
+      gridColumn: [
+        "1 / span 5",
+        null,
+        props.isSmaller ? "1  / span 10" : "1 / span 12",
+      ],
       my: ["size50", null, "size80"],
     }}
   />
 );
 
-const Divider: FC = () => {
+const Divider = (props: any) => {
   return (
-    <DividerDiv>
+    <DividerDiv isSmaller={props.isSmaller}>
       <hr
         sx={{
           margin: "30 px - 20 px 20 px",

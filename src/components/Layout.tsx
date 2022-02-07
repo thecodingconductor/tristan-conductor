@@ -11,6 +11,7 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/800.css";
 import "@fontsource/lora";
+import "@fontsource/playfair-display";
 
 import GlobalContext from "../context/global/globalContext";
 import SEO from "../components/seo";
@@ -46,7 +47,7 @@ const Layout = ({ children }: Props) => {
           display: "grid",
           gridGap: "20px",
           gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
-          padding: ["0 30px", null, "0 140px"],
+          padding: ["0 30px", null, "0 50px"],
         }}
       >
         {children}

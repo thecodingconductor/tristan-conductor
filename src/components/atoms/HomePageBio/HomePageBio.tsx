@@ -31,16 +31,16 @@ const HomePageBio = ({ bioText }: Props) => {
       <Themed.p
         sx={{
           marginBottom: "20px",
-          fontSize: ["24px", null, "34px"],
-          lineHeight: ["36px", null, "51px"],
+          fontSize: ["24px", null, "73px"],
+          lineHeight: ["36px", null, "93px"],
         }}
       >
         {splitText[0].slice(1)}
       </Themed.p>
       <Themed.p
         sx={{
-          fontSize: ["24px", null, "34px"],
-          lineHeight: ["36px", null, "51px"],
+          fontSize: ["24px", null, "73px"],
+          lineHeight: ["36px", null, "93px"],
         }}
       >
         {splitText[1].slice(0, -1)}

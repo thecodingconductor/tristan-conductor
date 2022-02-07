@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Themed } from "theme-ui";
 import React, { useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import HeroContainer from "../components/molecules/HeroContainer/HeroContainer";
@@ -16,6 +16,8 @@ import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent
 // import DesktopInstaModule from "../components/molecules/DesktopInstaModule/DesktopInstaModule";
 
 import GlobalContext from "../context/global/globalContext";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Marquee from "react-fast-marquee";
 
 // markup
 const IndexPage = ({ location }: any) => {
@@ -47,6 +49,15 @@ const IndexPage = ({ location }: any) => {
           node {
             text {
               text
+            }
+          }
+        }
+      }
+      allContentfulHomepageImage {
+        edges {
+          node {
+            image {
+              gatsbyImageData(aspectRatio: 1, height: 910)
             }
           }
         }
@@ -130,6 +141,12 @@ const IndexPage = ({ location }: any) => {
     hideSideNav!();
   }, []);
 
+  console.log(data.allContentfulHomepageImage.edges[0]);
+
+  const image = getImage(
+    data.allContentfulHomepageImage.edges[0].node.image.gatsbyImageData
+  );
+
   return (
     <>
       <HeroContainer
@@ -145,16 +162,55 @@ const IndexPage = ({ location }: any) => {
           />
         }
       />
-      <HomePageVideo
+      {/* <HomePageVideo
         videoSrcURL={data.allContentfulVideos.edges[2].node.videoUrl}
         videoTitle={data.allContentfulVideos.edges[2].node.videoTitle}
-      />
+      /> */}
+      <Marquee
+        style={{ gridColumn: "1 / span 12" }}
+        gradient={false}
+        speed={80}
+      >
+        <Themed.h1
+          sx={{
+            fontFamily: "Playfair Display, serif",
+            fontSize: "197px !important",
+            lineHeight: "297px !important",
+            paddingRight: "50px",
+          }}
+        >
+          Tristan named Conducting Fellow of The Philadelphia Orchestra
+        </Themed.h1>
+      </Marquee>
+      <div
+        sx={{
+          gridColumn: ["1 / span 5", null, "1 / span 12"],
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <GatsbyImage image={image!} alt={"Tristan looking to the side"} />
+      </div>
 
-      <HomePageVideoSubtitle
+      <div
+        sx={{
+          gridColumn: ["1 / span 5", null, "2 / span 10"],
+          display: "grid",
+          gridGap: "20px",
+          gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(10, 1fr)"],
+        }}
+      >
+        <HomePageVideoSubtitle
+          videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
+        />
+        <Divider isSmaller={true} />
+        <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
+      </div>
+      {/* <HomePageVideoSubtitle
         videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
       />
       <Divider />
-      <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />
+      <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} /> */}
       <Divider />
       <HomePageBio
         bioText={data.allContentfulHomepageBioExcerpt.edges[0].node.text.text}

@@ -17,7 +17,7 @@ type Props = PropTypes.InferProps<typeof propTypesShape>;
 const DescriptionContainer: FC = ({ children }) => (
   <div
     sx={{
-      gridColumn: ["3 / span 3", null, "6 / span 7"],
+      gridColumn: ["3 / span 3", null, "6 / span 5"],
     }}
   >
     {children}
@@ -43,10 +43,10 @@ const HomePageNewsItem = ({
   return (
     <div
       sx={{
-        gridColumn: ["1 / span 5", null, "1 / span 12"],
+        gridColumn: ["1 / span 5", null, "1 / span 11"],
         display: "grid",
         gridGap: "20px",
-        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
+        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(10, 1fr)"],
         marginBottom: isFirst && ["size50", null, "size80"],
       }}
     >

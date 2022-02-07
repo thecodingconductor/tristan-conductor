@@ -25,10 +25,10 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
   return (
     <div
       sx={{
-        gridColumn: ["1 / span 5", null, "1 / span 12"],
+        gridColumn: ["1 / span 5", null, "1 / span 11"],
         display: "grid",
         gridGap: "20px",
-        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(12, 1fr)"],
+        gridTemplateColumns: ["repeat(5, 1fr)", null, "repeat(10, 1fr)"],
       }}
     >
       {newsItems!.map((newsItem, index) => {
@@ -49,9 +49,11 @@ const HomePageNewsContainer = ({ newsItems }: Props) => {
           ...resetLink,
           fontFamily: "Inter, sans-serif",
           marginTop: "70px",
-          gridColumn: ["3 / span 2", null, "6 / span 7"],
+          gridColumn: ["1 / span 5", null, "1 / span 11"],
           textDecoration: "underline",
           fontSize: [2, null, 3],
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         Explore Season

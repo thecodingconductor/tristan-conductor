@@ -20,7 +20,7 @@ const TitleContainer: FC = ({ children }) => (
 const DescriptionContainer: FC = ({ children }) => (
   <div
     sx={{
-      gridColumn: ["3 / span 3", null, "6 / span 7"],
+      gridColumn: ["3 / span 3", null, "6 / span 4"],
       mt: ["size50", null, "size80"],
     }}
   >
