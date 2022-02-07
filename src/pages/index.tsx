@@ -18,6 +18,7 @@ import HeaderComponent from "../components/atoms/HeaderComponent/HeaderComponent
 import GlobalContext from "../context/global/globalContext";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Marquee from "react-fast-marquee";
+import useBreakpoints from "../lib/hooks/useBreakpoints";
 
 // markup
 const IndexPage = ({ location }: any) => {
@@ -141,11 +142,11 @@ const IndexPage = ({ location }: any) => {
     hideSideNav!();
   }, []);
 
-  console.log(data.allContentfulHomepageImage.edges[0]);
-
   const image = getImage(
     data.allContentfulHomepageImage.edges[0].node.image.gatsbyImageData
   );
+
+  const { isMediumAndBelow } = useBreakpoints();
 
   return (
     <>
@@ -166,22 +167,31 @@ const IndexPage = ({ location }: any) => {
         videoSrcURL={data.allContentfulVideos.edges[2].node.videoUrl}
         videoTitle={data.allContentfulVideos.edges[2].node.videoTitle}
       /> */}
-      <Marquee
-        style={{ gridColumn: "1 / span 12" }}
-        gradient={false}
-        speed={80}
-      >
-        <Themed.h1
-          sx={{
-            fontFamily: "Playfair Display, serif",
-            fontSize: "197px !important",
-            lineHeight: "297px !important",
-            paddingRight: "50px",
+      {!isMediumAndBelow && (
+        <Marquee
+          style={{
+            gridColumn: isMediumAndBelow ? "1 / span 5" : "1 / span 12",
           }}
+          gradient={false}
+          speed={isMediumAndBelow ? 100 : 80}
         >
-          Tristan named Conducting Fellow of The Philadelphia Orchestra
-        </Themed.h1>
-      </Marquee>
+          <Themed.h1
+            sx={{
+              fontFamily: "Playfair Display, serif",
+              fontSize: isMediumAndBelow
+                ? "197px !important"
+                : "100px !important",
+              lineHeight: isMediumAndBelow
+                ? "297px !important"
+                : "200px !important",
+              paddingRight: "50px",
+            }}
+          >
+            Tristan named Conducting Fellow of The Philadelphia Orchestra
+          </Themed.h1>
+        </Marquee>
+      )}
+
       <div
         sx={{
           gridColumn: ["1 / span 5", null, "1 / span 12"],
