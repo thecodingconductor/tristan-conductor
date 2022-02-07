@@ -57,6 +57,7 @@ const Events = ({ location }: any) => {
             eventLocation
             eventTitle
             isAssistant
+            eventUrl
           }
         }
       }
@@ -186,6 +187,7 @@ const Events = ({ location }: any) => {
                   eventLocation={eventLocation}
                   performers={node.eventInformation.performers}
                   pieces={node.eventInformation.pieces}
+                  eventUrl={node.eventUrl}
                   image={image}
                   isAssistant={node.isAssistant}
                   key={node.eventId}
@@ -214,6 +216,7 @@ const Events = ({ location }: any) => {
                   eventLocation={eventLocation}
                   performers={node.eventInformation.performers}
                   pieces={node.eventInformation.pieces}
+                  eventUrl={node.eventUrl}
                   image={image}
                   isAssistant={node.isAssistant}
                   key={node.eventId}

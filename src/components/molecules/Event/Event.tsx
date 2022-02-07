@@ -40,6 +40,7 @@ export type Props = {
   pieces?: EventPiecesType;
   image: IGatsbyImageData;
   isAssistant: boolean;
+  eventUrl?: string;
 };
 
 const Event = ({
@@ -49,6 +50,7 @@ const Event = ({
   performers,
   image,
   isAssistant,
+  eventUrl,
 }: Props) => {
   return (
     <>
@@ -97,7 +99,7 @@ const Event = ({
             gridColumn: ["1 / span 5", null, "8 / span 4"],
           }}
         >
-          <EventTitle title={eventTitle} />
+          <EventTitle title={eventTitle} eventUrl={eventUrl!} />
           <EventLocation
             location={eventLocation.location}
             ensemble={eventLocation.ensemble}
