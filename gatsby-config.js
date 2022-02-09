@@ -47,6 +47,7 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-netlify",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-robots-txt",
     // {
     //   resolve: "gatsby-source-instagram-all",
     //   options: {
