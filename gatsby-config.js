@@ -14,15 +14,15 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "m0Ne4wH9dRyFBgTlSLwDXPt5MmhAtCGDdVR-zoEPJig",
-        spaceId: "98v9r5naa8iu",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
     "gatsby-plugin-theme-ui",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: "UA-146136259-1",
+        trackingId: process.env.GOOGLE_ANALYTICS,
       },
     },
     {
@@ -67,7 +67,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "UA-146136259-1", // Google Analytics / GA
+          process.env.GOOGLE_ANALYTICS, // Google Analytics / GA
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds

@@ -27,6 +27,8 @@ const SEO = ({ title, description }: Props) => {
     url: `${siteUrl}${pathname}`,
   };
 
+  console.log(siteUrl);
+
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
       <meta name="description" content={seo.description} />
@@ -60,7 +62,7 @@ const query = graphql`
         defaultTitle: title
         titleTemplate
         defaultDescription: description
-        siteUrl: url
+        siteUrl: siteUrl
         twitterUsername
       }
     }
