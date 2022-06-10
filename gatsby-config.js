@@ -49,12 +49,6 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
-    // {
-    //   resolve: "gatsby-source-instagram-all",
-    //   options: {
-    //     access_token: process.env.GATSBY_INSTAGRAM,
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -87,11 +81,5 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: "gatsby-source-instagram",
-    //   options: {
-    //     username: "200694142",
-    //   },
-    // },
   ],
 };
