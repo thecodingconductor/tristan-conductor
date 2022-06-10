@@ -146,6 +146,8 @@ const IndexPage = ({ location }: any) => {
     data.allContentfulHomepageImage.edges[0].node.image.gatsbyImageData
   );
 
+  const marqueeText = 'Tristan wins Solti Foundation US Career Assistance Award 2022'
+
   const { isMediumAndBelow } = useBreakpoints();
 
   return (
@@ -187,7 +189,7 @@ const IndexPage = ({ location }: any) => {
               paddingRight: "50px",
             }}
           >
-            Tristan named Conducting Fellow of The Philadelphia Orchestra
+            {marqueeText}
           </Themed.h1>
         </Marquee>
       )}
