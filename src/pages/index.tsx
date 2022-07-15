@@ -213,7 +213,7 @@ const IndexPage = ({ location }: any) => {
         }}
       >
         <HomePageVideoSubtitle
-          videoURL={data.allContentfulVideos.edges[2].node.videoUrl}
+          videoURL={data.allContentfulVideos.edges[3].node.videoUrl}
         />
         <Divider isSmaller={true} />
         <HomePageNewsContainer newsItems={data.allContentfulNewsStory.edges} />

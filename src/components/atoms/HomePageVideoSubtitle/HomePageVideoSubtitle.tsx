@@ -53,7 +53,7 @@ const HomePageVideoSubtitle = ({ videoURL }: Props) => {
             lineHeight: ["36px", null, "51px"],
           }}
         >
-          Watch Tristan perform with the NEC Philharmonia
+          Berlioz 'Symphonie Fantastique' with WYSO @ Interlochen
         </Themed.a>
       </DescriptionContainer>
     </>
